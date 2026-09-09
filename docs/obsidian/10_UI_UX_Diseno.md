@@ -15,11 +15,12 @@
 
 ## Home
 
-- Hero visual con imagen de fondo, H1 fuerte, garabatos de marca, mockup creativo y CTA.
+- Hero visual con imagen de fondo, H1 fuerte, garabatos de marca suaves, mockup creativo y CTA.
 - Navbar fija con fondo oscuro translúcido.
 - Servicios en cards animadas.
-- Ticker animado de servicios.
-- Proceso en sección oscura con pasos, etiquetas de capacidades y fondo creativo sin división dura en dos colores.
+- Ticker animado de servicios sobre franja oscura para sostener legibilidad al pasar al fondo claro.
+- Proceso en sección oscura con pasos, etiquetas de capacidades y fondo creativo sutil sin división dura en dos colores.
+- Cards del proceso con estructura flex para mantener los rótulos amarillos alineados verticalmente.
 - Portfolio con Swiper.
 - Testimonios en cards.
 - CTA final fuerte y footer simple.
@@ -30,6 +31,7 @@
 - Lenis para scroll suave.
 - CSS para gradiente animado y flotación sutil.
 - CSS para ticker continuo y garabatos vectoriales.
+- CSS para microinteracciones hover en cards, chips, CTA, portfolio y testimonios.
 - Se respeta `prefers-reduced-motion`.
 
 ## Responsive

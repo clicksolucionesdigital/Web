@@ -1,5 +1,32 @@
 # Bitácora de Desarrollo
 
+## 2026-09-09 - Pulido de interactividad y legibilidad
+
+**Cambios realizados:**
+- Se redujo la intensidad de garabatos y etiquetas flotantes para que no tapen contenido.
+- Se quitaron las etiquetas flotantes del fondo de la sección `Cómo trabajamos`.
+- Se reforzó el ticker de servicios con fondo oscuro, sombras y bordes para que no se pierda en la transición al fondo claro.
+- Se agregaron microinteracciones hover en cards, chips, portfolio, testimonios y CTA.
+- Se alinearon verticalmente los textos amarillos de las cards del proceso con estructura flex y `mt-auto`.
+- Se suavizó la animación flotante para que acompañe sin distraer.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop: revisión visual de hero, ticker, servicios y proceso.
+- Playwright hover: card de servicios con glow y escala activa.
+- Playwright snapshot de proceso: los cuatro rótulos amarillos quedaron alineados en el mismo eje vertical.
+- Playwright consola: sin errores ni warnings.
+
+**Pendientes detectados:**
+- Revisar el pulido publicado con el usuario y continuar contenido/portfolio real.
+
 ## 2026-09-09 - Preparación de GitHub Pages
 
 **Cambios realizados:**

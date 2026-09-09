@@ -289,9 +289,9 @@ export function HomePage() {
       );
 
       gsap.to("[data-float-card]", {
-        y: -14,
-        rotation: 1.4,
-        duration: 3.2,
+        y: -9,
+        rotation: 0.8,
+        duration: 3.8,
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
@@ -472,7 +472,7 @@ function HeroSection() {
             className="mt-10 hidden max-w-2xl grid-cols-3 gap-3 text-sm text-white/72 sm:grid"
           >
             {["Web", "Datos", "Marca"].map((item) => (
-              <div key={item} className="rounded-[8px] border border-white/12 bg-white/8 p-4">
+              <div key={item} className="interactive-card overflow-hidden rounded-[8px] border border-white/12 bg-white/8 p-4">
                 <div className="font-heading text-2xl font-bold uppercase text-white">
                   {item}
                 </div>
@@ -500,13 +500,13 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 overflow-hidden",
-        isHero ? "-z-10 opacity-90" : "z-0 opacity-70"
+        isHero ? "-z-10 opacity-[0.32] sm:opacity-[0.48]" : "z-0 opacity-[0.12] sm:opacity-[0.18]"
       )}
     >
       <svg
         className={cn(
           "absolute inset-0 h-full w-full",
-          isHero ? "text-white/36" : "text-white/28"
+          isHero ? "text-white/18 sm:text-white/24" : "text-white/15"
         )}
         viewBox="0 0 1440 820"
         fill="none"
@@ -516,35 +516,35 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
           data-doodle-path
           d="M90 170 C180 115 260 128 342 178 C444 240 512 220 604 146"
           stroke="#e73b90"
-          strokeWidth="3"
+          strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
           d="M986 150 C1060 96 1180 108 1264 174 C1326 224 1360 226 1408 188"
           stroke="#71c1f0"
-          strokeWidth="3"
+          strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
           d="M102 650 C196 604 298 620 392 674 C502 738 604 718 712 650"
           stroke="#f7c74d"
-          strokeWidth="3"
+          strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
           d="M1148 610 C1202 574 1268 578 1318 620 C1368 662 1398 648 1424 628"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth={isHero ? 1.6 : 1.1}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
           d="M1018 368 L1092 332 L1070 412 L1146 382"
           stroke="#f7c74d"
-          strokeWidth="3"
+          strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -552,56 +552,47 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
           data-doodle-path
           d="M206 386 H324 M266 326 V446"
           stroke="#71c1f0"
-          strokeWidth="2.5"
+          strokeWidth={isHero ? 1.8 : 1.2}
           strokeLinecap="round"
         />
       </svg>
 
-      <span
-        data-float-card
-        className={cn(
-          "absolute left-[7%] top-[32%] hidden rounded-[8px] border px-3 py-2 text-xs font-bold uppercase shadow-2xl md:block",
-          isHero
-            ? "border-white/14 bg-white/10 text-white/72 backdrop-blur"
-            : "border-white/12 bg-white/8 text-white/58"
-        )}
-      >
-        idea + diseño
-      </span>
-      <span
-        data-float-card
-        className={cn(
-          "absolute right-[9%] top-[18%] hidden rounded-[8px] border px-3 py-2 text-xs font-bold uppercase shadow-2xl lg:block",
-          isHero
-            ? "border-[#f7c74d]/34 bg-[#f7c74d]/16 text-[#f7c74d]"
-            : "border-[#71c1f0]/24 bg-[#71c1f0]/12 text-[#9bd8ff]"
-        )}
-      >
-        datos claros
-      </span>
-      <span
-        data-float-card
-        className={cn(
-          "absolute bottom-[18%] right-[18%] hidden rounded-[8px] border px-3 py-2 text-xs font-bold uppercase shadow-2xl md:block",
-          isHero
-            ? "border-[#e73b90]/28 bg-[#e73b90]/14 text-[#ff9dcc]"
-            : "border-[#e73b90]/24 bg-[#e73b90]/12 text-[#ff9dcc]"
-        )}
-      >
-        soluciones conectadas
-      </span>
+      {isHero ? (
+        <>
+          <span
+            data-float-card
+            className="absolute left-[7%] top-[32%] hidden rounded-[8px] border border-white/10 bg-white/7 px-3 py-2 text-xs font-bold uppercase text-white/58 shadow-xl backdrop-blur md:block"
+          >
+            idea + diseño
+          </span>
+          <span
+            data-float-card
+            className="absolute right-[9%] top-[18%] hidden rounded-[8px] border border-[#f7c74d]/22 bg-[#f7c74d]/10 px-3 py-2 text-xs font-bold uppercase text-[#f9d982] shadow-xl lg:block"
+          >
+            datos claros
+          </span>
+          <span
+            data-float-card
+            className="absolute bottom-[18%] right-[18%] hidden rounded-[8px] border border-[#e73b90]/18 bg-[#e73b90]/9 px-3 py-2 text-xs font-bold uppercase text-[#ffb9dc] shadow-xl md:block"
+          >
+            soluciones conectadas
+          </span>
+        </>
+      ) : null}
     </div>
   );
 }
 
 function ServiceTicker() {
   return (
-    <div data-hero className="relative z-10 overflow-hidden border-y border-white/12 bg-white/8 py-3 backdrop-blur-md">
+    <div data-hero className="relative z-20 overflow-hidden border-y border-white/18 bg-[#11131a]/92 py-4 shadow-[0_-18px_54px_rgba(17,19,26,0.32),0_18px_60px_rgba(17,19,26,0.22)] backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-[linear-gradient(90deg,#11131a,rgba(17,19,26,0))]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-[linear-gradient(270deg,#11131a,rgba(17,19,26,0))]" aria-hidden="true" />
       <div className="ticker-track flex w-max gap-3">
         {[...tickerItems, ...tickerItems].map((item, index) => (
           <span
             key={`${item}-${index}`}
-            className="ticker-pill inline-flex items-center gap-2 rounded-full border border-white/14 bg-white/9 px-4 py-2 text-xs font-bold uppercase text-white/78"
+            className="ticker-pill inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/15 px-4 py-2.5 text-xs font-bold uppercase text-white shadow-[0_10px_24px_rgba(0,0,0,0.18)]"
           >
             <span className="h-1.5 w-5 rounded-full bg-[#f7c74d]" />
             {item}
@@ -722,7 +713,7 @@ function ServicesSection() {
           description="Una base digital completa: diseño, desarrollo, datos y contenido visual trabajando en la misma dirección."
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
@@ -738,17 +729,17 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <Card
       data-card
-      className="rounded-[8px] border border-[#11131a]/8 bg-white/88 shadow-[0_20px_48px_rgba(17,19,26,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(17,19,26,0.12)]"
+      className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/90 shadow-[0_20px_48px_rgba(17,19,26,0.08)]"
     >
-      <CardContent className="p-6">
-        <div className={cn("mb-8 inline-flex size-12 items-center justify-center rounded-[8px] ring-1", accentStyles[service.accent])}>
+      <CardContent className="flex h-full flex-col p-6">
+        <div className={cn("mb-8 inline-flex size-12 items-center justify-center rounded-[8px] ring-1 transition duration-300 group-hover:scale-110 group-hover:-rotate-2", accentStyles[service.accent])}>
           <Icon className="size-5" aria-hidden="true" />
         </div>
         <h3 className="font-heading text-3xl font-bold uppercase leading-none text-[#11131a]">
           {service.title}
         </h3>
-        <p className="mt-4 text-sm leading-7 text-[#4c5364]">{service.description}</p>
-        <div className="mt-6 flex items-center gap-2 text-sm font-bold text-[#11131a]">
+        <p className="mt-4 flex-1 text-sm leading-7 text-[#4c5364]">{service.description}</p>
+        <div className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#11131a]/8 bg-[#fbfbfe] px-3 py-2 text-sm font-bold text-[#11131a] transition group-hover:border-[#e73b90]/18 group-hover:bg-[#e73b90]/7">
           <CheckCircle2 className="size-4 text-[#e73b90]" aria-hidden="true" />
           {service.proof}
         </div>
@@ -763,7 +754,7 @@ function WorkflowSection() {
       <div className="noise-panel absolute inset-0 opacity-80" aria-hidden="true" />
       <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(231,59,144,0.16),transparent_34%,rgba(113,193,240,0.14)_66%,rgba(247,199,77,0.08))]" aria-hidden="true" />
       <CreativeBackdrop variant="process" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           dark
           eyebrow="Cómo trabajamos"
@@ -773,7 +764,7 @@ function WorkflowSection() {
 
         <div className="mt-10 flex flex-wrap gap-2 text-xs font-bold uppercase text-white/68" data-reveal>
           {["Web", "Datos", "Diseño", "Planillas", "Automatización", "Asesoría"].map((item) => (
-            <span key={item} className="rounded-full border border-white/12 bg-white/7 px-3 py-2">
+            <span key={item} className="interactive-chip rounded-full border border-white/12 bg-white/7 px-3 py-2">
               {item}
             </span>
           ))}
@@ -787,22 +778,22 @@ function WorkflowSection() {
               <div
                 key={step.title}
                 data-card
-                className="group relative overflow-hidden rounded-[8px] border border-white/12 bg-white/7 p-6 backdrop-blur transition hover:-translate-y-1 hover:bg-white/10"
+                className="interactive-card group relative flex min-h-[328px] flex-col overflow-hidden rounded-[8px] border border-white/12 bg-[#252a38]/92 p-6 shadow-[0_20px_56px_rgba(0,0,0,0.18)] backdrop-blur transition hover:border-white/24"
               >
-                <div className="absolute inset-x-0 top-0 h-1 brand-gradient opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-x-0 top-0 z-20 h-1 brand-gradient opacity-0 transition group-hover:opacity-100" />
                 <div className="mb-8 flex items-center justify-between">
                   <span className="font-heading text-5xl font-extrabold uppercase text-white/18">
                     0{index + 1}
                   </span>
-                  <span className="inline-flex size-10 items-center justify-center rounded-[8px] bg-white/10 text-[#71c1f0] ring-1 ring-white/12">
+                  <span className="inline-flex size-10 items-center justify-center rounded-[8px] bg-white/10 text-[#71c1f0] ring-1 ring-white/12 transition duration-300 group-hover:scale-110 group-hover:bg-[#71c1f0]/18 group-hover:text-[#9bd8ff]">
                     <StepIcon className="size-5" aria-hidden="true" />
                   </span>
                 </div>
                 <h3 className="font-heading text-3xl font-bold uppercase leading-none">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-white/68">{step.description}</p>
-                <p className="mt-6 text-xs font-bold uppercase text-[#f7c74d]">{step.signal}</p>
+                <p className="mt-4 flex-1 text-sm leading-7 text-white/68">{step.description}</p>
+                <p className="mt-auto pt-6 text-xs font-bold uppercase leading-5 text-[#f7c74d]">{step.signal}</p>
               </div>
             );
           })}
@@ -822,13 +813,13 @@ function ProjectsSection() {
             title="Portfolio visual para mostrar lo que Click puede crear."
             description="Una selección inicial con capturas y composiciones del material disponible, lista para reemplazar por casos definitivos."
           />
-          <div data-reveal className="rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] p-4">
+          <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] p-4">
             <Image
               src={assetPath("/assets/images/brand-composition.jpg")}
               alt="Composicion visual de marca Click"
               width={820}
               height={520}
-              className="aspect-[16/8] w-full rounded-[8px] object-cover"
+              className="aspect-[16/8] w-full rounded-[8px] object-cover transition duration-700 group-hover:scale-[1.025]"
             />
           </div>
         </div>
@@ -860,13 +851,13 @@ function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
+    <article data-card className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#11131a]">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover transition duration-500 hover:scale-105"
+          className="object-cover transition duration-700 group-hover:scale-[1.06]"
           sizes="(min-width: 1100px) 33vw, (min-width: 720px) 50vw, 100vw"
         />
       </div>
@@ -880,7 +871,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-[#11131a]/10 bg-white px-3 py-1 text-xs font-bold text-[#11131a]/70"
+              className="interactive-chip rounded-full border border-[#11131a]/10 bg-white px-3 py-1 text-xs font-bold text-[#11131a]/70"
             >
               {tag}
             </span>
@@ -906,10 +897,10 @@ function TestimonialsSection() {
             <Card
               key={item.role}
               data-card
-              className="rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_18px_50px_rgba(17,19,26,0.07)]"
+              className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_18px_50px_rgba(17,19,26,0.07)]"
             >
               <CardContent className="p-6">
-                <Quote className="mb-8 size-8 text-[#71c1f0]" aria-hidden="true" />
+                <Quote className="mb-8 size-8 text-[#71c1f0] transition duration-300 group-hover:scale-110 group-hover:text-[#e73b90]" aria-hidden="true" />
                 <p className="text-base leading-8 text-[#252a35]">{item.quote}</p>
                 <p className="mt-6 text-sm font-bold text-[#e73b90]">{item.role}</p>
               </CardContent>
@@ -927,7 +918,7 @@ function ContactSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           data-reveal
-          className="relative overflow-hidden rounded-[8px] bg-[#11131a] p-6 text-white shadow-[0_28px_90px_rgba(17,19,26,0.22)] sm:p-10 lg:p-12"
+          className="interactive-card relative overflow-hidden rounded-[8px] bg-[#11131a] p-6 text-white shadow-[0_28px_90px_rgba(17,19,26,0.22)] sm:p-10 lg:p-12"
         >
           <div className="absolute inset-0 opacity-65">
             <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(231,59,144,0.34),rgba(113,193,240,0.22),rgba(247,199,77,0.18))]" />

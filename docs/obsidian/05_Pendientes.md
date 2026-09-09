@@ -14,6 +14,7 @@
 ## En revisión
 
 - [ ] Home Etapa 1 con iteración creativa lista para revisión visual del usuario.
+- [ ] Home con pulido de legibilidad/interactividad lista para revisión del usuario.
 
 ## Resueltos
 
@@ -21,3 +22,4 @@
 - [x] Configurar export estático inicial - 2026-09-08.
 - [x] Preparar workflow de GitHub Pages para el repositorio `clicksolucionesdigital/Web` - 2026-09-09.
 - [x] Publicar la primera versión en GitHub Pages - 2026-09-09.
+- [x] Ajustar garabatos, ticker, alineación de proceso y microinteracciones hover - 2026-09-09.
