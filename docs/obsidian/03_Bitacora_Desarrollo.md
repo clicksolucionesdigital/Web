@@ -11,6 +11,7 @@
 - Se hizo push de la rama `main` al repositorio remoto.
 - Se habilitó GitHub Pages con `build_type=workflow`.
 - Se ejecutó el workflow de deploy y quedó publicado correctamente.
+- Se actualizaron las acciones del workflow a `v5` para evitar advertencias por Node 20 deprecado.
 
 **Archivos modificados:**
 - .github/workflows/deploy.yml
@@ -33,6 +34,7 @@
 - `git push -u origin main`: correcto después de autenticar GitHub CLI.
 - GitHub Actions run `34398965376`: correcto.
 - `Invoke-WebRequest https://clicksolucionesdigital.github.io/Web/`: `200 OK`.
+- Tags `v5` verificados en los repositorios oficiales de `actions/checkout`, `actions/setup-node`, `actions/upload-pages-artifact` y `actions/deploy-pages`.
 
 **Pendientes detectados:**
 - Continuar mejoras visuales y contenido final sobre el repositorio publicado.

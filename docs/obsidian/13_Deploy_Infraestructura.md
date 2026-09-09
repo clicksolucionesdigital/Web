@@ -11,6 +11,7 @@ Publicar el sitio como HTML estático en GitHub Pages.
 - `images.unoptimized` está activo porque GitHub Pages no corre el optimizador de imágenes de Next.
 - `out/` se genera en build y está ignorado por git.
 - `.github/workflows/deploy.yml` construye y publica el sitio mediante GitHub Actions.
+- El workflow usa acciones `v5` para `checkout`, `setup-node`, `upload-pages-artifact` y `deploy-pages`.
 - `public/.nojekyll` evita que GitHub Pages procese `_next/` como Jekyll.
 - `NEXT_PUBLIC_BASE_PATH` se deriva de `GITHUB_REPOSITORY` para que las imágenes públicas carguen bajo `/Web/`.
 - GitHub Pages está habilitado con `build_type=workflow`.
