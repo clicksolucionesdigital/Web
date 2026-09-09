@@ -1,5 +1,35 @@
 # Bitácora de Desarrollo
 
+## 2026-09-09 - Pulido de garabatos, chips y testimonios
+
+**Cambios realizados:**
+- Se movieron los garabatos principales del hero hacia los bordes para que no crucen contenido ni mini cards.
+- Se agregó una variante `dark-chip` para que los chips sobre fondos oscuros mantengan contraste al hacer hover.
+- Se reemplazó el texto interno de portfolio por un copy más vendible y orientado a trabajos realizados.
+- Se quitaron fondos grises de las cards de portfolio para que la sección se vea más limpia.
+- Se ampliaron los testimonios a ocho casos de ejemplo: web profesional, planillas, invitación de casamiento, logo, folleto institucional, tarjetas comerciales, ecommerce internacional e identidad para redes.
+- Se convirtió la sección de testimonios en carrusel con flechas y paginación.
+- Se agregó una franja animada entre proceso y portfolio para dar movimiento constante en el scroll.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop: revisión visual de hero, proceso, portfolio, testimonios y CTA.
+- Playwright: flecha de testimonios avanza de slide correctamente.
+- Playwright mobile 390 px: sin overflow horizontal.
+
+**Pendientes detectados:**
+- Confirmar textos reales definitivos de testimonios si se publicarán como casos verificables.
+- Confirmar material real para reemplazar mockups o capturas genéricas del portfolio.
+
 ## 2026-09-09 - Ajustes de hero, testimonios y CTA
 
 **Cambios realizados:**

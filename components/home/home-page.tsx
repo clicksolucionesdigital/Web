@@ -6,7 +6,7 @@ import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import { ReactLenis } from "lenis/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Autoplay, Pagination } from "swiper/modules";
+import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -15,6 +15,8 @@ import {
   BarChart3,
   BadgeCheck,
   BriefcaseBusiness,
+  ChevronLeft,
+  ChevronRight,
   CheckCircle2,
   FileSpreadsheet,
   Globe2,
@@ -199,30 +201,58 @@ const testimonials: Testimonial[] = [
   {
     quote:
       "Necesitaba una web simple de entender y prolija para presentar mis servicios. Quedó clara, rápida y lista para compartir.",
-    role: "Profesional independiente",
+    role: "Arquitecta independiente",
     project: "Sitio web profesional",
     accent: "pink",
   },
   {
     quote:
       "Las planillas nos ordenaron agenda, pagos y seguimiento. Ahora vemos lo importante sin perder tiempo armando todo a mano.",
-    role: "Consultora de servicios",
+    role: "Estudio de servicios",
     project: "Planillas personalizadas",
     accent: "cyan",
   },
   {
     quote:
-      "Las invitaciones digitales quedaron delicadas, modernas y fáciles de enviar. La información estaba clara para todos los invitados.",
-    role: "Evento familiar",
-    project: "Invitaciones digitales",
+      "La invitación digital del casamiento quedó delicada, moderna y fácil de enviar. Toda la información estaba clara para los invitados.",
+    role: "Casamiento personalizado",
+    project: "Invitación digital",
     accent: "yellow",
   },
   {
     quote:
       "El logo de la pastelería quedó dulce, limpio y fácil de usar en etiquetas, redes y packaging sin perder personalidad.",
-    role: "Pastelería local",
+    role: "Pastelería artesanal",
     project: "Logo e identidad visual",
     accent: "pink",
+  },
+  {
+    quote:
+      "La presentación de servicios nos ayudó a explicar mejor qué hacemos, mostrar el local y dejar material prolijo para nuevos clientes.",
+    role: "Profesional independiente",
+    project: "Folleto institucional",
+    accent: "cyan",
+  },
+  {
+    quote:
+      "Las tarjetas para el equipo comercial quedaron claras, modernas y coherentes con la marca. Ayudan mucho cuando salimos a visitar clientes.",
+    role: "Pyme de servicios zonales",
+    project: "Tarjetas comerciales",
+    accent: "yellow",
+  },
+  {
+    quote:
+      "El ecommerce quedó ordenado para vender productos de belleza al exterior: categorías claras, estética cuidada y experiencia simple.",
+    role: "Marca de belleza internacional",
+    project: "Web ecommerce",
+    accent: "pink",
+  },
+  {
+    quote:
+      "La identidad visual le dio forma a mis redes y a mis proyectos artísticos. Ahora todo se ve más reconocible y con personalidad.",
+    role: "Profesional creativo",
+    project: "Identidad para redes",
+    accent: "cyan",
   },
 ];
 
@@ -235,6 +265,15 @@ const tickerItems = [
   "Automatización",
   "Asesoría digital",
   "Identidad visual",
+];
+
+const motionRailItems = [
+  "Diseño que se nota",
+  "Datos que ordenan",
+  "Marcas con personalidad",
+  "Piezas listas para compartir",
+  "Webs que abren conversaciones",
+  "Ideas que hacen Cl!ck",
 ];
 
 const heroSignals: HeroSignal[] = [
@@ -372,6 +411,7 @@ export function HomePage() {
         <HeroSection />
         <ServicesSection />
         <WorkflowSection />
+        <MotionRail />
         <ProjectsSection />
         <TestimonialsSection />
         <ContactSection />
@@ -464,7 +504,7 @@ function HeroSection() {
         src={assetPath("/assets/images/hero-workshop.jpg")}
         alt=""
         fill
-        className="absolute inset-0 -z-30 object-cover opacity-36"
+        className="absolute inset-0 -z-30 object-cover opacity-[0.36]"
         sizes="100vw"
         priority
       />
@@ -558,7 +598,7 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 overflow-hidden",
-        isHero ? "-z-10 opacity-[0.32] sm:opacity-[0.48]" : "z-0 opacity-[0.12] sm:opacity-[0.18]"
+        isHero ? "-z-10 opacity-[0.22] sm:opacity-[0.34]" : "z-0 opacity-[0.12] sm:opacity-[0.18]"
       )}
     >
       <svg
@@ -572,35 +612,35 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
       >
         <path
           data-doodle-path
-          d="M90 170 C180 115 260 128 342 178 C444 240 512 220 604 146"
+          d={isHero ? "M-280 108 C-164 54 -48 58 42 94 C88 112 130 108 172 82" : "M90 170 C180 115 260 128 342 178 C444 240 512 220 604 146"}
           stroke="#e73b90"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d="M986 150 C1060 96 1180 108 1264 174 C1326 224 1360 226 1408 188"
+          d={isHero ? "M1012 152 C1110 76 1258 94 1360 172 C1424 220 1474 224 1530 180" : "M986 150 C1060 96 1180 108 1264 174 C1326 224 1360 226 1408 188"}
           stroke="#71c1f0"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d="M102 650 C196 604 298 620 392 674 C502 738 604 718 712 650"
+          d={isHero ? "M-260 796 C-136 734 -28 764 84 824" : "M102 650 C196 604 298 620 392 674 C502 738 604 718 712 650"}
           stroke="#f7c74d"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d="M1148 610 C1202 574 1268 578 1318 620 C1368 662 1398 648 1424 628"
+          d={isHero ? "M1168 672 C1240 618 1318 626 1378 672 C1436 716 1480 696 1538 646" : "M1148 610 C1202 574 1268 578 1318 620 C1368 662 1398 648 1424 628"}
           stroke="currentColor"
           strokeWidth={isHero ? 1.6 : 1.1}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d="M1018 368 L1092 332 L1070 412 L1146 382"
+          d={isHero ? "M1338 392 L1416 352 L1392 438 L1482 402" : "M1018 368 L1092 332 L1070 412 L1146 382"}
           stroke="#f7c74d"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
@@ -608,7 +648,7 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
         />
         <path
           data-doodle-path
-          d="M206 386 H324 M266 326 V446"
+          d={isHero ? "M-68 408 H76 M4 338 V478" : "M206 386 H324 M266 326 V446"}
           stroke="#71c1f0"
           strokeWidth={isHero ? 1.8 : 1.2}
           strokeLinecap="round"
@@ -657,21 +697,21 @@ function SoftSectionDoodles({ dark = false, cardDecor = false }: { dark?: boolea
         fill="none"
       >
         <path
-          d="M-34 142 C88 86 182 104 282 166 C386 231 500 214 606 146 C706 82 822 82 922 146"
+          d="M-178 132 C-58 58 76 68 184 118 C250 150 316 140 394 94"
           stroke="#71c1f0"
           strokeWidth="2"
           strokeLinecap="round"
           opacity="0.28"
         />
         <path
-          d="M880 474 C982 398 1098 400 1192 470 C1284 539 1382 518 1472 452"
+          d="M1004 488 C1104 408 1218 410 1310 478 C1396 542 1484 520 1582 438"
           stroke="#e73b90"
           strokeWidth="2"
           strokeLinecap="round"
           opacity="0.24"
         />
         <path
-          d="M152 456 L214 422 L196 492 L272 462"
+          d="M-36 504 L38 468 L14 548 L110 512"
           stroke="#f7c74d"
           strokeWidth="2"
           strokeLinecap="round"
@@ -679,7 +719,7 @@ function SoftSectionDoodles({ dark = false, cardDecor = false }: { dark?: boolea
           opacity="0.3"
         />
         <path
-          d="M1136 128 H1236 M1186 78 V178"
+          d="M1266 132 H1370 M1318 80 V184"
           stroke="currentColor"
           strokeWidth="1.6"
           strokeLinecap="round"
@@ -871,7 +911,7 @@ function WorkflowSection() {
 
         <div className="mt-10 flex flex-wrap gap-2 text-xs font-bold uppercase text-white/68" data-reveal>
           {["Web", "Datos", "Diseño", "Planillas", "Automatización", "Asesoría"].map((item) => (
-            <span key={item} className="interactive-chip rounded-full border border-white/12 bg-white/7 px-3 py-2">
+            <span key={item} className="interactive-chip dark-chip rounded-full border border-white/12 bg-white/7 px-3 py-2">
               {item}
             </span>
           ))}
@@ -910,6 +950,27 @@ function WorkflowSection() {
   );
 }
 
+function MotionRail() {
+  return (
+    <section aria-label="Cl!ck en movimiento" className="relative isolate overflow-hidden bg-[#11131a] py-5 text-white">
+      <div className="cta-motion absolute inset-0 opacity-[0.48]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-[linear-gradient(90deg,#11131a,rgba(17,19,26,0))]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-[linear-gradient(270deg,#11131a,rgba(17,19,26,0))]" aria-hidden="true" />
+      <div className="motion-rail-track relative z-0 flex w-max gap-3 px-4">
+        {[...motionRailItems, ...motionRailItems].map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            className="motion-rail-pill inline-flex items-center gap-3 rounded-full border border-white/14 bg-white/10 px-5 py-3 text-xs font-bold uppercase text-white/82"
+          >
+            <span className="h-1.5 w-8 rounded-full brand-gradient" aria-hidden="true" />
+            {item}
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProjectsSection() {
   return (
     <section id="proyectos" className="scroll-mt-24 bg-white py-20 sm:py-24">
@@ -918,9 +979,9 @@ function ProjectsSection() {
           <SectionHeader
             eyebrow="Proyectos realizados"
             title="Portfolio visual para mostrar lo que Cl!ck puede crear."
-            description="Una selección inicial con capturas y composiciones del material disponible, lista para reemplazar por casos definitivos."
+            description="Trabajos pensados para que cada marca comunique mejor: experiencias claras, piezas visuales y herramientas digitales listas para usar."
           />
-          <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] p-4">
+          <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white p-4">
               <Image
                 src={assetPath("/assets/images/brand-composition.jpg")}
                 alt="Composición visual de marca Cl!ck"
@@ -958,7 +1019,7 @@ function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article data-card className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
+    <article data-card className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#11131a]">
         <Image
           src={project.image}
@@ -995,45 +1056,78 @@ function TestimonialsSection() {
       <div className="grid-fade absolute inset-x-0 top-0 h-80 opacity-[0.58]" aria-hidden="true" />
       <SoftSectionDoodles />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Testimonios"
-          title={
-            <>
-              Voces reales de proyectos que ya hicieron <span className="text-brand-gradient">Cl!ck</span>.
-            </>
-          }
-          description="Casos cercanos de webs, planillas, invitaciones digitales e identidad visual para profesionales, eventos y negocios."
-        />
-
-        <div className="mt-12 grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {testimonials.map((item) => (
-            <Card
-              key={item.project}
-              data-card
-              className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_18px_50px_rgba(17,19,26,0.07)]"
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeader
+            eyebrow="Testimonios"
+            title={
+              <>
+                Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
+              </>
+            }
+            description="Webs, planillas, invitaciones, piezas impresas, ecommerce e identidad visual pensadas para objetivos distintos."
+          />
+          <div data-reveal className="flex gap-2">
+            <button
+              type="button"
+              className="testimonials-prev testimonial-nav"
+              aria-label="Ver testimonio anterior"
             >
-              <CardContent className="flex h-full flex-col p-6">
-                <div className="mb-7 flex items-start justify-between gap-4">
-                  <Quote className="testimonial-quote-icon size-8 shrink-0 text-[#71c1f0]" aria-hidden="true" />
-                  <span
-                    className={cn(
-                      "rounded-full px-3 py-1 text-[11px] font-bold uppercase",
-                      accentStyles[item.accent]
-                    )}
-                  >
-                    {item.project}
-                  </span>
-                </div>
-                <p className="flex-1 text-base leading-8 text-[#252a35]">{item.quote}</p>
-                <div className="mt-8 border-t border-[#11131a]/8 pt-5">
-                  <p className="text-sm font-bold text-[#e73b90]">{item.role}</p>
-                  <p className="mt-1 text-xs font-semibold text-[#4c5364]">
-                    Proyecto Cl!ck Soluciones Digitales
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+              <ChevronLeft className="size-5" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className="testimonials-next testimonial-nav"
+              aria-label="Ver testimonio siguiente"
+            >
+              <ChevronRight className="size-5" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
+        <div data-reveal className="mt-12">
+          <Swiper
+            modules={[Autoplay, Pagination, A11y, Navigation]}
+            spaceBetween={18}
+            slidesPerView={1}
+            navigation={{
+              prevEl: ".testimonials-prev",
+              nextEl: ".testimonials-next",
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5200, disableOnInteraction: false }}
+            breakpoints={{
+              760: { slidesPerView: 2 },
+              1160: { slidesPerView: 3 },
+            }}
+            className="testimonial-swiper !pb-12"
+          >
+            {testimonials.map((item) => (
+              <SwiperSlide key={item.project} className="!h-auto">
+                <Card
+                  data-card
+                  className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_18px_50px_rgba(17,19,26,0.07)]"
+                >
+                  <CardContent className="flex h-full min-h-[368px] flex-col p-6">
+                    <div className="mb-7 flex items-start justify-between gap-4">
+                      <Quote className="testimonial-quote-icon size-8 shrink-0 text-[#71c1f0]" aria-hidden="true" />
+                      <span
+                        className={cn(
+                          "rounded-full px-3 py-1 text-[11px] font-bold uppercase",
+                          accentStyles[item.accent]
+                        )}
+                      >
+                        {item.project}
+                      </span>
+                    </div>
+                    <p className="flex-1 text-base leading-8 text-[#252a35]">{item.quote}</p>
+                    <div className="mt-8 border-t border-[#11131a]/8 pt-5">
+                      <p className="text-sm font-bold text-[#e73b90]">{item.role}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
@@ -1054,7 +1148,7 @@ function ContactSection() {
             <div className="noise-panel absolute inset-0 opacity-70" />
           </div>
           <div data-card-decor className="cta-scan absolute -left-28 top-8 h-[3px] w-2/3 rounded-full brand-gradient opacity-70" aria-hidden="true" />
-          <div data-card-decor className="cta-scan cta-scan-delay absolute -right-28 bottom-10 h-[3px] w-2/3 rounded-full brand-gradient opacity-55" aria-hidden="true" />
+          <div data-card-decor className="cta-scan cta-scan-delay absolute -right-28 bottom-10 h-[3px] w-2/3 rounded-full brand-gradient opacity-[0.55]" aria-hidden="true" />
           <SoftSectionDoodles dark cardDecor />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
@@ -1074,7 +1168,7 @@ function ContactSection() {
                 {["Idea clara", "Ruta visual", "Salida online"].map((item) => (
                   <span
                     key={item}
-                    className="interactive-chip rounded-[8px] border border-white/14 bg-white/8 px-4 py-3 text-sm font-bold text-white/82 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+                    className="interactive-chip dark-chip rounded-[8px] border border-white/14 bg-white/8 px-4 py-3 text-sm font-bold text-white/82 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
                   >
                     {item}
                   </span>
@@ -1092,7 +1186,7 @@ function ContactSection() {
               </a>
               <a
                 href="#servicios"
-                className="interactive-chip inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
+                className="interactive-chip dark-chip inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
               >
                 Explorar servicios
               </a>

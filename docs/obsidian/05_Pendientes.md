@@ -16,6 +16,7 @@
 - [ ] Home Etapa 1 con iteración creativa lista para revisión visual del usuario.
 - [ ] Home con pulido de legibilidad/interactividad lista para revisión del usuario.
 - [ ] Home con ajustes de hero, testimonios y CTA lista para revisión del usuario.
+- [ ] Home con carrusel de testimonios, rail animado y correcciones de contraste lista para revisión del usuario.
 
 ## Resueltos
 
@@ -25,3 +26,5 @@
 - [x] Publicar la primera versión en GitHub Pages - 2026-09-09.
 - [x] Ajustar garabatos, ticker, alineación de proceso y microinteracciones hover - 2026-09-09.
 - [x] Reemplazar testimonios genéricos por testimonios realistas por rubro - 2026-09-09.
+- [x] Agregar slider de testimonios con flechas y ocho casos variados - 2026-09-09.
+- [x] Corregir contraste hover de chips en fondos oscuros - 2026-09-09.
