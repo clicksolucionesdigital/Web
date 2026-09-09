@@ -4,9 +4,15 @@ Sitio estático en Next.js para reconstruir la web de Click Soluciones Digitales
 
 ## Estado
 
-Etapa 1 iniciada: home responsive con estética de marca, secciones base, animaciones y export estático.
+Etapa 1 publicada: home responsive con estética de marca, secciones base, animaciones y export estático.
 
 El backup WordPress original queda fuera de este proyecto y no debe publicarse.
+
+URL pública:
+
+```text
+https://clicksolucionesdigital.github.io/Web/
+```
 
 ## Stack
 
@@ -40,17 +46,14 @@ GITHUB_PAGES=true npm run build
 
 El workflow `.github/workflows/deploy.yml` publica automáticamente en GitHub Pages cuando se hace push a `main`.
 
+Repositorio:
+
+```text
+https://github.com/clicksolucionesdigital/Web
+```
+
 ## Próximos datos a confirmar
 
 - WhatsApp, email o formulario definitivo.
 - Textos finales para servicios, testimonios y casos reales.
-- Nombre del repositorio de GitHub Pages.
 - Si se mantendrán páginas separadas: Servicios, Nosotros, FAQ, Blog y Contacto.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

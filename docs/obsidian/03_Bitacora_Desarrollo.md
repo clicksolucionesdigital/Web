@@ -7,6 +7,10 @@
 - Se agregó `public/.nojekyll` para servir correctamente assets bajo `_next/`.
 - Se documentó el repositorio remoto `clicksolucionesdigital/Web`.
 - Se expuso `NEXT_PUBLIC_BASE_PATH` y se prefijaron las imágenes públicas para que carguen bajo `/Web/`.
+- Se inició sesión en GitHub CLI como `clicksolucionesdigital`.
+- Se hizo push de la rama `main` al repositorio remoto.
+- Se habilitó GitHub Pages con `build_type=workflow`.
+- Se ejecutó el workflow de deploy y quedó publicado correctamente.
 
 **Archivos modificados:**
 - .github/workflows/deploy.yml
@@ -15,6 +19,10 @@
 - components/home/home-page.tsx
 - README.md
 - docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/04_Errores_y_Soluciones.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/06_Comandos_Runbook.md
+- docs/obsidian/00_Contexto_Proyecto.md
 - docs/obsidian/13_Deploy_Infraestructura.md
 
 **Validaciones realizadas:**
@@ -22,10 +30,12 @@
 - `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
 - HTML exportado: 0 referencias rotas a `/assets/`, 7 referencias correctas a `/Web/assets/` y chunks bajo `/Web/_next/`.
 - Escaneo de secretos acotado: sin credenciales reales; solo permisos estándar de GitHub Actions y advertencias documentales.
+- `git push -u origin main`: correcto después de autenticar GitHub CLI.
+- GitHub Actions run `34398965376`: correcto.
+- `Invoke-WebRequest https://clicksolucionesdigital.github.io/Web/`: `200 OK`.
 
 **Pendientes detectados:**
-- Inicializar git local y hacer push al repositorio remoto.
-- Configurar GitHub Pages con Source: GitHub Actions si GitHub lo solicita.
+- Continuar mejoras visuales y contenido final sobre el repositorio publicado.
 
 ## 2026-09-09 - Iteración visual de la home
 

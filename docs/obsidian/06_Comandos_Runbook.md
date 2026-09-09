@@ -27,19 +27,44 @@ npm run build
 ## Build para GitHub Pages
 
 ```bash
-GITHUB_PAGES=true npm run build
+GITHUB_PAGES=true GITHUB_REPOSITORY=clicksolucionesdigital/Web npm run build
 ```
 
 En PowerShell:
 
 ```powershell
-$env:GITHUB_PAGES="true"; npm run build
+$env:GITHUB_PAGES="true"; $env:GITHUB_REPOSITORY="clicksolucionesdigital/Web"; npm run build
 ```
 
 ## Vista previa del export
 
 ```bash
 python -m http.server 8080 -d out
+```
+
+## Publicación
+
+```bash
+git push
+```
+
+El push a `main` dispara `.github/workflows/deploy.yml`.
+
+Para relanzar el deploy manualmente:
+
+```bash
+gh workflow run deploy.yml --repo clicksolucionesdigital/Web --ref main
+gh run watch --repo clicksolucionesdigital/Web
+```
+
+## Verificación pública
+
+```bash
+gh api repos/clicksolucionesdigital/Web/pages
+```
+
+```powershell
+Invoke-WebRequest -Uri https://clicksolucionesdigital.github.io/Web/ -UseBasicParsing
 ```
 
 ## Notas

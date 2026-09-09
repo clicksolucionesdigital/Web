@@ -10,7 +10,6 @@
 - [ ] Revisar textos finales con tono de marca.
 - [ ] Elevar portfolio con casos reales, métricas visuales y animaciones propias por proyecto.
 - [ ] Definir si se incorporará Lottie o Three.js en una sección puntual sin afectar rendimiento mobile.
-- [ ] Configurar GitHub Pages con Source: GitHub Actions si GitHub lo solicita.
 
 ## En revisión
 
@@ -21,3 +20,4 @@
 - [x] Crear proyecto separado sin modificar WordPress original - 2026-09-08.
 - [x] Configurar export estático inicial - 2026-09-08.
 - [x] Preparar workflow de GitHub Pages para el repositorio `clicksolucionesdigital/Web` - 2026-09-09.
+- [x] Publicar la primera versión en GitHub Pages - 2026-09-09.

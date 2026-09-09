@@ -13,6 +13,8 @@ Publicar el sitio como HTML estático en GitHub Pages.
 - `.github/workflows/deploy.yml` construye y publica el sitio mediante GitHub Actions.
 - `public/.nojekyll` evita que GitHub Pages procese `_next/` como Jekyll.
 - `NEXT_PUBLIC_BASE_PATH` se deriva de `GITHUB_REPOSITORY` para que las imágenes públicas carguen bajo `/Web/`.
+- GitHub Pages está habilitado con `build_type=workflow`.
+- HTTPS está forzado en GitHub Pages.
 
 ## GitHub Pages
 
@@ -32,10 +34,17 @@ Repositorio remoto previsto:
 https://github.com/clicksolucionesdigital/Web
 ```
 
-URL esperada inicial:
+URL pública:
 
 ```text
 https://clicksolucionesdigital.github.io/Web/
+```
+
+Último deploy verificado:
+
+```text
+GitHub Actions run 34398965376: success
+Respuesta pública: 200 OK
 ```
 
 ## Restricciones

@@ -6,14 +6,14 @@ Reconstruir la web de Click Soluciones Digitales como sitio estático moderno, r
 
 ## Estado actual
 
-Etapa 1 iniciada el 2026-09-08 e iterada visualmente el 2026-09-09. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper.
+Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper.
 
 ## Stack técnico
 
 - Frontend: Next.js 16, React 19, TypeScript.
 - Estilos: Tailwind CSS 4, shadcn/ui, CSS global.
 - Animación: GSAP, ScrollTrigger, Lenis, Swiper.
-- Deploy objetivo: GitHub Pages mediante export estático.
+- Deploy: GitHub Pages mediante export estático y GitHub Actions.
 - Backend: ninguno por ahora.
 
 ## Módulos principales
@@ -34,6 +34,8 @@ npm run build
 ## Qué está funcionando
 
 - Home responsive inicial.
+- Publicación en `https://clicksolucionesdigital.github.io/Web/`.
+- Repositorio remoto `https://github.com/clicksolucionesdigital/Web`.
 - Export estático con `next build`.
 - Navbar fija.
 - Animaciones de carga y scroll.
@@ -46,7 +48,7 @@ npm run build
 - Confirmar canal real de contacto.
 - Reemplazar textos y testimonios provisorios por contenido final.
 - Definir páginas internas.
-- Preparar workflow de GitHub Pages.
+- Seguir iterando diseño, contenido y páginas internas sobre el repo publicado.
 
 ## Últimas decisiones importantes
 
