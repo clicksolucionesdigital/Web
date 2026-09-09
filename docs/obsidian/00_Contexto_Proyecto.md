@@ -6,7 +6,7 @@ Reconstruir la web de Click Soluciones Digitales como sitio estático moderno, r
 
 ## Estado actual
 
-Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper.
+Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper. La última iteración pulió hero, cards iniciales, proceso, testimonios y CTA final con más movimiento y consistencia de marca.
 
 ## Stack técnico
 
@@ -39,14 +39,16 @@ npm run build
 - Export estático con `next build`.
 - Navbar fija.
 - Animaciones de carga y scroll.
-- Hero sin logo duplicado, con ticker de servicios y garabatos de marca.
+- Hero sin logo duplicado, con ticker de servicios, mini cards diferenciados y garabatos de marca.
+- Testimonios realistas por rubro, pendientes de validación con nombres o frases definitivas.
+- CTA final dinámico con fondo en movimiento y chips de avance.
 - Carousel de portfolio.
 - Assets locales curados, sin publicar backups completos.
 
 ## Qué falta hacer
 
 - Confirmar canal real de contacto.
-- Reemplazar textos y testimonios provisorios por contenido final.
+- Reemplazar textos y testimonios realistas por contenido final validado.
 - Definir páginas internas.
 - Seguir iterando diseño, contenido y páginas internas sobre el repo publicado.
 

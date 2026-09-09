@@ -205,6 +205,30 @@ body {
   background-size: 180% 180%;
 }
 
+.soft-doodle-layer {
+  animation: soft-drift 14s ease-in-out infinite alternate;
+}
+
+.cta-motion {
+  animation: gradient-shift 9s ease-in-out infinite alternate;
+  background:
+    linear-gradient(125deg, rgba(231, 59, 144, 0.36), rgba(113, 193, 240, 0.24), rgba(247, 199, 77, 0.2)),
+    repeating-linear-gradient(
+      112deg,
+      rgba(255, 255, 255, 0.08) 0 1px,
+      transparent 1px 38px
+    );
+  background-size: 190% 190%, auto;
+}
+
+.cta-scan {
+  animation: scan-line 6.2s ease-in-out infinite alternate;
+}
+
+.cta-scan-delay {
+  animation-delay: -2.8s;
+}
+
 .float-slow {
   animation: float-y 7s ease-in-out infinite;
 }
@@ -234,6 +258,22 @@ body {
   transform-origin: left center;
 }
 
+.hero-signal-line,
+.testimonial-quote-icon {
+  transition:
+    color 260ms ease,
+    transform 260ms ease,
+    width 260ms ease;
+}
+
+.workflow-accent-line {
+  transform: scaleX(0.86);
+  transform-origin: left center;
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
 .interactive-card {
   isolation: isolate;
   position: relative;
@@ -244,7 +284,7 @@ body {
     box-shadow 260ms ease;
 }
 
-.interactive-card > * {
+.interactive-card > :not([data-card-decor]) {
   position: relative;
   z-index: 1;
 }
@@ -315,6 +355,29 @@ body {
   }
 }
 
+@keyframes soft-drift {
+  0% {
+    transform: translate3d(-8px, 0, 0) rotate(-0.4deg);
+  }
+  100% {
+    transform: translate3d(10px, -10px, 0) rotate(0.5deg);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    opacity: 0.35;
+    transform: translate3d(-4%, 0, 0) scaleX(0.82);
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0.48;
+    transform: translate3d(14%, 0, 0) scaleX(1);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .interactive-card:hover {
     border-color: color-mix(in srgb, var(--click-cyan) 42%, rgba(255, 255, 255, 0.2));
@@ -326,6 +389,20 @@ body {
 
   .interactive-card:hover::before {
     opacity: 1;
+  }
+
+  .interactive-card:hover .hero-signal-line {
+    width: 5rem;
+  }
+
+  .interactive-card:hover .workflow-accent-line {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .interactive-card:hover .testimonial-quote-icon {
+    color: var(--click-pink);
+    transform: scale(1.1);
   }
 
   .interactive-chip:hover,

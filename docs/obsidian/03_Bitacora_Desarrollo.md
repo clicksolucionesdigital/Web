@@ -1,5 +1,34 @@
 # Bitácora de Desarrollo
 
+## 2026-09-09 - Ajustes de hero, testimonios y CTA
+
+**Cambios realizados:**
+- Se cambió la etiqueta flotante del hero a `soluciones digitales`.
+- Se reemplazaron los tres mini cards repetidos del hero por señales diferenciadas: web, datos y marca.
+- Se separó la línea de color hover de las cards del proceso para que no quede pegada al ícono.
+- Se reemplazaron testimonios genéricos por casos más realistas de web profesional, planillas personalizadas, invitaciones digitales y logo para pastelería.
+- Se sumó el estilo colorido `Cl!ck` a testimonios y CTA.
+- Se agregó movimiento sutil con garabatos de fondo y líneas animadas en el CTA final.
+- Se reforzó la consistencia de marca usando `Cl!ck` en textos visibles.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop: revisión visual de hero, proceso con hover, testimonios y CTA.
+- Playwright mobile 390 px: sin overflow horizontal; hero, testimonios y CTA legibles.
+
+**Pendientes detectados:**
+- Confirmar nombres, rubros o frases reales para reemplazar los testimonios redactados como ejemplos realistas.
+- Confirmar canal definitivo de contacto para convertir el CTA en formulario, WhatsApp o email final.
+
 ## 2026-09-09 - Pulido de interactividad y legibilidad
 
 **Cambios realizados:**

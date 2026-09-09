@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
@@ -58,6 +59,20 @@ type Project = {
   image: string;
   description: string;
   tags: string[];
+};
+
+type Testimonial = {
+  quote: string;
+  role: string;
+  project: string;
+  accent: Service["accent"];
+};
+
+type HeroSignal = {
+  title: string;
+  kicker: string;
+  detail: string;
+  gradient: string;
 };
 
 const navItems = [
@@ -180,21 +195,34 @@ const projects: Project[] = [
   },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     quote:
-      "Click traduce ideas sueltas en una experiencia digital clara, prolija y lista para mostrar.",
-    role: "Equipo comercial",
+      "Necesitaba una web simple de entender y prolija para presentar mis servicios. Quedó clara, rápida y lista para compartir.",
+    role: "Profesional independiente",
+    project: "Sitio web profesional",
+    accent: "pink",
   },
   {
     quote:
-      "La propuesta combina diseño con criterio técnico; no queda solo linda, también se entiende.",
-    role: "Emprendimiento de servicios",
+      "Las planillas nos ordenaron agenda, pagos y seguimiento. Ahora vemos lo importante sin perder tiempo armando todo a mano.",
+    role: "Consultora de servicios",
+    project: "Planillas personalizadas",
+    accent: "cyan",
   },
   {
     quote:
-      "Nos ayudó a ordenar la información y mostrar mejor lo que hacemos desde el primer vistazo.",
-    role: "Pyme local",
+      "Las invitaciones digitales quedaron delicadas, modernas y fáciles de enviar. La información estaba clara para todos los invitados.",
+    role: "Evento familiar",
+    project: "Invitaciones digitales",
+    accent: "yellow",
+  },
+  {
+    quote:
+      "El logo de la pastelería quedó dulce, limpio y fácil de usar en etiquetas, redes y packaging sin perder personalidad.",
+    role: "Pastelería local",
+    project: "Logo e identidad visual",
+    accent: "pink",
   },
 ];
 
@@ -207,6 +235,27 @@ const tickerItems = [
   "Automatización",
   "Asesoría digital",
   "Identidad visual",
+];
+
+const heroSignals: HeroSignal[] = [
+  {
+    title: "Web",
+    kicker: "landing + sitio",
+    detail: "Presencia clara para vender y responder.",
+    gradient: "linear-gradient(115deg, #e73b90, #71c1f0)",
+  },
+  {
+    title: "Datos",
+    kicker: "paneles + planillas",
+    detail: "Lectura simple de números y procesos.",
+    gradient: "linear-gradient(115deg, #71c1f0, #f7c74d)",
+  },
+  {
+    title: "Marca",
+    kicker: "identidad + piezas",
+    detail: "Logo, invitaciones y contenido coherente.",
+    gradient: "linear-gradient(115deg, #f7c74d, #e73b90)",
+  },
 ];
 
 const accentStyles: Record<Service["accent"], string> = {
@@ -471,12 +520,21 @@ function HeroSection() {
             data-hero
             className="mt-10 hidden max-w-2xl grid-cols-3 gap-3 text-sm text-white/72 sm:grid"
           >
-            {["Web", "Datos", "Marca"].map((item) => (
-              <div key={item} className="interactive-card overflow-hidden rounded-[8px] border border-white/12 bg-white/8 p-4">
+            {heroSignals.map((signal) => (
+              <div
+                key={signal.title}
+                className="interactive-card group flex min-h-[142px] flex-col overflow-hidden rounded-[8px] border border-white/12 bg-white/8 p-4"
+              >
+                <span
+                  className="hero-signal-line mb-4 h-1 w-12 rounded-full"
+                  style={{ background: signal.gradient }}
+                  aria-hidden="true"
+                />
                 <div className="font-heading text-2xl font-bold uppercase text-white">
-                  {item}
+                  {signal.title}
                 </div>
-                <div className="mt-1 text-xs">soluciones a medida</div>
+                <div className="mt-3 text-xs font-bold uppercase text-white/78">{signal.kicker}</div>
+                <div className="mt-1 text-xs leading-5 text-white/58">{signal.detail}</div>
               </div>
             ))}
           </div>
@@ -575,10 +633,59 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
             data-float-card
             className="absolute bottom-[18%] right-[18%] hidden rounded-[8px] border border-[#e73b90]/18 bg-[#e73b90]/9 px-3 py-2 text-xs font-bold uppercase text-[#ffb9dc] shadow-xl md:block"
           >
-            soluciones conectadas
+            soluciones digitales
           </span>
         </>
       ) : null}
+    </div>
+  );
+}
+
+function SoftSectionDoodles({ dark = false, cardDecor = false }: { dark?: boolean; cardDecor?: boolean }) {
+  return (
+    <div
+      aria-hidden="true"
+      data-card-decor={cardDecor ? true : undefined}
+      className={cn(
+        "soft-doodle-layer pointer-events-none absolute inset-0 overflow-hidden",
+        dark ? "text-white/18" : "text-[#11131a]/16"
+      )}
+    >
+      <svg
+        viewBox="0 0 1440 620"
+        className="absolute left-1/2 top-0 h-full min-w-[1120px] -translate-x-1/2"
+        fill="none"
+      >
+        <path
+          d="M-34 142 C88 86 182 104 282 166 C386 231 500 214 606 146 C706 82 822 82 922 146"
+          stroke="#71c1f0"
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.28"
+        />
+        <path
+          d="M880 474 C982 398 1098 400 1192 470 C1284 539 1382 518 1472 452"
+          stroke="#e73b90"
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.24"
+        />
+        <path
+          d="M152 456 L214 422 L196 492 L272 462"
+          stroke="#f7c74d"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.3"
+        />
+        <path
+          d="M1136 128 H1236 M1186 78 V178"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          opacity="0.34"
+        />
+      </svg>
     </div>
   );
 }
@@ -780,8 +887,8 @@ function WorkflowSection() {
                 data-card
                 className="interactive-card group relative flex min-h-[328px] flex-col overflow-hidden rounded-[8px] border border-white/12 bg-[#252a38]/92 p-6 shadow-[0_20px_56px_rgba(0,0,0,0.18)] backdrop-blur transition hover:border-white/24"
               >
-                <div className="absolute inset-x-0 top-0 z-20 h-1 brand-gradient opacity-0 transition group-hover:opacity-100" />
-                <div className="mb-8 flex items-center justify-between">
+                <div data-card-decor className="workflow-accent-line absolute left-6 right-6 top-5 z-20 h-[3px] rounded-full brand-gradient opacity-0" />
+                <div className="mb-8 flex items-center justify-between pt-5">
                   <span className="font-heading text-5xl font-extrabold uppercase text-white/18">
                     0{index + 1}
                   </span>
@@ -810,15 +917,15 @@ function ProjectsSection() {
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <SectionHeader
             eyebrow="Proyectos realizados"
-            title="Portfolio visual para mostrar lo que Click puede crear."
+            title="Portfolio visual para mostrar lo que Cl!ck puede crear."
             description="Una selección inicial con capturas y composiciones del material disponible, lista para reemplazar por casos definitivos."
           />
           <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] p-4">
-            <Image
-              src={assetPath("/assets/images/brand-composition.jpg")}
-              alt="Composicion visual de marca Click"
-              width={820}
-              height={520}
+              <Image
+                src={assetPath("/assets/images/brand-composition.jpg")}
+                alt="Composición visual de marca Cl!ck"
+                width={820}
+                height={520}
               className="aspect-[16/8] w-full rounded-[8px] object-cover transition duration-700 group-hover:scale-[1.025]"
             />
           </div>
@@ -884,25 +991,46 @@ function ProjectCard({ project }: { project: Project }) {
 
 function TestimonialsSection() {
   return (
-    <section className="bg-[#fbfbfe] py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-[#fbfbfe] py-20 sm:py-24">
+      <div className="grid-fade absolute inset-x-0 top-0 h-80 opacity-[0.58]" aria-hidden="true" />
+      <SoftSectionDoodles />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Testimonios"
-          title="Una experiencia digital que se siente cercana, clara y profesional."
-          description="La nueva página tiene lugar para sumar opiniones reales y reforzar confianza antes del contacto."
+          title={
+            <>
+              Voces reales de proyectos que ya hicieron <span className="text-brand-gradient">Cl!ck</span>.
+            </>
+          }
+          description="Casos cercanos de webs, planillas, invitaciones digitales e identidad visual para profesionales, eventos y negocios."
         />
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <div className="mt-12 grid items-stretch gap-4 md:grid-cols-2 xl:grid-cols-4">
           {testimonials.map((item) => (
             <Card
-              key={item.role}
+              key={item.project}
               data-card
               className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_18px_50px_rgba(17,19,26,0.07)]"
             >
-              <CardContent className="p-6">
-                <Quote className="mb-8 size-8 text-[#71c1f0] transition duration-300 group-hover:scale-110 group-hover:text-[#e73b90]" aria-hidden="true" />
-                <p className="text-base leading-8 text-[#252a35]">{item.quote}</p>
-                <p className="mt-6 text-sm font-bold text-[#e73b90]">{item.role}</p>
+              <CardContent className="flex h-full flex-col p-6">
+                <div className="mb-7 flex items-start justify-between gap-4">
+                  <Quote className="testimonial-quote-icon size-8 shrink-0 text-[#71c1f0]" aria-hidden="true" />
+                  <span
+                    className={cn(
+                      "rounded-full px-3 py-1 text-[11px] font-bold uppercase",
+                      accentStyles[item.accent]
+                    )}
+                  >
+                    {item.project}
+                  </span>
+                </div>
+                <p className="flex-1 text-base leading-8 text-[#252a35]">{item.quote}</p>
+                <div className="mt-8 border-t border-[#11131a]/8 pt-5">
+                  <p className="text-sm font-bold text-[#e73b90]">{item.role}</p>
+                  <p className="mt-1 text-xs font-semibold text-[#4c5364]">
+                    Proyecto Cl!ck Soluciones Digitales
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -914,41 +1042,57 @@ function TestimonialsSection() {
 
 function ContactSection() {
   return (
-    <section id="contacto" className="scroll-mt-24 bg-white py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="contacto" className="relative scroll-mt-24 overflow-hidden bg-white py-20 sm:py-24">
+      <div className="grid-fade absolute inset-x-0 top-0 h-72 opacity-[0.38]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           data-reveal
           className="interactive-card relative overflow-hidden rounded-[8px] bg-[#11131a] p-6 text-white shadow-[0_28px_90px_rgba(17,19,26,0.22)] sm:p-10 lg:p-12"
         >
-          <div className="absolute inset-0 opacity-65">
-            <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(231,59,144,0.34),rgba(113,193,240,0.22),rgba(247,199,77,0.18))]" />
-            <div className="noise-panel absolute inset-0" />
+          <div data-card-decor className="absolute inset-0 opacity-80">
+            <div className="cta-motion absolute inset-0" />
+            <div className="noise-panel absolute inset-0 opacity-70" />
           </div>
+          <div data-card-decor className="cta-scan absolute -left-28 top-8 h-[3px] w-2/3 rounded-full brand-gradient opacity-70" aria-hidden="true" />
+          <div data-card-decor className="cta-scan cta-scan-delay absolute -right-28 bottom-10 h-[3px] w-2/3 rounded-full brand-gradient opacity-55" aria-hidden="true" />
+          <SoftSectionDoodles dark cardDecor />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="mb-4 inline-flex items-center gap-2 rounded-[8px] bg-white/10 px-3 py-2 text-xs font-bold uppercase text-white/86">
                 <Target className="size-4 text-[#f7c74d]" aria-hidden="true" />
-                Siguiente click
+                Siguiente Cl!ck
               </p>
               <h2 className="font-heading max-w-3xl text-5xl font-extrabold uppercase leading-none sm:text-6xl">
-                Armemos una web que trabaje por tu marca.
+                Demos el próximo <span className="text-brand-gradient">Cl!ck</span>.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
-                Dejamos la estructura lista para conectar formulario, WhatsApp o email
-                cuando definamos el canal final de contacto.
+                Contame qué querés mejorar: web, marca, planillas, datos o una idea
+                que todavía necesita forma. Lo ordenamos y lo convertimos en una
+                experiencia digital clara.
               </p>
+              <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
+                {["Idea clara", "Ruta visual", "Salida online"].map((item) => (
+                  <span
+                    key={item}
+                    className="interactive-chip rounded-[8px] border border-white/14 bg-white/8 px-4 py-3 text-sm font-bold text-white/82 shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a
                 href="mailto:hola@clicksolucionesdigital.com"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-white px-5 text-sm font-bold text-[#11131a] transition hover:-translate-y-0.5 hover:bg-[#f7c74d]"
+                className="interactive-chip group inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-white px-5 text-sm font-bold text-[#11131a] transition hover:bg-[#f7c74d]"
               >
                 <Mail className="size-4" aria-hidden="true" />
                 Escribir ahora
+                <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
               <a
                 href="#servicios"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/16"
+                className="interactive-chip inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
               >
                 Explorar servicios
               </a>
@@ -993,7 +1137,7 @@ function SectionHeader({
   dark = false,
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   description: string;
   dark?: boolean;
 }) {
