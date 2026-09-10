@@ -37,10 +37,18 @@
 ## Página Servicios
 
 - Página interna `/servicios` con hero propio, fondo visual oscuro, líneas de marca animadas y tablero de categorías.
+- Hero de `/servicios` equilibrado: copy reducido a menos líneas y tablero visual más protagonista en desktop; tablero oculto en mobile para priorizar lectura.
+- Chips superiores del hero separados con `gap` para evitar que se lean como un solo bloque.
+- Mockups internos usan textos neutrales como `Sitio web de Cl!ck` mientras no esté definido el dominio final.
+- Mapa rápido de `/servicios` separado del hero con aire vertical para que no quede pegado al bloque oscuro.
 - Mapa rápido con cinco accesos internos: Web & Soluciones Digitales, Identidad Visual, Diseño & Comunicación Visual, Herramientas Digitales y Asesoría Digital.
 - Cada categoría se desarrolla con bloque amplio, ícono, descripción, listas `Ideal para`, `Qué incluye`, resultado esperado, ejemplos y visual con imagen.
+- Visuales de servicios estructurados como imagen superior + panel inferior de formatos/ruta para evitar superposición de textos sobre imágenes en desktop y mobile.
+- Identidad Visual usa una imagen generada propia en JPG liviano, con estilo de marca Cl!ck y sin logos o datos de clientes reales.
+- Herramientas Digitales usa una imagen generada propia en JPG liviano, enfocada en planillas, formularios, KPIs y tableros.
 - Guía de decisión en sección oscura para orientar usuarios que todavía no saben qué servicio elegir.
-- CTA final para llevar el tráfico de servicios hacia contacto o volver a la home.
+- Guía de decisión y CTA final usan garabatos laterales coherentes con la home, manteniendo el contenido limpio.
+- CTA final oscuro con fondo animado, chips de avance y botones con hover contrastado para llevar el tráfico de servicios hacia contacto o volver a la home.
 
 ## Animaciones
 
@@ -55,6 +63,7 @@
 - Página `/servicios` con entrada GSAP, scroll-trigger por bloques, flotación suave de tablero y hover en mapa/listas/visuales.
 - CSS para garabatos de fondo con deriva suave y líneas animadas en CTA.
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
+- Botones finales de `/servicios` usan clases específicas de hover para evitar fondos blancos con texto ilegible.
 - Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.
 - Se respeta `prefers-reduced-motion`.
 

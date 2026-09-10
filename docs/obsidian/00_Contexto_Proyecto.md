@@ -6,7 +6,7 @@ Reconstruir la web de Click Soluciones Digitales como sitio estático moderno, r
 
 ## Estado actual
 
-Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper. La última iteración creó la página interna `/servicios` con detalle de cinco categorías, navegación interna, visuales por servicio y CTA propio.
+Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper. La última iteración pulió la página interna `/servicios` con hero más proporcionado, chips superiores separados, mockup sin URL definitiva, mapa rápido separado del hero, visuales de servicios sin superposición, imágenes generadas para Identidad Visual y Herramientas Digitales, y CTA oscuro más dinámico.
 
 ## Stack técnico
 
@@ -45,6 +45,7 @@ npm run build
 - Servicios rediseñados con tres puertas principales (`WEB`, `IDENTIDAD`, `SOLUCIONES`), card `WEB` con mockup realista y mapa de cinco categorías completas.
 - Card secundaria debajo de `WEB` para mostrar variantes concretas como invitaciones, catálogos, reservas y portfolios, evitando espacio vacío en la grilla.
 - Página interna `/servicios` con cinco categorías ampliadas: Web & Soluciones Digitales, Identidad Visual, Diseño & Comunicación Visual, Herramientas Digitales y Asesoría Digital.
+- Página `/servicios` con hero equilibrado, mockup con texto neutral, showcase de cada servicio separado en imagen + panel de formatos/ruta, CTA con garabatos laterales y botones de hover contrastado.
 - Link `Servicios` de la navbar apunta a `/servicios` y los demás links vuelven a secciones de la home.
 - Sección `Cómo trabajamos` con garabatos desplazados hacia laterales para priorizar legibilidad.
 - Testimonios realistas por rubro en carrusel con flechas laterales alineadas a las tarjetas, pendientes de validación con nombres o frases definitivas.

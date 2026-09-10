@@ -12,6 +12,8 @@
 - [ ] Revisar textos finales con tono de marca.
 - [ ] Elevar portfolio con casos reales, métricas visuales y animaciones propias por proyecto.
 - [ ] Definir si se incorporará Lottie o Three.js en una sección puntual sin afectar rendimiento mobile.
+- [ ] Validar si `public/assets/images/service-identity-visual.jpg` queda como imagen definitiva de Identidad Visual o se reemplaza por un caso real publicable.
+- [ ] Validar si `public/assets/images/service-tools-dashboard.jpg` queda como imagen definitiva de Herramientas Digitales o se reemplaza por una captura real publicable.
 
 ## En revisión
 
@@ -25,6 +27,8 @@
 - [ ] Home con card `WEB` profesionalizada y gráfico de soluciones corregido lista para revisión visual.
 - [ ] Home con espacio de servicios web completado mediante card secundaria lista para revisión visual.
 - [ ] Página `/servicios` con cinco categorías ampliadas lista para revisión visual del usuario.
+- [ ] Página `/servicios` con pulido visual de hero, showcases, guía de decisión y CTA lista para revisión visual.
+- [ ] Página `/servicios` con ajustes finales de hero y nueva imagen de Herramientas lista para revisión visual.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -44,3 +48,5 @@
 - [x] Mejorar card `WEB` con mockup realista y corregir gráfico superpuesto de `SOLUCIONES` - 2026-09-10.
 - [x] Completar espacio vacío debajo de `WEB` con una card secundaria de ideas web - 2026-09-10.
 - [x] Crear página interna `/servicios` con detalle ampliado por categoría - 2026-09-10.
+- [x] Ajustar proporción del hero, separación del mapa rápido, superposición de textos en visuales y contraste del CTA en `/servicios` - 2026-09-10.
+- [x] Separar chips superiores del hero, reemplazar URL provisoria y usar visual acorde para Herramientas Digitales - 2026-09-10.

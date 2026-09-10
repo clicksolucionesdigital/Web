@@ -1,5 +1,54 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Ajustes finales y publicación de Servicios
+
+**Cambios realizados:**
+- Se separaron los chips superiores del hero de `/servicios` para darles más aire lateral.
+- Se reemplazó la URL provisoria del mockup por el texto neutral `Sitio web de Cl!ck`.
+- Se generó y optimizó una nueva imagen para Herramientas Digitales, enfocada en planillas, formularios, KPIs y tableros.
+
+**Archivos modificados:**
+- components/services/services-page.tsx
+- public/assets/images/service-tools-dashboard.jpg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright con Chrome: capturas desktop del hero de servicios y del bloque Herramientas Digitales.
+
+**Pendientes detectados:**
+- Revisar con el usuario si la imagen generada de Herramientas Digitales queda como asset definitivo o se reemplaza por un caso real publicable.
+
+## 2026-09-10 - Pulido visual de Servicios
+
+**Cambios realizados:**
+- Se equilibró el hero de `/servicios` con un título más corto, menor peso visual a la izquierda y tablero de categorías más grande.
+- Se separó el mapa rápido del hero oscuro para evitar que quede pegado al borde superior.
+- Se rediseñaron los visuales de cada servicio con imagen superior y panel inferior de formatos/ruta para evitar textos superpuestos.
+- Se incorporó una imagen generada propia para Identidad Visual, alineada con los colores de Cl!ck, sin datos reales y convertida a JPG liviano.
+- Se agregaron garabatos laterales al bloque `Si no sabés cuál elegir` y se transformó el CTA final en una pieza oscura, dinámica y con hover legible.
+
+**Archivos modificados:**
+- components/services/services-page.tsx
+- app/globals.css
+- public/assets/images/service-identity-visual.jpg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright con Chrome: capturas desktop y mobile de hero, Web, Identidad Visual, Diseño, Herramientas y CTA.
+
+**Pendientes detectados:**
+- Revisar con el usuario si la composición generada de Identidad Visual queda como asset definitivo o se reemplaza por un caso real publicable.
+
 ## 2026-09-10 - Página interna de Servicios
 
 **Cambios realizados:**
