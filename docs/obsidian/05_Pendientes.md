@@ -22,6 +22,7 @@
 - [ ] Home con flechas laterales de testimonios lista para revisión visual del usuario.
 - [ ] Home con apartado Servicios rediseñado según estructura Click 2.0 lista para revisión visual del usuario.
 - [ ] Home con mapa de servicios alineado y copy ajustado lista para revisión visual del usuario.
+- [ ] Home con card `WEB` profesionalizada y gráfico de soluciones corregido lista para revisión visual.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -38,3 +39,4 @@
 - [x] Reubicar flechas del carrusel de testimonios a los laterales de las tarjetas - 2026-09-10.
 - [x] Rediseñar el apartado Servicios con tres entradas principales y mapa de cinco categorías - 2026-09-10.
 - [x] Ajustar copy y alineación interna del mapa de servicios - 2026-09-10.
+- [x] Mejorar card `WEB` con mockup realista y corregir gráfico superpuesto de `SOLUCIONES` - 2026-09-10.

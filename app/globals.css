@@ -351,11 +351,39 @@ body {
     repeating-linear-gradient(90deg, rgba(17, 19, 26, 0.04) 0 1px, transparent 1px 34px);
 }
 
+.service-browser-preview {
+  background: #ffffff;
+  border: 1px solid rgba(17, 19, 26, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 18px 38px rgba(17, 19, 26, 0.12);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.service-phone-preview {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 19, 26, 0.1);
+  border-radius: 8px;
+  bottom: 1rem;
+  box-shadow: 0 18px 38px rgba(17, 19, 26, 0.18);
+  padding: 0.85rem;
+  position: absolute;
+  right: 1rem;
+  transition:
+    box-shadow 260ms ease,
+    transform 260ms ease;
+  width: min(8rem, 38%);
+  z-index: 3;
+}
+
 .service-connector {
   background: linear-gradient(90deg, rgba(231, 59, 144, 0.34), rgba(113, 193, 240, 0.46), rgba(247, 199, 77, 0.34));
   height: 2px;
+  opacity: 0.58;
   position: absolute;
   transform-origin: left center;
+  z-index: 0;
 }
 
 .service-node {
@@ -561,6 +589,11 @@ body {
   .interactive-card:hover .service-node {
     box-shadow: 0 12px 28px rgba(17, 19, 26, 0.1);
     transform: translateY(-3px);
+  }
+
+  .interactive-card:hover .service-phone-preview {
+    box-shadow: 0 24px 48px rgba(231, 59, 144, 0.18);
+    transform: translate3d(-4px, -6px, 0) rotate(-1deg);
   }
 
   .interactive-chip:hover,

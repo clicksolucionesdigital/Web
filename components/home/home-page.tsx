@@ -934,7 +934,7 @@ function ServicesSection() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-4 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="mt-12 grid items-start gap-4 lg:grid-cols-[1.12fr_0.88fr]">
           <ServiceFeatureCard service={homeServices[0]} featured />
           <div className="grid gap-4">
             {homeServices.slice(1).map((service) => (
@@ -992,8 +992,8 @@ function ServiceFeatureCard({ service, featured = false }: { service: ServiceFea
     <article
       data-card
       className={cn(
-        "service-feature interactive-card group flex h-full min-h-[392px] flex-col overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/92 p-6 shadow-[0_24px_70px_rgba(17,19,26,0.09)]",
-        featured && "min-h-[548px]",
+        "service-feature interactive-card group flex min-h-[392px] flex-col overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/92 p-6 shadow-[0_24px_70px_rgba(17,19,26,0.09)]",
+        featured ? "lg:min-h-[560px]" : "h-full",
       )}
     >
       <div data-card-decor className="absolute inset-x-6 top-0 h-[3px] rounded-full brand-gradient opacity-80 transition group-hover:opacity-100" />
@@ -1016,19 +1016,32 @@ function ServiceFeatureCard({ service, featured = false }: { service: ServiceFea
           {service.description}
         </p>
 
-        <div className={cn("mt-8 grid flex-1 gap-6", featured ? "lg:grid-cols-[0.92fr_1.08fr] lg:items-end" : "sm:grid-cols-[0.9fr_1.1fr] sm:items-end")}>
-          <div className="flex flex-wrap gap-2">
-            {service.chips.map((chip) => (
-              <span
-                key={chip}
-                className="interactive-chip rounded-full border border-[#11131a]/8 bg-[#fbfbfe] px-3 py-2 text-xs font-bold text-[#252a35]"
-              >
-                {chip}
-              </span>
-            ))}
+        <div className={cn("mt-8 grid flex-1 gap-6", featured ? "lg:grid-cols-[0.68fr_1.32fr] lg:items-stretch" : "sm:grid-cols-[0.9fr_1.1fr] sm:items-end")}>
+          <div className="flex flex-col justify-between gap-5">
+            <div className="flex flex-wrap gap-2">
+              {service.chips.map((chip) => (
+                <span
+                  key={chip}
+                  className="interactive-chip rounded-full border border-[#11131a]/8 bg-[#fbfbfe] px-3 py-2 text-xs font-bold text-[#252a35]"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            {featured ? (
+              <div className="grid gap-2 text-sm font-bold text-[#252a35]">
+                {["Diseño responsive", "Contacto claro", "Lista para compartir"].map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2 rounded-[8px] border border-[#11131a]/8 bg-white/72 px-3 py-2">
+                    <CheckCircle2 className="size-4 text-[#71c1f0]" aria-hidden="true" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </div>
 
-          <ServiceVisual variant={service.visual} accent={service.accent} />
+          <ServiceVisual variant={service.visual} accent={service.accent} featured={featured} />
         </div>
 
         <a
@@ -1043,44 +1056,55 @@ function ServiceFeatureCard({ service, featured = false }: { service: ServiceFea
   );
 }
 
-function ServiceVisual({ variant, accent }: { variant: ServiceFeature["visual"]; accent: Accent }) {
+function ServiceVisual({ variant, accent, featured = false }: { variant: ServiceFeature["visual"]; accent: Accent; featured?: boolean }) {
   if (variant === "web") {
     return (
-      <div className="service-visual service-visual-web min-h-[210px]">
-        <div className="flex items-center gap-2 border-b border-[#11131a]/8 px-4 py-3">
-          <span className="size-3 rounded-full bg-[#e73b90]" />
-          <span className="size-3 rounded-full bg-[#f7c74d]" />
-          <span className="size-3 rounded-full bg-[#71c1f0]" />
-          <span className="ml-auto rounded-full bg-[#e73b90]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#e73b90]">
-            responsive
-          </span>
-        </div>
-        <div className="grid gap-4 p-4 sm:grid-cols-[1fr_0.72fr]">
-          <div>
-            <div className="h-5 w-3/4 rounded-full bg-[#11131a]" />
-            <div className="mt-3 h-3 w-full rounded-full bg-[#11131a]/12" />
-            <div className="mt-2 h-3 w-5/6 rounded-full bg-[#11131a]/12" />
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              {[58, 78, 48].map((height, index) => (
+      <div className={cn("service-visual service-visual-web p-3", featured ? "min-h-[300px]" : "min-h-[220px]")}>
+        <div className="service-browser-preview">
+          <div className="flex items-center gap-2 border-b border-[#11131a]/8 bg-white/88 px-4 py-3">
+            <span className="size-3 rounded-full bg-[#e73b90]" />
+            <span className="size-3 rounded-full bg-[#f7c74d]" />
+            <span className="size-3 rounded-full bg-[#71c1f0]" />
+            <span className="ml-2 hidden truncate text-xs font-bold text-[#6b7280] sm:block">
+              clicksolucionesdigital.com/web
+            </span>
+            <span className="ml-auto rounded-full bg-[#e73b90]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#e73b90]">
+              responsive
+            </span>
+          </div>
+          <div className={cn("relative overflow-hidden", featured ? "aspect-[16/10]" : "aspect-[16/9]")}>
+            <Image
+              src={assetPath("/assets/images/portfolio-web-a.png")}
+              alt="Mockup de sitio web responsive en computadora y celular"
+              fill
+              className="object-cover transition duration-500 group-hover:scale-[1.04]"
+              sizes={featured ? "(min-width: 1024px) 520px, 100vw" : "(min-width: 1024px) 280px, 100vw"}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(17,19,26,0.58))]" />
+            <div className="absolute bottom-3 left-3 right-3 flex flex-wrap items-center gap-2">
+              {["UX clara", "Mobile", "Contacto"].map((item) => (
                 <span
-                  key={height + index}
-                  className="rounded-t-[8px] bg-[linear-gradient(180deg,#e73b90,#71c1f0)]"
-                  style={{ height: `${height}px` }}
-                />
+                  key={item}
+                  className={cn(
+                    "rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase text-[#11131a] shadow-sm",
+                    item === "Contacto" && "hidden sm:inline-flex",
+                  )}
+                >
+                  {item}
+                </span>
               ))}
             </div>
           </div>
-          <div className="rounded-[8px] border border-[#11131a]/8 bg-white p-3 shadow-sm">
-            <div className="mb-3 flex items-center gap-2">
-              <CheckCircle2 className="size-4 text-[#71c1f0]" aria-hidden="true" />
-              <span className="text-xs font-bold uppercase text-[#5d6474]">consulta</span>
-            </div>
-            <div className="space-y-2">
-              <span className="block h-3 rounded-full bg-[#11131a]/12" />
-              <span className="block h-3 rounded-full bg-[#11131a]/12" />
-              <span className="block h-8 rounded-[8px] bg-[#f7c74d]/70" />
-            </div>
+        </div>
+
+        <div className="service-phone-preview" aria-hidden="true">
+          <div className="mx-auto mb-2 h-1 w-8 rounded-full bg-[#11131a]/18" />
+          <div className="space-y-2">
+            <span className="block h-3 w-3/4 rounded-full bg-[#11131a]" />
+            <span className="block h-2 rounded-full bg-[#11131a]/14" />
+            <span className="block h-2 w-5/6 rounded-full bg-[#11131a]/14" />
           </div>
+          <div className="mt-3 h-9 rounded-[8px] bg-[linear-gradient(115deg,#e73b90,#71c1f0)]" />
         </div>
       </div>
     );
@@ -1110,23 +1134,23 @@ function ServiceVisual({ variant, accent }: { variant: ServiceFeature["visual"];
 
   return (
     <div className="service-visual min-h-[188px] p-4">
-      <div className="relative flex min-h-[152px] flex-wrap content-center gap-2 sm:block">
-        <span className="service-connector left-[14%] top-[44%] hidden w-[72%] sm:block" aria-hidden="true" />
-        <span className="service-connector left-[37%] top-[26%] hidden w-[42%] rotate-[31deg] sm:block" aria-hidden="true" />
+      <div className="relative grid min-h-[152px] grid-cols-2 content-center gap-3">
+        <span className="service-connector left-[14%] top-[48%] w-[72%]" aria-hidden="true" />
+        <span className="service-connector left-[22%] top-[28%] w-[58%] rotate-[28deg]" aria-hidden="true" />
+        <span className="service-connector left-[22%] top-[68%] w-[58%] rotate-[-22deg]" aria-hidden="true" />
         {[
-          ["Diseño", "sm:left-0 sm:top-7", Paintbrush],
-          ["Planilla", "sm:right-0 sm:top-3", FileSpreadsheet],
-          ["Asesoría", "sm:left-[26%] sm:bottom-0", Lightbulb],
-          ["Ruta", "sm:right-[8%] sm:bottom-4", BriefcaseBusiness],
-        ].map(([label, position, NodeIcon]) => {
+          ["Diseño", Paintbrush],
+          ["Planilla", FileSpreadsheet],
+          ["Asesoría", Lightbulb],
+          ["Ruta", BriefcaseBusiness],
+        ].map(([label, NodeIcon]) => {
           const IconNode = NodeIcon as LucideIcon;
 
           return (
             <div
               key={label as string}
               className={cn(
-                "service-node relative flex min-w-[112px] items-center gap-2 rounded-full border bg-white px-3 py-2 text-xs font-bold shadow-sm sm:absolute",
-                position as string,
+                "service-node relative z-10 flex min-w-0 items-center gap-2 rounded-full border bg-white px-3 py-2 text-xs font-bold shadow-sm",
                 accentBorderStyles[accent],
               )}
             >

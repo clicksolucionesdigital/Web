@@ -1,5 +1,29 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Profesionalización de card WEB y gráfico de soluciones
+
+**Cambios realizados:**
+- Se reemplazó el mockup abstracto de la card `WEB` por una composición con imagen realista, ventana de navegador, vista mobile y señales de valor.
+- Se ajustó la altura de la card `WEB` para reducir espacio vacío y evitar que se estire por la columna vecina.
+- Se corrigió el gráfico de `SOLUCIONES` para que sus nodos no se superpongan en desktop ni mobile.
+- Se ocultó el chip `Contacto` del mockup en mobile para que no quede debajo del celular superpuesto.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual de la card `WEB` con imagen realista y del gráfico de `SOLUCIONES` sin superposición.
+
+**Pendientes detectados:**
+- Definir si se reemplaza el mockup genérico por capturas reales de trabajos publicables.
+
 ## 2026-09-10 - Ajuste de copy y alineación en mapa de servicios
 
 **Cambios realizados:**

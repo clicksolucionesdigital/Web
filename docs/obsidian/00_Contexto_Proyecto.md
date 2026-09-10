@@ -40,7 +40,7 @@ npm run build
 - Navbar fija.
 - Animaciones de carga y scroll.
 - Hero sin logo duplicado, con ticker de servicios, mini cards diferenciados y garabatos de marca hacia bordes.
-- Servicios rediseñados con tres puertas principales (`WEB`, `IDENTIDAD`, `SOLUCIONES`) y mapa de cinco categorías completas.
+- Servicios rediseñados con tres puertas principales (`WEB`, `IDENTIDAD`, `SOLUCIONES`), card `WEB` con mockup realista y mapa de cinco categorías completas.
 - Sección `Cómo trabajamos` con garabatos desplazados hacia laterales para priorizar legibilidad.
 - Testimonios realistas por rubro en carrusel con flechas laterales alineadas a las tarjetas, pendientes de validación con nombres o frases definitivas.
 - Franja animada entre proceso y portfolio para sostener dinamismo durante el scroll.
