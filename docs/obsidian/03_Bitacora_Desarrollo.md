@@ -1,5 +1,32 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Rediseño del apartado Servicios
+
+**Cambios realizados:**
+- Se reemplazó la grilla uniforme de servicios por una composición con tres entradas principales: `WEB`, `IDENTIDAD` y `SOLUCIONES`.
+- Se incorporó la estructura comercial completa de cinco categorías: Web & Soluciones Digitales, Identidad Visual, Diseño & Comunicación Visual, Herramientas Digitales y Asesoría Digital.
+- Se ajustó el ticker de servicios para hablar de soluciones y no de herramientas sueltas.
+- Se agregaron mockups visuales livianos para web, identidad y soluciones conectadas.
+- Se añadieron microinteracciones hover, brillo sutil y órbitas de fondo para reforzar dinamismo sin agregar dependencias.
+- Se corrigió la disposición mobile del mockup de soluciones para evitar superposición de nodos.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual de entrada de servicios, cards principales y mapa de servicios.
+
+**Pendientes detectados:**
+- Crear una página interna `/servicios` para desarrollar las cinco categorías completas con más detalle.
+
 ## 2026-09-10 - Reubicación de flechas en testimonios
 
 **Cambios realizados:**

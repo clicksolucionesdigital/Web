@@ -7,6 +7,7 @@
 - [ ] Elegir capturas definitivas de portfolio y nombres reales de proyectos publicables.
 - [ ] Definir si Blog será migrado como páginas estáticas o si se elimina del primer lanzamiento.
 - [ ] Crear páginas internas para Servicios, Nosotros, FAQ y Contacto.
+- [ ] Desarrollar `/servicios` con las cinco categorías completas y ejemplos visuales por servicio.
 - [ ] Revisar textos finales con tono de marca.
 - [ ] Elevar portfolio con casos reales, métricas visuales y animaciones propias por proyecto.
 - [ ] Definir si se incorporará Lottie o Three.js en una sección puntual sin afectar rendimiento mobile.
@@ -18,6 +19,7 @@
 - [ ] Home con ajustes de hero, testimonios y CTA lista para revisión del usuario.
 - [ ] Home con carrusel de testimonios, rail animado y correcciones de contraste lista para revisión del usuario.
 - [ ] Home con flechas laterales de testimonios lista para revisión visual del usuario.
+- [ ] Home con apartado Servicios rediseñado según estructura Click 2.0 lista para revisión visual del usuario.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -32,3 +34,4 @@
 - [x] Corregir contraste hover de chips en fondos oscuros - 2026-09-09.
 - [x] Mover garabatos del proceso hacia los bordes para mejorar legibilidad - 2026-09-10.
 - [x] Reubicar flechas del carrusel de testimonios a los laterales de las tarjetas - 2026-09-10.
+- [x] Rediseñar el apartado Servicios con tres entradas principales y mapa de cinco categorías - 2026-09-10.

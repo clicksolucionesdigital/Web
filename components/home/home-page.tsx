@@ -12,7 +12,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import {
   ArrowRight,
-  BarChart3,
   BadgeCheck,
   BriefcaseBusiness,
   ChevronLeft,
@@ -20,7 +19,6 @@ import {
   CheckCircle2,
   FileSpreadsheet,
   Globe2,
-  Layers3,
   Lightbulb,
   Mail,
   Menu,
@@ -40,12 +38,25 @@ import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Service = {
+type Accent = "pink" | "cyan" | "yellow";
+
+type ServiceFeature = {
   icon: LucideIcon;
+  number: string;
+  label: string;
   title: string;
   description: string;
-  proof: string;
-  accent: "pink" | "cyan" | "yellow";
+  cta: string;
+  chips: string[];
+  accent: Accent;
+  visual: "web" | "identity" | "solutions";
+};
+
+type ServiceMapItem = {
+  number: string;
+  title: string;
+  description: string;
+  accent: Accent;
 };
 
 type WorkflowStep = {
@@ -67,7 +78,7 @@ type Testimonial = {
   quote: string;
   role: string;
   project: string;
-  accent: Service["accent"];
+  accent: Accent;
 };
 
 type HeroSignal = {
@@ -88,54 +99,75 @@ function assetPath(path: string) {
   return `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
 }
 
-const services: Service[] = [
+const homeServices: ServiceFeature[] = [
   {
     icon: Globe2,
-    title: "Páginas web",
+    number: "01",
+    label: "WEB",
+    title: "Webs y soluciones digitales hechas para tu negocio.",
     description:
-      "Sitios rápidos, responsive y pensados para convertir visitas en consultas reales.",
-    proof: "UX + desarrollo",
+      "Diseñamos experiencias digitales que se adaptan a lo que necesitás: una web profesional, un catálogo, una landing, reservas o una herramienta simple para ordenar una idea.",
+    cta: "Hablemos de tu web",
+    chips: ["Landing pages", "Sitios", "Catálogos", "Reservas", "Formularios", "Invitaciones"],
     accent: "pink",
-  },
-  {
-    icon: BarChart3,
-    title: "Dashboards",
-    description:
-      "Paneles visuales para leer datos clave sin perder tiempo entre planillas.",
-    proof: "KPIs claros",
-    accent: "cyan",
-  },
-  {
-    icon: Layers3,
-    title: "Análisis de datos",
-    description:
-      "Ordenamos información, encontramos patrones y la llevamos a decisiones claras.",
-    proof: "Datos accionables",
-    accent: "yellow",
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: "Asesoría digital",
-    description:
-      "Diagnóstico y hoja de ruta para mejorar presencia, procesos y herramientas.",
-    proof: "Plan de mejora",
-    accent: "cyan",
-  },
-  {
-    icon: FileSpreadsheet,
-    title: "Planillas a medida",
-    description:
-      "Sistemas livianos para controlar ventas, stock, agenda, costos o reportes.",
-    proof: "Control simple",
-    accent: "pink",
+    visual: "web",
   },
   {
     icon: Paintbrush,
-    title: "Diseño gráfico",
+    number: "02",
+    label: "IDENTIDAD",
+    title: "Una identidad que se sienta tuya.",
     description:
-      "Identidad, piezas visuales y materiales digitales con una línea consistente.",
-    proof: "Marca coherente",
+      "Creamos una base visual clara, coherente y accesible para que tu proyecto pueda presentarse mejor desde el primer vistazo.",
+    cta: "Quiero mi identidad",
+    chips: ["Logo", "Paleta", "Tipografías", "Tarjeta digital", "Piezas iniciales"],
+    accent: "cyan",
+    visual: "identity",
+  },
+  {
+    icon: Workflow,
+    number: "03",
+    label: "SOLUCIONES",
+    title: "Diseño, herramientas y asesoría para resolver lo que necesitás.",
+    description:
+      "Desde una presentación hasta una planilla, un formulario o una idea que todavía no sabés cómo bajar a tierra. Primero entendemos, después proponemos.",
+    cta: "Contame qué necesitás",
+    chips: ["Piezas visuales", "Planillas", "Dashboards", "Diagnóstico", "Ruta de acción"],
     accent: "yellow",
+    visual: "solutions",
+  },
+];
+
+const serviceMap: ServiceMapItem[] = [
+  {
+    number: "01",
+    title: "Web & Soluciones Digitales",
+    description: "Webs, catálogos, portfolios, micrositios, formularios, reservas e ideas digitales especiales.",
+    accent: "pink",
+  },
+  {
+    number: "02",
+    title: "Identidad Visual",
+    description: "Logo, variantes, colores, tipografías, aplicaciones básicas y mini guía de uso.",
+    accent: "cyan",
+  },
+  {
+    number: "03",
+    title: "Diseño & Comunicación Visual",
+    description: "Presentaciones, folletos, catálogos, propuestas, tarjetas, piezas institucionales y redes.",
+    accent: "yellow",
+  },
+  {
+    number: "04",
+    title: "Herramientas Digitales",
+    description: "Planillas, formularios, tableros simples, organización de información y control operativo.",
+    accent: "pink",
+  },
+  {
+    number: "05",
+    title: "Asesoría Digital",
+    description: "Diagnóstico, orientación, prioridades, revisión de ideas y plan de acción para empezar mejor.",
+    accent: "cyan",
   },
 ];
 
@@ -257,14 +289,14 @@ const testimonials: Testimonial[] = [
 ];
 
 const tickerItems = [
-  "Páginas web",
-  "Dashboards",
-  "Datos",
-  "Planillas inteligentes",
-  "Diseño gráfico",
-  "Automatización",
-  "Asesoría digital",
+  "Webs y soluciones digitales",
   "Identidad visual",
+  "Diseño y comunicación",
+  "Herramientas digitales",
+  "Asesoría digital",
+  "Invitaciones interactivas",
+  "Catálogos y portfolios",
+  "Planillas y formularios",
 ];
 
 const motionRailItems = [
@@ -297,10 +329,22 @@ const heroSignals: HeroSignal[] = [
   },
 ];
 
-const accentStyles: Record<Service["accent"], string> = {
+const accentStyles: Record<Accent, string> = {
   pink: "bg-[#e73b90]/10 text-[#e73b90] ring-[#e73b90]/20",
   cyan: "bg-[#71c1f0]/14 text-[#1676aa] ring-[#71c1f0]/35",
   yellow: "bg-[#f7c74d]/20 text-[#8f6410] ring-[#f7c74d]/45",
+};
+
+const accentBorderStyles: Record<Accent, string> = {
+  pink: "border-[#e73b90]/24",
+  cyan: "border-[#71c1f0]/30",
+  yellow: "border-[#f7c74d]/38",
+};
+
+const accentTextStyles: Record<Accent, string> = {
+  pink: "text-[#e73b90]",
+  cyan: "text-[#1676aa]",
+  yellow: "text-[#8f6410]",
 };
 
 export function HomePage() {
@@ -851,47 +895,248 @@ function CreativeStudioMockup() {
 
 function ServicesSection() {
   return (
-    <section id="servicios" className="relative scroll-mt-24 bg-[#fbfbfe] py-20 sm:py-24">
+    <section id="servicios" className="relative isolate scroll-mt-24 overflow-hidden bg-[#fbfbfe] py-20 sm:py-24">
       <div className="grid-fade absolute inset-x-0 top-0 h-72 opacity-80" aria-hidden="true" />
+      <div className="service-orbit service-orbit-pink left-[-9rem] top-28" aria-hidden="true" />
+      <div className="service-orbit service-orbit-cyan bottom-28 right-[-8rem]" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Servicios"
-          title="Todo lo que tu marca necesita para verse y funcionar mejor."
-          description="Una base digital completa: diseño, desarrollo, datos y contenido visual trabajando en la misma dirección."
-        />
+        <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
+          <SectionHeader
+            eyebrow="Servicios"
+            title={
+              <>
+                No hacemos de todo. Hacemos que tu idea digital tenga <span className="text-brand-gradient">sentido</span>.
+              </>
+            }
+            description="Creamos webs, identidades, piezas visuales y herramientas digitales para profesionales, emprendimientos y pequeños negocios."
+          />
 
-        <div className="mt-12 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard key={service.title} service={service} />
-          ))}
+          <div
+            data-reveal
+            className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#11131a] p-5 text-white shadow-[0_22px_60px_rgba(17,19,26,0.14)]"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase text-white/48">Brújula Cl!ck</p>
+                <p className="mt-3 text-lg font-bold leading-8 sm:text-xl">
+                  No vendemos una herramienta. Ayudamos a encontrar una solución.
+                </p>
+              </div>
+              <Sparkles className="size-6 shrink-0 text-[#f7c74d]" aria-hidden="true" />
+            </div>
+            <div className="mt-6 grid gap-2 text-sm text-white/72 sm:grid-cols-3">
+              {["Entender", "Proponer", "Crear"].map((item) => (
+                <span key={item} className="interactive-chip dark-chip rounded-full border border-white/12 bg-white/7 px-3 py-2 text-center font-bold">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 lg:grid-cols-[1.12fr_0.88fr]">
+          <ServiceFeatureCard service={homeServices[0]} featured />
+          <div className="grid gap-4">
+            {homeServices.slice(1).map((service) => (
+              <ServiceFeatureCard key={service.title} service={service} />
+            ))}
+          </div>
+        </div>
+
+        <div data-reveal className="mt-12">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e73b90]">Mapa de servicios</p>
+              <h3 className="mt-3 font-heading text-4xl font-bold uppercase leading-none text-[#11131a] sm:text-5xl">
+                Cinco formas de empezar.
+              </h3>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#5d6474]">
+              En la home priorizamos tres puertas de entrada, pero detrás está la estructura completa para elegir el camino más útil.
+            </p>
+          </div>
+
+          <ol className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+            {serviceMap.map((item) => (
+              <li
+                key={item.title}
+                data-card
+                className={cn(
+                  "service-map-item interactive-card group flex min-h-[188px] flex-col overflow-hidden rounded-[8px] border bg-white/88 p-5 shadow-[0_16px_42px_rgba(17,19,26,0.06)]",
+                  accentBorderStyles[item.accent],
+                )}
+              >
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <span className={cn("font-heading text-4xl font-bold leading-none opacity-80", accentTextStyles[item.accent])}>
+                    {item.number}
+                  </span>
+                  <span className="h-px flex-1 brand-gradient opacity-50" aria-hidden="true" />
+                </div>
+                <h4 className="font-heading text-2xl font-bold uppercase leading-none text-[#11131a]">
+                  {item.title}
+                </h4>
+                <p className="mt-4 text-sm leading-6 text-[#5d6474]">{item.description}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
   );
 }
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceFeatureCard({ service, featured = false }: { service: ServiceFeature; featured?: boolean }) {
   const Icon = service.icon;
 
   return (
-    <Card
+    <article
       data-card
-      className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/90 shadow-[0_20px_48px_rgba(17,19,26,0.08)]"
+      className={cn(
+        "service-feature interactive-card group flex h-full min-h-[392px] flex-col overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/92 p-6 shadow-[0_24px_70px_rgba(17,19,26,0.09)]",
+        featured && "min-h-[548px]",
+      )}
     >
-      <CardContent className="flex h-full flex-col p-6">
-        <div className={cn("mb-8 inline-flex size-12 items-center justify-center rounded-[8px] ring-1 transition duration-300 group-hover:scale-110 group-hover:-rotate-2", accentStyles[service.accent])}>
-          <Icon className="size-5" aria-hidden="true" />
+      <div data-card-decor className="absolute inset-x-6 top-0 h-[3px] rounded-full brand-gradient opacity-80 transition group-hover:opacity-100" />
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex items-start justify-between gap-5">
+          <div>
+            <span className={cn("text-xs font-bold uppercase tracking-[0.18em]", accentTextStyles[service.accent])}>
+              {service.number} / {service.label}
+            </span>
+            <h3 className="mt-5 max-w-2xl font-heading text-4xl font-bold uppercase leading-none text-[#11131a] sm:text-5xl">
+              {service.title}
+            </h3>
+          </div>
+          <div className={cn("inline-flex size-12 shrink-0 items-center justify-center rounded-[8px] ring-1 transition duration-300 group-hover:scale-110 group-hover:-rotate-2", accentStyles[service.accent])}>
+            <Icon className="size-5" aria-hidden="true" />
+          </div>
         </div>
-        <h3 className="font-heading text-3xl font-bold uppercase leading-none text-[#11131a]">
-          {service.title}
-        </h3>
-        <p className="mt-4 flex-1 text-sm leading-7 text-[#4c5364]">{service.description}</p>
-        <div className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#11131a]/8 bg-[#fbfbfe] px-3 py-2 text-sm font-bold text-[#11131a] transition group-hover:border-[#e73b90]/18 group-hover:bg-[#e73b90]/7">
-          <CheckCircle2 className="size-4 text-[#e73b90]" aria-hidden="true" />
-          {service.proof}
+
+        <p className="mt-5 max-w-2xl text-sm leading-7 text-[#4c5364] sm:text-base">
+          {service.description}
+        </p>
+
+        <div className={cn("mt-8 grid flex-1 gap-6", featured ? "lg:grid-cols-[0.92fr_1.08fr] lg:items-end" : "sm:grid-cols-[0.9fr_1.1fr] sm:items-end")}>
+          <div className="flex flex-wrap gap-2">
+            {service.chips.map((chip) => (
+              <span
+                key={chip}
+                className="interactive-chip rounded-full border border-[#11131a]/8 bg-[#fbfbfe] px-3 py-2 text-xs font-bold text-[#252a35]"
+              >
+                {chip}
+              </span>
+            ))}
+          </div>
+
+          <ServiceVisual variant={service.visual} accent={service.accent} />
         </div>
-      </CardContent>
-    </Card>
+
+        <a
+          href="#contacto"
+          className="mt-8 inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#11131a] px-4 py-3 text-sm font-bold text-white shadow-[0_16px_32px_rgba(17,19,26,0.16)] transition hover:-translate-y-1 hover:bg-[#e73b90] hover:shadow-[0_18px_36px_rgba(231,59,144,0.24)]"
+        >
+          {service.cta}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </a>
+      </div>
+    </article>
+  );
+}
+
+function ServiceVisual({ variant, accent }: { variant: ServiceFeature["visual"]; accent: Accent }) {
+  if (variant === "web") {
+    return (
+      <div className="service-visual service-visual-web min-h-[210px]">
+        <div className="flex items-center gap-2 border-b border-[#11131a]/8 px-4 py-3">
+          <span className="size-3 rounded-full bg-[#e73b90]" />
+          <span className="size-3 rounded-full bg-[#f7c74d]" />
+          <span className="size-3 rounded-full bg-[#71c1f0]" />
+          <span className="ml-auto rounded-full bg-[#e73b90]/10 px-3 py-1 text-[10px] font-bold uppercase text-[#e73b90]">
+            responsive
+          </span>
+        </div>
+        <div className="grid gap-4 p-4 sm:grid-cols-[1fr_0.72fr]">
+          <div>
+            <div className="h-5 w-3/4 rounded-full bg-[#11131a]" />
+            <div className="mt-3 h-3 w-full rounded-full bg-[#11131a]/12" />
+            <div className="mt-2 h-3 w-5/6 rounded-full bg-[#11131a]/12" />
+            <div className="mt-5 grid grid-cols-3 gap-2">
+              {[58, 78, 48].map((height, index) => (
+                <span
+                  key={height + index}
+                  className="rounded-t-[8px] bg-[linear-gradient(180deg,#e73b90,#71c1f0)]"
+                  style={{ height: `${height}px` }}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[8px] border border-[#11131a]/8 bg-white p-3 shadow-sm">
+            <div className="mb-3 flex items-center gap-2">
+              <CheckCircle2 className="size-4 text-[#71c1f0]" aria-hidden="true" />
+              <span className="text-xs font-bold uppercase text-[#5d6474]">consulta</span>
+            </div>
+            <div className="space-y-2">
+              <span className="block h-3 rounded-full bg-[#11131a]/12" />
+              <span className="block h-3 rounded-full bg-[#11131a]/12" />
+              <span className="block h-8 rounded-[8px] bg-[#f7c74d]/70" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (variant === "identity") {
+    return (
+      <div className="service-visual min-h-[188px] p-4">
+        <div className="flex items-center justify-between gap-4">
+          <div className="grid size-20 place-items-center rounded-full bg-[#11131a] text-lg font-black text-white">
+            Cl!ck
+          </div>
+          <div className="flex gap-2">
+            {["#e73b90", "#71c1f0", "#f7c74d"].map((color) => (
+              <span key={color} className="size-9 rounded-full border border-white shadow-sm" style={{ backgroundColor: color }} />
+            ))}
+          </div>
+        </div>
+        <div className="mt-6 space-y-3">
+          <span className="block h-4 w-3/4 rounded-full bg-[#11131a]" />
+          <span className="block h-3 w-full rounded-full bg-[#11131a]/12" />
+          <span className="block h-3 w-2/3 rounded-full bg-[#11131a]/12" />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="service-visual min-h-[188px] p-4">
+      <div className="relative flex min-h-[152px] flex-wrap content-center gap-2 sm:block">
+        <span className="service-connector left-[14%] top-[44%] hidden w-[72%] sm:block" aria-hidden="true" />
+        <span className="service-connector left-[37%] top-[26%] hidden w-[42%] rotate-[31deg] sm:block" aria-hidden="true" />
+        {[
+          ["Diseño", "sm:left-0 sm:top-7", Paintbrush],
+          ["Planilla", "sm:right-0 sm:top-3", FileSpreadsheet],
+          ["Asesoría", "sm:left-[26%] sm:bottom-0", Lightbulb],
+          ["Ruta", "sm:right-[8%] sm:bottom-4", BriefcaseBusiness],
+        ].map(([label, position, NodeIcon]) => {
+          const IconNode = NodeIcon as LucideIcon;
+
+          return (
+            <div
+              key={label as string}
+              className={cn(
+                "service-node relative flex min-w-[112px] items-center gap-2 rounded-full border bg-white px-3 py-2 text-xs font-bold shadow-sm sm:absolute",
+                position as string,
+                accentBorderStyles[accent],
+              )}
+            >
+              <IconNode className={cn("size-4", accentTextStyles[accent])} aria-hidden="true" />
+              {label as string}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

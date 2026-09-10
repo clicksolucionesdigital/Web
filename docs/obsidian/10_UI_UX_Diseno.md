@@ -18,7 +18,8 @@
 - Hero visual con imagen de fondo, H1 fuerte, garabatos de marca suaves hacia bordes, mockup creativo y CTA.
 - Mini cards del hero diferenciados por línea de servicio: web, datos y marca, evitando repetir el mismo texto.
 - Navbar fija con fondo oscuro translúcido.
-- Servicios en cards animadas.
+- Servicios con composición jerárquica: una entrada protagonista para web, una entrada para identidad y una entrada para soluciones complementarias.
+- Mapa secundario de cinco categorías completas para explicar la arquitectura comercial sin darles a todas el mismo peso visual.
 - Ticker animado de servicios sobre franja oscura para sostener legibilidad al pasar al fondo claro.
 - Proceso en sección oscura con pasos, etiquetas de capacidades y fondo creativo sutil sin división dura en dos colores.
 - Garabatos de la sección proceso ubicados hacia los bordes para no tapar título, texto ni cards.
@@ -37,6 +38,7 @@
 - CSS para gradiente animado y flotación sutil.
 - CSS para ticker continuo y garabatos vectoriales.
 - CSS para microinteracciones hover en cards, chips, CTA, portfolio y testimonios.
+- CSS para mockups livianos de servicios, órbitas suaves y nodos conectados responsive.
 - CSS para garabatos de fondo con deriva suave y líneas animadas en CTA.
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
 - Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.

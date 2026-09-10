@@ -1,5 +1,24 @@
 # Decisiones Técnicas
 
+## 2026-09-10 - Arquitectura comercial de servicios en home
+
+**Decisión:**  
+Mostrar tres puertas principales en la home: `WEB`, `IDENTIDAD` y `SOLUCIONES`, y dejar las cinco categorías completas como mapa secundario.
+
+**Motivo:**  
+Respeta la estrategia Click 2.0 de no mostrar todos los servicios con el mismo peso y evita posicionar herramientas sueltas como el servicio principal.
+
+**Impacto:**  
+La home comunica rápido qué hace Cl!ck y la futura página `/servicios` queda reservada para explicar cada categoría completa.
+
+**Alternativas consideradas:**  
+- Mantener una grilla de cinco o seis cards iguales.
+- Separar cada herramienta como servicio principal.
+
+**Archivos relacionados:**  
+- components/home/home-page.tsx
+- app/globals.css
+
 ## 2026-09-08 - Proyecto separado del backup WordPress
 
 **Decisión:**  
