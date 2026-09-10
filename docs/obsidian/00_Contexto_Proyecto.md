@@ -39,7 +39,8 @@ npm run build
 - Export estático con `next build`.
 - Navbar fija.
 - Animaciones de carga y scroll.
-- Hero sin logo duplicado, con ticker de servicios, mini cards diferenciados y garabatos de marca.
+- Hero sin logo duplicado, con ticker de servicios, mini cards diferenciados y garabatos de marca hacia bordes.
+- Sección `Cómo trabajamos` con garabatos desplazados hacia laterales para priorizar legibilidad.
 - Testimonios realistas por rubro en carrusel con flechas, pendientes de validación con nombres o frases definitivas.
 - Franja animada entre proceso y portfolio para sostener dinamismo durante el scroll.
 - CTA final dinámico con fondo en movimiento y chips de avance.

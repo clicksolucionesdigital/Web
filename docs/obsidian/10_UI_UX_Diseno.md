@@ -21,6 +21,7 @@
 - Servicios en cards animadas.
 - Ticker animado de servicios sobre franja oscura para sostener legibilidad al pasar al fondo claro.
 - Proceso en sección oscura con pasos, etiquetas de capacidades y fondo creativo sutil sin división dura en dos colores.
+- Garabatos de la sección proceso ubicados hacia los bordes para no tapar título, texto ni cards.
 - Cards del proceso con estructura flex para mantener los rótulos amarillos alineados verticalmente.
 - Línea de color hover en proceso separada del ícono para evitar ruido visual.
 - Franja animada posterior al proceso para mantener movimiento visual en el scroll.

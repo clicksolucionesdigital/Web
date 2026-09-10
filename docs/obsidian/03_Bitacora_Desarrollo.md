@@ -1,5 +1,26 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Ajuste de garabatos en proceso
+
+**Cambios realizados:**
+- Se movieron los garabatos de la sección `Cómo trabajamos` hacia los bordes, replicando el criterio visual aplicado al hero.
+- Se evitó que las líneas decorativas crucen el título o compitan con las cards del proceso.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual de la sección `Cómo trabajamos`; sin overflow horizontal.
+
+**Pendientes detectados:**
+- Definir el próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
+
 ## 2026-09-09 - Pulido de garabatos, chips y testimonios
 
 **Cambios realizados:**

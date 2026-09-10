@@ -612,35 +612,35 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
       >
         <path
           data-doodle-path
-          d={isHero ? "M-280 108 C-164 54 -48 58 42 94 C88 112 130 108 172 82" : "M90 170 C180 115 260 128 342 178 C444 240 512 220 604 146"}
+          d={isHero ? "M-280 108 C-164 54 -48 58 42 94 C88 112 130 108 172 82" : "M-230 146 C-114 82 2 88 92 130 C138 152 180 146 222 118"}
           stroke="#e73b90"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d={isHero ? "M1012 152 C1110 76 1258 94 1360 172 C1424 220 1474 224 1530 180" : "M986 150 C1060 96 1180 108 1264 174 C1326 224 1360 226 1408 188"}
+          d={isHero ? "M1012 152 C1110 76 1258 94 1360 172 C1424 220 1474 224 1530 180" : "M1340 236 C1434 172 1540 188 1628 248"}
           stroke="#71c1f0"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d={isHero ? "M-260 796 C-136 734 -28 764 84 824" : "M102 650 C196 604 298 620 392 674 C502 738 604 718 712 650"}
+          d={isHero ? "M-260 796 C-136 734 -28 764 84 824" : "M-240 774 C-104 690 26 704 154 768"}
           stroke="#f7c74d"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d={isHero ? "M1168 672 C1240 618 1318 626 1378 672 C1436 716 1480 696 1538 646" : "M1148 610 C1202 574 1268 578 1318 620 C1368 662 1398 648 1424 628"}
+          d={isHero ? "M1168 672 C1240 618 1318 626 1378 672 C1436 716 1480 696 1538 646" : "M1188 704 C1260 648 1342 654 1402 700 C1460 744 1504 724 1562 670"}
           stroke="currentColor"
           strokeWidth={isHero ? 1.6 : 1.1}
           strokeLinecap="round"
         />
         <path
           data-doodle-path
-          d={isHero ? "M1338 392 L1416 352 L1392 438 L1482 402" : "M1018 368 L1092 332 L1070 412 L1146 382"}
+          d={isHero ? "M1338 392 L1416 352 L1392 438 L1482 402" : "M1332 432 L1412 392 L1388 480 L1492 436"}
           stroke="#f7c74d"
           strokeWidth={isHero ? 2 : 1.4}
           strokeLinecap="round"
@@ -648,7 +648,7 @@ function CreativeBackdrop({ variant }: { variant: "hero" | "process" }) {
         />
         <path
           data-doodle-path
-          d={isHero ? "M-68 408 H76 M4 338 V478" : "M206 386 H324 M266 326 V446"}
+          d={isHero ? "M-68 408 H76 M4 338 V478" : "M-88 424 H58 M-14 350 V500"}
           stroke="#71c1f0"
           strokeWidth={isHero ? 1.8 : 1.2}
           strokeLinecap="round"
