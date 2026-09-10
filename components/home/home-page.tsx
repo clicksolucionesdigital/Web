@@ -59,6 +59,13 @@ type ServiceMapItem = {
   accent: Accent;
 };
 
+type WebIdea = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  accent: Accent;
+};
+
 type WorkflowStep = {
   icon: LucideIcon;
   title: string;
@@ -135,6 +142,33 @@ const homeServices: ServiceFeature[] = [
     chips: ["Piezas visuales", "Planillas", "Dashboards", "Diagnóstico", "Ruta de acción"],
     accent: "yellow",
     visual: "solutions",
+  },
+];
+
+const webIdeas: WebIdea[] = [
+  {
+    icon: Sparkles,
+    title: "Invitación + RSVP",
+    description: "Evento con mapa, agenda y confirmación simple para invitados.",
+    accent: "pink",
+  },
+  {
+    icon: Globe2,
+    title: "Catálogo digital",
+    description: "Productos o servicios ordenados para consultar y compartir rápido.",
+    accent: "cyan",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Reservas o turnos",
+    description: "Un camino claro para recibir pedidos con menos idas y vueltas.",
+    accent: "yellow",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Portfolio profesional",
+    description: "Trabajos, servicios y contacto listos para mostrar con criterio.",
+    accent: "pink",
   },
 ];
 
@@ -345,6 +379,12 @@ const accentTextStyles: Record<Accent, string> = {
   pink: "text-[#e73b90]",
   cyan: "text-[#1676aa]",
   yellow: "text-[#8f6410]",
+};
+
+const darkAccentStyles: Record<Accent, string> = {
+  pink: "bg-[#e73b90]/16 text-[#ff6bb5] ring-[#e73b90]/28",
+  cyan: "bg-[#71c1f0]/16 text-[#9bd8ff] ring-[#71c1f0]/28",
+  yellow: "bg-[#f7c74d]/18 text-[#ffd86d] ring-[#f7c74d]/28",
 };
 
 export function HomePage() {
@@ -935,7 +975,10 @@ function ServicesSection() {
         </div>
 
         <div className="mt-12 grid items-start gap-4 lg:grid-cols-[1.12fr_0.88fr]">
-          <ServiceFeatureCard service={homeServices[0]} featured />
+          <div className="grid gap-4">
+            <ServiceFeatureCard service={homeServices[0]} featured />
+            <WebIdeasCard />
+          </div>
           <div className="grid gap-4">
             {homeServices.slice(1).map((service) => (
               <ServiceFeatureCard key={service.title} service={service} />
@@ -982,6 +1025,55 @@ function ServicesSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function WebIdeasCard() {
+  return (
+    <article
+      data-card
+      className="web-ideas-card interactive-card group overflow-hidden rounded-[8px] border border-white/12 bg-[#11131a] p-6 text-white shadow-[0_24px_64px_rgba(17,19,26,0.16)]"
+    >
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div className="max-w-xl">
+          <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#71c1f0]">
+            También puede ser web
+          </span>
+          <h3 className="mt-3 font-heading text-3xl font-bold uppercase leading-none sm:text-4xl">
+            Una página no siempre es una plantilla.
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-white/68">
+            Podemos convertir una necesidad concreta en una experiencia simple de abrir, compartir y medir.
+          </p>
+        </div>
+        <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-[8px] bg-white/8 text-[#f7c74d] ring-1 ring-white/12 transition duration-300 group-hover:scale-110 group-hover:-rotate-3">
+          <WandSparkles className="size-5" aria-hidden="true" />
+        </span>
+      </div>
+
+      <ul className="mt-5 grid gap-x-6 sm:grid-cols-2">
+        {webIdeas.map((idea) => {
+          const IdeaIcon = idea.icon;
+
+          return (
+            <li key={idea.title} className="web-idea-row flex min-h-[104px] items-start gap-3 border-t border-white/10 py-4">
+              <span
+                className={cn(
+                  "web-idea-icon inline-flex size-9 shrink-0 items-center justify-center rounded-[8px] ring-1 transition duration-300",
+                  darkAccentStyles[idea.accent],
+                )}
+              >
+                <IdeaIcon className="size-4" aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-bold text-white">{idea.title}</span>
+                <span className="mt-1 block text-xs leading-5 text-white/58">{idea.description}</span>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </article>
   );
 }
 

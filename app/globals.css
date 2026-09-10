@@ -399,6 +399,41 @@ body {
     radial-gradient(circle at 100% 0%, rgba(113, 193, 240, 0.12), transparent 34%);
 }
 
+.web-ideas-card {
+  background:
+    linear-gradient(135deg, rgba(17, 19, 26, 0.98), rgba(31, 36, 50, 0.96)),
+    linear-gradient(115deg, rgba(231, 59, 144, 0.2), rgba(113, 193, 240, 0.14), rgba(247, 199, 77, 0.12)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 42px);
+}
+
+.web-ideas-card::after {
+  animation: web-route-flow 6.4s ease-in-out infinite alternate;
+  background: linear-gradient(90deg, rgba(231, 59, 144, 0), rgba(231, 59, 144, 0.9), rgba(113, 193, 240, 0.88), rgba(247, 199, 77, 0));
+  bottom: 1.1rem;
+  content: "";
+  height: 2px;
+  left: 1.5rem;
+  opacity: 0.64;
+  position: absolute;
+  transform-origin: left center;
+  width: min(22rem, calc(100% - 3rem));
+  z-index: 0;
+}
+
+.web-idea-row {
+  transition:
+    border-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.web-idea-icon {
+  transition:
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
 .interactive-card {
   isolation: isolate;
   position: relative;
@@ -551,6 +586,20 @@ body {
   }
 }
 
+@keyframes web-route-flow {
+  0% {
+    opacity: 0.38;
+    transform: translate3d(-8%, 0, 0) scaleX(0.62);
+  }
+  50% {
+    opacity: 0.78;
+  }
+  100% {
+    opacity: 0.58;
+    transform: translate3d(28%, 0, 0) scaleX(0.96);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .interactive-card:hover {
     border-color: color-mix(in srgb, var(--click-cyan) 42%, rgba(255, 255, 255, 0.2));
@@ -594,6 +643,16 @@ body {
   .interactive-card:hover .service-phone-preview {
     box-shadow: 0 24px 48px rgba(231, 59, 144, 0.18);
     transform: translate3d(-4px, -6px, 0) rotate(-1deg);
+  }
+
+  .web-idea-row:hover {
+    border-color: rgba(113, 193, 240, 0.32);
+    transform: translateX(4px);
+  }
+
+  .web-idea-row:hover .web-idea-icon {
+    box-shadow: 0 12px 24px rgba(113, 193, 240, 0.16);
+    transform: scale(1.08) rotate(-3deg);
   }
 
   .interactive-chip:hover,

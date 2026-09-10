@@ -1,5 +1,28 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Completar espacio de servicios web
+
+**Cambios realizados:**
+- Se agregó una card secundaria debajo de la entrada principal de `WEB` para completar el espacio vacío de la grilla de servicios.
+- La nueva card muestra usos concretos que también pueden resolverse como web: invitación con RSVP, catálogo digital, reservas o turnos y portfolio profesional.
+- Se sumó movimiento sutil de línea, hover en filas e íconos con acentos de marca para sostener dinamismo sin sobrecargar la sección.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual de la nueva card secundaria y del espacio debajo de `WEB`.
+
+**Pendientes detectados:**
+- Confirmar si estas ideas web se mantienen como ejemplos generales o se reemplazan por servicios/casos definitivos.
+
 ## 2026-09-10 - Profesionalización de card WEB y gráfico de soluciones
 
 **Cambios realizados:**

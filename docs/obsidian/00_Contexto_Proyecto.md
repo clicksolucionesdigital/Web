@@ -6,7 +6,7 @@ Reconstruir la web de Click Soluciones Digitales como sitio estático moderno, r
 
 ## Estado actual
 
-Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper. La última iteración rediseñó el apartado Servicios con tres entradas principales, mapa de cinco categorías, mockups visuales y más microinteracción.
+Etapa 1 iniciada el 2026-09-08, iterada visualmente el 2026-09-09 y publicada en GitHub Pages. Existe una nueva carpeta `click-github-pages` con una home desarrollada en Next.js, Tailwind, shadcn/ui, GSAP, Lenis, Lucide React y Swiper. La última iteración rediseñó el apartado Servicios con tres entradas principales, mapa de cinco categorías, mockups visuales, card secundaria de ideas web y más microinteracción.
 
 ## Stack técnico
 
@@ -41,6 +41,7 @@ npm run build
 - Animaciones de carga y scroll.
 - Hero sin logo duplicado, con ticker de servicios, mini cards diferenciados y garabatos de marca hacia bordes.
 - Servicios rediseñados con tres puertas principales (`WEB`, `IDENTIDAD`, `SOLUCIONES`), card `WEB` con mockup realista y mapa de cinco categorías completas.
+- Card secundaria debajo de `WEB` para mostrar variantes concretas como invitaciones, catálogos, reservas y portfolios, evitando espacio vacío en la grilla.
 - Sección `Cómo trabajamos` con garabatos desplazados hacia laterales para priorizar legibilidad.
 - Testimonios realistas por rubro en carrusel con flechas laterales alineadas a las tarjetas, pendientes de validación con nombres o frases definitivas.
 - Franja animada entre proceso y portfolio para sostener dinamismo durante el scroll.

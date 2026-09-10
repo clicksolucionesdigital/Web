@@ -20,6 +20,7 @@
 - Navbar fija con fondo oscuro translúcido.
 - Servicios con composición jerárquica: una entrada protagonista para web, una entrada para identidad y una entrada para soluciones complementarias.
 - Card protagonista de `WEB` con mockup de navegador, imagen realista, vista mobile superpuesta y señales de valor.
+- Card secundaria `También puede ser web` debajo de `WEB`, pensada para completar la grilla y mostrar variantes concretas como invitaciones, catálogos, reservas y portfolios.
 - Mapa secundario de cinco categorías completas para explicar la arquitectura comercial sin darles a todas el mismo peso visual.
 - Cards del mapa de servicios con número, título y descripción alineados verticalmente para lectura comparativa.
 - Ticker animado de servicios sobre franja oscura para sostener legibilidad al pasar al fondo claro.
@@ -42,6 +43,7 @@
 - CSS para microinteracciones hover en cards, chips, CTA, portfolio y testimonios.
 - CSS para mockups livianos de servicios, órbitas suaves y nodos conectados responsive.
 - Gráfico de `SOLUCIONES` con nodos en grilla para evitar superposición.
+- Línea animada y hover por fila en la card secundaria de ideas web.
 - CSS para garabatos de fondo con deriva suave y líneas animadas en CTA.
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
 - Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.
