@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { ReactLenis } from "lenis/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -96,10 +97,10 @@ type HeroSignal = {
 };
 
 const navItems = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Proceso", href: "/#proceso" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 function assetPath(path: string) {
@@ -511,7 +512,7 @@ function SiteNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/18 bg-[#11131a]/78 text-white shadow-[0_12px_40px_rgba(17,19,26,0.18)] backdrop-blur-xl">
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-3" aria-label="Cl!ck Soluciones Digitales">
+        <Link href="/" className="flex items-center gap-3" aria-label="Cl!ck Soluciones Digitales">
           <Image
             src={assetPath("/assets/brand/click-isotype.png")}
             alt=""
@@ -523,27 +524,27 @@ function SiteNav() {
           <span className="font-heading text-2xl font-bold uppercase leading-none">
             Cl!ck
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="text-sm font-medium text-white/78 transition hover:text-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <a
-          href="#contacto"
+        <Link
+          href="/#contacto"
           className="hidden h-10 items-center gap-2 rounded-[8px] bg-white px-4 text-sm font-bold text-[#11131a] transition hover:-translate-y-0.5 hover:bg-[#f7c74d] md:inline-flex"
         >
           Hablemos
           <ArrowRight className="size-4" aria-hidden="true" />
-        </a>
+        </Link>
 
         <Button
           type="button"
@@ -561,14 +562,14 @@ function SiteNav() {
         <div className="border-t border-white/10 bg-[#11131a]/96 px-4 md:hidden">
           <div className="flex flex-col gap-2 py-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="rounded-[8px] px-3 py-3 text-sm font-semibold text-white/82 transition hover:bg-white/8 hover:text-white"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -1542,12 +1543,12 @@ function ContactSection() {
                 Escribir ahora
                 <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
-              <a
-                href="#servicios"
+              <Link
+                href="/servicios"
                 className="interactive-chip dark-chip inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
               >
                 Explorar servicios
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -1560,7 +1561,7 @@ function Footer() {
   return (
     <footer className="border-t border-[#11131a]/8 bg-[#fbfbfe] py-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <a href="#inicio" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src={assetPath("/assets/brand/click-isotype.png")}
             alt=""
@@ -1569,12 +1570,12 @@ function Footer() {
             className="size-9 rounded-[8px] bg-white p-1 shadow-sm"
           />
           <span className="font-heading text-2xl font-bold uppercase">Cl!ck</span>
-        </a>
+        </Link>
         <div className="flex flex-wrap gap-4 text-sm font-semibold text-[#4c5364]">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="transition hover:text-[#e73b90]">
+            <Link key={item.href} href={item.href} className="transition hover:text-[#e73b90]">
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

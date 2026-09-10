@@ -6,8 +6,9 @@
 - [ ] Confirmar nombres, rubros y frases reales de testimonios antes de publicarlos como casos reales.
 - [ ] Elegir capturas definitivas de portfolio y nombres reales de proyectos publicables.
 - [ ] Definir si Blog será migrado como páginas estáticas o si se elimina del primer lanzamiento.
-- [ ] Crear páginas internas para Servicios, Nosotros, FAQ y Contacto.
-- [ ] Desarrollar `/servicios` con las cinco categorías completas y ejemplos visuales por servicio.
+- [ ] Crear páginas internas para Nosotros, FAQ y Contacto.
+- [ ] Pulir `/servicios` con textos definitivos, casos reales y capturas publicables.
+- [ ] Definir si cada categoría de servicio necesitará página individual más adelante.
 - [ ] Revisar textos finales con tono de marca.
 - [ ] Elevar portfolio con casos reales, métricas visuales y animaciones propias por proyecto.
 - [ ] Definir si se incorporará Lottie o Three.js en una sección puntual sin afectar rendimiento mobile.
@@ -23,6 +24,7 @@
 - [ ] Home con mapa de servicios alineado y copy ajustado lista para revisión visual del usuario.
 - [ ] Home con card `WEB` profesionalizada y gráfico de soluciones corregido lista para revisión visual.
 - [ ] Home con espacio de servicios web completado mediante card secundaria lista para revisión visual.
+- [ ] Página `/servicios` con cinco categorías ampliadas lista para revisión visual del usuario.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -41,3 +43,4 @@
 - [x] Ajustar copy y alineación interna del mapa de servicios - 2026-09-10.
 - [x] Mejorar card `WEB` con mockup realista y corregir gráfico superpuesto de `SOLUCIONES` - 2026-09-10.
 - [x] Completar espacio vacío debajo de `WEB` con una card secundaria de ideas web - 2026-09-10.
+- [x] Crear página interna `/servicios` con detalle ampliado por categoría - 2026-09-10.

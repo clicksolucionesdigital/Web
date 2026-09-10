@@ -34,6 +34,14 @@
 - CTA final fuerte con `Cl!ck` colorido, chips de avance y fondo en movimiento.
 - Footer simple.
 
+## Página Servicios
+
+- Página interna `/servicios` con hero propio, fondo visual oscuro, líneas de marca animadas y tablero de categorías.
+- Mapa rápido con cinco accesos internos: Web & Soluciones Digitales, Identidad Visual, Diseño & Comunicación Visual, Herramientas Digitales y Asesoría Digital.
+- Cada categoría se desarrolla con bloque amplio, ícono, descripción, listas `Ideal para`, `Qué incluye`, resultado esperado, ejemplos y visual con imagen.
+- Guía de decisión en sección oscura para orientar usuarios que todavía no saben qué servicio elegir.
+- CTA final para llevar el tráfico de servicios hacia contacto o volver a la home.
+
 ## Animaciones
 
 - GSAP para fade, slide, scale, stagger y scroll-trigger.
@@ -44,6 +52,7 @@
 - CSS para mockups livianos de servicios, órbitas suaves y nodos conectados responsive.
 - Gráfico de `SOLUCIONES` con nodos en grilla para evitar superposición.
 - Línea animada y hover por fila en la card secundaria de ideas web.
+- Página `/servicios` con entrada GSAP, scroll-trigger por bloques, flotación suave de tablero y hover en mapa/listas/visuales.
 - CSS para garabatos de fondo con deriva suave y líneas animadas en CTA.
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
 - Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.
@@ -54,6 +63,7 @@
 - Mobile-first con menú hamburguesa.
 - Hero mobile compactado; el mockup principal se muestra desde tablet/escritorio para no sobrecargar celular.
 - Grillas colapsan a una columna en celular.
+- En `/servicios`, el tablero visual del hero se oculta en mobile y las categorías pasan a lectura lineal.
 
 ## Criterios pendientes
 

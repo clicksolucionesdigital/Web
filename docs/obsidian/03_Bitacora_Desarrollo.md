@@ -1,5 +1,35 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Página interna de Servicios
+
+**Cambios realizados:**
+- Se creó la ruta estática `/servicios` para ampliar la explicación de servicios fuera de la home.
+- Se diseñó una página con hero propio, mapa rápido, cinco bloques detallados, guía de decisión y CTA final.
+- Se desarrolló contenido inicial para Web & Soluciones Digitales, Identidad Visual, Diseño & Comunicación Visual, Herramientas Digitales y Asesoría Digital.
+- Se actualizó la navbar de la home para que `Servicios` abra `/servicios` y los demás enlaces vuelvan a secciones de la home.
+- Se agregaron estilos y animaciones sutiles para la página nueva, reutilizando colores, tipografía, assets y patrones visuales de Cl!ck.
+
+**Archivos modificados:**
+- app/servicios/page.tsx
+- components/services/services-page.tsx
+- components/home/home-page.tsx
+- app/globals.css
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto. El build generó `/servicios`.
+- Playwright desktop y mobile: revisión visual de hero, mapa rápido, detalle de servicios y guía de decisión.
+- `Invoke-WebRequest http://127.0.0.1:5173/servicios/`: `200`.
+
+**Pendientes detectados:**
+- Reemplazar ejemplos genéricos por casos reales publicables cuando estén definidos.
+- Revisar con el usuario si conviene crear páginas individuales para cada servicio más adelante.
+
 ## 2026-09-10 - Completar espacio de servicios web
 
 **Cambios realizados:**

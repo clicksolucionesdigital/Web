@@ -1,5 +1,26 @@
 # Decisiones Técnicas
 
+## 2026-09-10 - Página interna de servicios
+
+**Decisión:**
+Crear `/servicios` como primera página interna del sitio, manteniendo la home como resumen visual y usando la página nueva para explicar cada categoría con más detalle.
+
+**Motivo:**
+La web no debe sentirse como una landing de una sola pantalla. Servicios necesita más profundidad comercial para que el usuario entienda opciones, casos de uso y resultados esperados.
+
+**Impacto:**
+La navbar pasa a navegar a `/servicios`; los links a Proceso, Proyectos y Contacto vuelven a las secciones de la home. El export estático ahora genera también la ruta `/servicios/`.
+
+**Alternativas consideradas:**
+- Expandir demasiado la sección Servicios dentro de la home.
+- Crear páginas separadas por cada servicio desde el primer momento.
+
+**Archivos relacionados:**
+- app/servicios/page.tsx
+- components/services/services-page.tsx
+- components/home/home-page.tsx
+- app/globals.css
+
 ## 2026-09-10 - Arquitectura comercial de servicios en home
 
 **Decisión:**  
