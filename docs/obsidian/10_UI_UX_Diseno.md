@@ -20,6 +20,7 @@
 - Navbar fija con fondo oscuro translúcido.
 - Servicios con composición jerárquica: una entrada protagonista para web, una entrada para identidad y una entrada para soluciones complementarias.
 - Mapa secundario de cinco categorías completas para explicar la arquitectura comercial sin darles a todas el mismo peso visual.
+- Cards del mapa de servicios con número, título y descripción alineados verticalmente para lectura comparativa.
 - Ticker animado de servicios sobre franja oscura para sostener legibilidad al pasar al fondo claro.
 - Proceso en sección oscura con pasos, etiquetas de capacidades y fondo creativo sutil sin división dura en dos colores.
 - Garabatos de la sección proceso ubicados hacia los bordes para no tapar título, texto ni cards.

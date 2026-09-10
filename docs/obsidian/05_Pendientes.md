@@ -10,6 +10,7 @@
 - [ ] Desarrollar `/servicios` con las cinco categorías completas y ejemplos visuales por servicio.
 - [ ] Revisar textos finales con tono de marca.
 - [ ] Elevar portfolio con casos reales, métricas visuales y animaciones propias por proyecto.
+- [ ] Profesionalizar la entrada principal de `WEB` con capturas, mockups o una composición visual más realista.
 - [ ] Definir si se incorporará Lottie o Three.js en una sección puntual sin afectar rendimiento mobile.
 
 ## En revisión
@@ -20,6 +21,7 @@
 - [ ] Home con carrusel de testimonios, rail animado y correcciones de contraste lista para revisión del usuario.
 - [ ] Home con flechas laterales de testimonios lista para revisión visual del usuario.
 - [ ] Home con apartado Servicios rediseñado según estructura Click 2.0 lista para revisión visual del usuario.
+- [ ] Home con mapa de servicios alineado y copy ajustado lista para revisión visual del usuario.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -35,3 +37,4 @@
 - [x] Mover garabatos del proceso hacia los bordes para mejorar legibilidad - 2026-09-10.
 - [x] Reubicar flechas del carrusel de testimonios a los laterales de las tarjetas - 2026-09-10.
 - [x] Rediseñar el apartado Servicios con tres entradas principales y mapa de cinco categorías - 2026-09-10.
+- [x] Ajustar copy y alineación interna del mapa de servicios - 2026-09-10.

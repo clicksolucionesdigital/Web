@@ -1,5 +1,25 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Ajuste de copy y alineación en mapa de servicios
+
+**Cambios realizados:**
+- Se reemplazó el texto explicativo del mapa de servicios por una frase más orientada al usuario y a sus objetivos.
+- Se ajustó la estructura interna de las cards del mapa para alinear número, título y descripción en un eje visual consistente.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual del mapa de servicios alineado.
+
+**Pendientes detectados:**
+- Profesionalizar la entrada principal de `WEB` con recursos visuales más reales o mockups más específicos.
+
 ## 2026-09-10 - Rediseño del apartado Servicios
 
 **Cambios realizados:**

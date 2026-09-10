@@ -952,7 +952,7 @@ function ServicesSection() {
               </h3>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[#5d6474]">
-              En la home priorizamos tres puertas de entrada, pero detrás está la estructura completa para elegir el camino más útil.
+              Elegí el camino que mejor acompaña tu objetivo: crear presencia, ordenar información, mejorar tu imagen o saber por dónde empezar.
             </p>
           </div>
 
@@ -966,16 +966,16 @@ function ServicesSection() {
                   accentBorderStyles[item.accent],
                 )}
               >
-                <div className="mb-5 flex items-center justify-between gap-4">
+                <div className="mb-5 flex min-h-[2.25rem] items-center justify-between gap-4">
                   <span className={cn("font-heading text-4xl font-bold leading-none opacity-80", accentTextStyles[item.accent])}>
                     {item.number}
                   </span>
                   <span className="h-px flex-1 brand-gradient opacity-50" aria-hidden="true" />
                 </div>
-                <h4 className="font-heading text-2xl font-bold uppercase leading-none text-[#11131a]">
+                <h4 className="min-h-[3.4rem] font-heading text-2xl font-bold uppercase leading-none text-[#11131a] md:min-h-[4.6rem]">
                   {item.title}
                 </h4>
-                <p className="mt-4 text-sm leading-6 text-[#5d6474]">{item.description}</p>
+                <p className="mt-4 flex-1 text-sm leading-6 text-[#5d6474]">{item.description}</p>
               </li>
             ))}
           </ol>
