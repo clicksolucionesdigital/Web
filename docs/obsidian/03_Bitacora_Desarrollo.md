@@ -1,5 +1,30 @@
 # Bitácora de Desarrollo
 
+## 2026-09-10 - Reubicación de flechas en testimonios
+
+**Cambios realizados:**
+- Se movieron las flechas del carrusel de testimonios desde el encabezado hacia los laterales del área de tarjetas.
+- En escritorio, cada flecha queda alineada con el borde de las cards; en mobile, bajan al pie del carrusel para no tapar contenido.
+- Se agregó el ancla `#testimonios` para poder revisar y enlazar directamente esta sección.
+- Se ignoró la carpeta local `.tmp-screenshots/`, usada únicamente para capturas temporales de QA visual.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- app/globals.css
+- .gitignore
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+- docs/obsidian/00_Contexto_Proyecto.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto.
+- Playwright desktop y mobile: revisión visual de flechas del carrusel en la sección `#testimonios`.
+
+**Pendientes detectados:**
+- Definir el próximo apartado a profundizar: servicios, portfolio/casos, contacto, nosotros o páginas internas.
+
 ## 2026-09-10 - Ajuste de garabatos en proceso
 
 **Cambios realizados:**

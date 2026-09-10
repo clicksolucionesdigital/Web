@@ -26,7 +26,7 @@
 - Línea de color hover en proceso separada del ícono para evitar ruido visual.
 - Franja animada posterior al proceso para mantener movimiento visual en el scroll.
 - Portfolio con Swiper, cards blancas y copy orientado a trabajos realizados.
-- Testimonios en carrusel con flechas, paginación y cards de altura consistente, redactados como ejemplos realistas por tipo de proyecto.
+- Testimonios en carrusel con flechas laterales alineadas a las tarjetas, paginación y cards de altura consistente, redactados como ejemplos realistas por tipo de proyecto.
 - CTA final fuerte con `Cl!ck` colorido, chips de avance y fondo en movimiento.
 - Footer simple.
 
@@ -39,7 +39,7 @@
 - CSS para microinteracciones hover en cards, chips, CTA, portfolio y testimonios.
 - CSS para garabatos de fondo con deriva suave y líneas animadas en CTA.
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
-- Carrusel de testimonios con Swiper Navigation y Pagination.
+- Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.
 - Se respeta `prefers-reduced-motion`.
 
 ## Responsive

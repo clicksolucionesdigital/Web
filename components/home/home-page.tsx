@@ -1052,39 +1052,36 @@ function ProjectCard({ project }: { project: Project }) {
 
 function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fbfbfe] py-20 sm:py-24">
+    <section id="testimonios" className="relative scroll-mt-24 overflow-hidden bg-[#fbfbfe] py-20 sm:py-24">
       <div className="grid-fade absolute inset-x-0 top-0 h-80 opacity-[0.58]" aria-hidden="true" />
       <SoftSectionDoodles />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeader
-            eyebrow="Testimonios"
-            title={
-              <>
-                Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
-              </>
-            }
-            description="Webs, planillas, invitaciones, piezas impresas, ecommerce e identidad visual pensadas para objetivos distintos."
-          />
-          <div data-reveal className="flex gap-2">
-            <button
-              type="button"
-              className="testimonials-prev testimonial-nav"
-              aria-label="Ver testimonio anterior"
-            >
-              <ChevronLeft className="size-5" aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              className="testimonials-next testimonial-nav"
-              aria-label="Ver testimonio siguiente"
-            >
-              <ChevronRight className="size-5" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
+        <SectionHeader
+          eyebrow="Testimonios"
+          title={
+            <>
+              Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
+            </>
+          }
+          description="Webs, planillas, invitaciones, piezas impresas, ecommerce e identidad visual pensadas para objetivos distintos."
+        />
 
-        <div data-reveal className="mt-12">
+        <div data-reveal className="relative mt-12">
+          <button
+            type="button"
+            className="testimonials-prev testimonial-nav testimonial-nav-edge testimonial-nav-left"
+            aria-label="Ver testimonio anterior"
+          >
+            <ChevronLeft className="size-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="testimonials-next testimonial-nav testimonial-nav-edge testimonial-nav-right"
+            aria-label="Ver testimonio siguiente"
+          >
+            <ChevronRight className="size-5" aria-hidden="true" />
+          </button>
+
           <Swiper
             modules={[Autoplay, Pagination, A11y, Navigation]}
             spaceBetween={18}
@@ -1099,7 +1096,7 @@ function TestimonialsSection() {
               760: { slidesPerView: 2 },
               1160: { slidesPerView: 3 },
             }}
-            className="testimonial-swiper !pb-12"
+            className="testimonial-swiper !px-0 !pb-16 md:!px-14 md:!pb-12"
           >
             {testimonials.map((item) => (
               <SwiperSlide key={item.project} className="!h-auto">

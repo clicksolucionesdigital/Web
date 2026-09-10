@@ -17,6 +17,7 @@
 - [ ] Home con pulido de legibilidad/interactividad lista para revisión del usuario.
 - [ ] Home con ajustes de hero, testimonios y CTA lista para revisión del usuario.
 - [ ] Home con carrusel de testimonios, rail animado y correcciones de contraste lista para revisión del usuario.
+- [ ] Home con flechas laterales de testimonios lista para revisión visual del usuario.
 - [ ] Definir próximo apartado a profundizar: servicios, portfolio/casos, contacto o páginas internas.
 
 ## Resueltos
@@ -30,3 +31,4 @@
 - [x] Agregar slider de testimonios con flechas y ocho casos variados - 2026-09-09.
 - [x] Corregir contraste hover de chips en fondos oscuros - 2026-09-09.
 - [x] Mover garabatos del proceso hacia los bordes para mejorar legibilidad - 2026-09-10.
+- [x] Reubicar flechas del carrusel de testimonios a los laterales de las tarjetas - 2026-09-10.

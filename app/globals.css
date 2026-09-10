@@ -340,6 +340,20 @@ body {
   width: 44px;
 }
 
+.testimonial-nav-edge {
+  position: absolute;
+  top: 44%;
+  z-index: 20;
+}
+
+.testimonial-nav-left {
+  left: 0;
+}
+
+.testimonial-nav-right {
+  right: 0;
+}
+
 .testimonial-nav.swiper-button-disabled {
   cursor: not-allowed;
   opacity: 0.42;
@@ -480,6 +494,21 @@ body {
 
   .motion-rail-track:hover {
     animation-play-state: paused;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-nav-edge {
+    bottom: 0;
+    top: auto;
+  }
+
+  .testimonial-nav-left {
+    left: 0;
+  }
+
+  .testimonial-nav-right {
+    right: 0;
   }
 }
 
