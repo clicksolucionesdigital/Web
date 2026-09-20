@@ -1,0 +1,67 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#EEF8FF"/>
+  <g opacity="0.55">
+    <path d="M0 80H1600M0 160H1600M0 240H1600M0 320H1600M0 400H1600M0 480H1600M0 560H1600M0 640H1600M0 720H1600M0 800H1600M0 880H1600M80 0V1000M160 0V1000M240 0V1000M320 0V1000M400 0V1000M480 0V1000M560 0V1000M640 0V1000M720 0V1000M800 0V1000M880 0V1000M960 0V1000M1040 0V1000M1120 0V1000M1200 0V1000M1280 0V1000M1360 0V1000M1440 0V1000M1520 0V1000" stroke="#D5EAF7"/>
+  </g>
+  <rect x="164" y="112" width="1272" height="760" rx="28" fill="#11131A" filter="url(#shadow)"/>
+  <rect x="202" y="156" width="1196" height="674" rx="18" fill="#FBFBFE"/>
+  <rect x="202" y="156" width="1196" height="76" rx="18" fill="white"/>
+  <circle cx="246" cy="194" r="11" fill="#E73B90"/>
+  <circle cx="280" cy="194" r="11" fill="#F7C74D"/>
+  <circle cx="314" cy="194" r="11" fill="#71C1F0"/>
+  <rect x="358" y="181" width="214" height="24" rx="12" fill="#E7EDF4"/>
+  <rect x="1038" y="178" width="92" height="30" rx="15" fill="#FCE6F3"/>
+  <rect x="1150" y="178" width="116" height="30" rx="15" fill="#E5F4FE"/>
+  <rect x="1286" y="178" width="70" height="30" rx="15" fill="#11131A"/>
+  <path d="M202 232H1398" stroke="#E1E8F0"/>
+  <g transform="translate(262 292)">
+    <rect width="474" height="302" rx="18" fill="#11131A"/>
+    <path d="M0 0H474V8H0V0Z" fill="url(#brand)"/>
+    <rect x="44" y="56" width="92" height="12" rx="6" fill="#F7C74D"/>
+    <rect x="44" y="92" width="324" height="28" rx="14" fill="white"/>
+    <rect x="44" y="136" width="270" height="28" rx="14" fill="white"/>
+    <rect x="44" y="194" width="132" height="48" rx="10" fill="#E73B90"/>
+    <rect x="194" y="194" width="118" height="48" rx="10" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.18"/>
+    <rect x="44" y="266" width="340" height="8" rx="4" fill="white" fill-opacity="0.14"/>
+    <rect x="44" y="266" width="250" height="8" rx="4" fill="url(#brand)"/>
+  </g>
+  <g transform="translate(788 292)">
+    <rect width="420" height="302" rx="18" fill="#E7F5FF"/>
+    <circle cx="210" cy="126" r="70" fill="white"/>
+    <path d="M170 132C184 102 238 102 252 132" stroke="#71C1F0" stroke-width="18" stroke-linecap="round"/>
+    <path d="M176 176C198 204 230 204 250 176" stroke="#E73B90" stroke-width="18" stroke-linecap="round"/>
+    <rect x="72" y="228" width="278" height="16" rx="8" fill="#C9D8E4"/>
+    <rect x="120" y="258" width="180" height="14" rx="7" fill="#DCE6EE"/>
+  </g>
+  <g transform="translate(262 636)">
+    <rect width="292" height="132" rx="16" fill="white" stroke="#DDE7EF"/>
+    <circle cx="52" cy="44" r="18" fill="#FCE6F3"/>
+    <rect x="86" y="34" width="142" height="18" rx="9" fill="#11131A"/>
+    <rect x="40" y="82" width="204" height="12" rx="6" fill="#DCE6EE"/>
+    <rect x="40" y="106" width="142" height="12" rx="6" fill="#DCE6EE"/>
+  </g>
+  <g transform="translate(584 636)">
+    <rect width="292" height="132" rx="16" fill="white" stroke="#DDE7EF"/>
+    <circle cx="52" cy="44" r="18" fill="#E5F4FE"/>
+    <rect x="86" y="34" width="126" height="18" rx="9" fill="#11131A"/>
+    <rect x="40" y="82" width="204" height="12" rx="6" fill="#DCE6EE"/>
+    <rect x="40" y="106" width="120" height="12" rx="6" fill="#DCE6EE"/>
+  </g>
+  <g transform="translate(906 636)">
+    <rect width="292" height="132" rx="16" fill="white" stroke="#DDE7EF"/>
+    <circle cx="52" cy="44" r="18" fill="#FFF3CC"/>
+    <rect x="86" y="34" width="154" height="18" rx="9" fill="#11131A"/>
+    <rect x="40" y="82" width="204" height="12" rx="6" fill="#DCE6EE"/>
+    <rect x="40" y="106" width="132" height="12" rx="6" fill="#DCE6EE"/>
+  </g>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#E73B90"/>
+      <stop offset="0.52" stop-color="#71C1F0"/>
+      <stop offset="1" stop-color="#F7C74D"/>
+    </linearGradient>
+    <filter id="shadow" x="94" y="56" width="1412" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#11131A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+</svg>

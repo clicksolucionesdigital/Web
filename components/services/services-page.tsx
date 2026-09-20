@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { TopAwareLink as Link } from "@/components/top-aware-link";
 import { ReactLenis } from "lenis/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -27,6 +27,8 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { ScrollToTopButton } from "@/components/scroll-to-top-button";
+import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -59,8 +61,9 @@ type ChoiceCard = {
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios" },
-  { label: "Proyectos", href: "/#proyectos" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 const serviceDetails: ServiceDetail[] = [
@@ -96,7 +99,7 @@ const serviceDetails: ServiceDetail[] = [
     eyebrow: "Identidad visual",
     title: "Una marca reconocible, prolija y fácil de aplicar.",
     description:
-      "Creamos una base visual coherente para que tu proyecto tenga personalidad y pueda verse consistente en web, redes, piezas impresas y presentaciones.",
+      "Creamos una base visual coherente para que tu proyecto tenga personalidad y pueda verse consistente en web, redes, piezas digitales y presentaciones.",
     idealFor: [
       "Emprendimientos que empiezan desde cero.",
       "Marcas que ya existen pero se ven desordenadas.",
@@ -121,7 +124,7 @@ const serviceDetails: ServiceDetail[] = [
     eyebrow: "Diseño & comunicación visual",
     title: "Piezas que presentan mejor lo que vendés o querés contar.",
     description:
-      "Transformamos información suelta en materiales visuales claros: folletos, presentaciones, propuestas, catálogos y piezas para comunicar con más impacto.",
+      "Transformamos información suelta en materiales visuales claros: PDFs, presentaciones, propuestas, catálogos y piezas digitales para comunicar con más impacto.",
     idealFor: [
       "Negocios que necesitan explicar servicios.",
       "Equipos comerciales que presentan propuestas.",
@@ -129,12 +132,12 @@ const serviceDetails: ServiceDetail[] = [
     ],
     includes: [
       "Organización de contenido y jerarquía visual.",
-      "Diseño de piezas digitales o listas para imprimir.",
+      "Diseño de piezas digitales listas para compartir.",
       "Adaptación a formatos de presentación, redes o envío.",
     ],
     outcome:
       "Materiales listos para mostrar, vender, presentar o dejar en manos de un cliente sin perder claridad.",
-    examples: ["Folleto institucional", "Presentación", "Catálogo", "Tarjetas comerciales"],
+    examples: ["PDF institucional", "Presentación", "Catálogo", "Tarjetas digitales"],
     image: "/assets/images/tablet-work.jpg",
     imageAlt: "Mesa de trabajo con tablet y piezas visuales digitales",
     accent: "yellow",
@@ -297,7 +300,8 @@ export function ServicesPage() {
         <ServiceDetails />
         <ServiceDecisionGuide />
         <ServicesCta />
-        <ServicesFooter />
+        <SiteFooter />
+        <ScrollToTopButton />
       </main>
     </ReactLenis>
   );
@@ -337,7 +341,7 @@ function ServicesNav() {
         </div>
 
         <Link
-          href="/#contacto"
+          href="/contacto#brief"
           className="hidden h-10 items-center gap-2 rounded-[8px] bg-white px-4 text-sm font-bold text-[#11131a] transition hover:-translate-y-0.5 hover:bg-[#f7c74d] md:inline-flex"
         >
           Hablemos
@@ -422,7 +426,7 @@ function ServicesHero() {
               <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
             <Link
-              href="/#contacto"
+              href="/contacto#brief"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/9 px-5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/16"
             >
               Contame tu idea
@@ -561,7 +565,7 @@ function ServiceDetailBlock({ service, index }: { service: ServiceDetail; index:
           </div>
 
           <Link
-            href="/#contacto"
+            href="/contacto#brief"
             className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-[#11131a] px-5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(17,19,26,0.16)] transition hover:-translate-y-1 hover:bg-[#e73b90] hover:shadow-[0_18px_36px_rgba(231,59,144,0.24)]"
           >
             Consultar este servicio
@@ -623,12 +627,14 @@ function ServiceShowcase({ service, index }: { service: ServiceDetail; index: nu
 
       <div className="relative z-10 border-t border-white/12 bg-[#11131a] p-5 text-white">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/54">Formatos posibles</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {service.examples.map((example) => (
-            <span key={example} className="interactive-chip dark-chip rounded-full border border-white/12 bg-white/10 px-3 py-2 text-xs font-bold text-white/84 shadow-sm">
-              {example}
-            </span>
-          ))}
+        <div className="mt-3 overflow-x-auto pb-1">
+          <div className="flex min-w-max flex-nowrap gap-2">
+            {service.examples.map((example) => (
+              <span key={example} className="interactive-chip dark-chip shrink-0 whitespace-nowrap rounded-full border border-white/12 bg-white/10 px-2.5 py-2 text-[11px] font-bold text-white/84 shadow-sm">
+                {example}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="mt-4 rounded-[8px] border border-white/14 bg-white/8 p-4 text-white backdrop-blur">
@@ -730,11 +736,11 @@ function ServicesCta() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <Link
-                href="/#contacto"
+                href="/contacto#brief"
                 className="service-final-button service-final-primary inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-white px-5 text-sm font-bold text-[#11131a] shadow-[0_18px_36px_rgba(255,255,255,0.16)]"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                Escribir ahora
+                Completar brief
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
@@ -797,31 +803,5 @@ function ServiceSideDoodles({ dark = false, cardDecor = false }: { dark?: boolea
         />
       </svg>
     </div>
-  );
-}
-
-function ServicesFooter() {
-  return (
-    <footer className="border-t border-[#11131a]/8 bg-[#fbfbfe] py-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src={assetPath("/assets/brand/click-isotype.png")}
-            alt=""
-            width={36}
-            height={36}
-            className="size-9 rounded-[8px] bg-white p-1 shadow-sm"
-          />
-          <span className="font-heading text-2xl font-bold uppercase">Cl!ck</span>
-        </Link>
-        <div className="flex flex-wrap gap-4 text-sm font-semibold text-[#4c5364]">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-[#e73b90]">
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </footer>
   );
 }

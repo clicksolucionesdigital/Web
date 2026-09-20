@@ -1,0 +1,68 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#F7F9FC"/>
+  <rect x="180" y="118" width="1240" height="764" rx="30" fill="#11131A" filter="url(#shadow)"/>
+  <rect x="222" y="162" width="1156" height="676" rx="18" fill="#FBFBFE"/>
+  <rect x="222" y="162" width="1156" height="74" rx="18" fill="white"/>
+  <circle cx="268" cy="199" r="10" fill="#E73B90"/>
+  <circle cx="300" cy="199" r="10" fill="#F7C74D"/>
+  <circle cx="332" cy="199" r="10" fill="#71C1F0"/>
+  <rect x="382" y="187" width="188" height="22" rx="11" fill="#E6EDF5"/>
+  <rect x="1034" y="185" width="96" height="28" rx="14" fill="#FCE6F3"/>
+  <rect x="1148" y="185" width="96" height="28" rx="14" fill="#E5F4FE"/>
+  <rect x="1262" y="185" width="70" height="28" rx="14" fill="#F7C74D"/>
+  <path d="M222 236H1378" stroke="#E1E8F0"/>
+  <g transform="translate(280 292)">
+    <rect width="410" height="422" rx="18" fill="#11131A"/>
+    <path d="M0 0H410V8H0V0Z" fill="url(#brand)"/>
+    <rect x="42" y="58" width="84" height="12" rx="6" fill="#F7C74D"/>
+    <rect x="42" y="100" width="292" height="34" rx="17" fill="white"/>
+    <rect x="42" y="154" width="238" height="34" rx="17" fill="white"/>
+    <rect x="42" y="226" width="116" height="48" rx="10" fill="#E73B90"/>
+    <rect x="176" y="226" width="112" height="48" rx="10" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.18"/>
+    <rect x="42" y="334" width="326" height="12" rx="6" fill="white" fill-opacity="0.12"/>
+    <rect x="42" y="334" width="244" height="12" rx="6" fill="url(#brand)"/>
+    <rect x="42" y="370" width="108" height="18" rx="9" fill="white" fill-opacity="0.2"/>
+    <rect x="168" y="370" width="88" height="18" rx="9" fill="white" fill-opacity="0.2"/>
+  </g>
+  <g transform="translate(740 292)">
+    <rect width="248" height="188" rx="16" fill="white" stroke="#DDE7EF"/>
+    <rect x="26" y="28" width="44" height="44" rx="12" fill="#FCE6F3"/>
+    <rect x="26" y="98" width="152" height="18" rx="9" fill="#11131A"/>
+    <rect x="26" y="132" width="194" height="12" rx="6" fill="#DCE6EE"/>
+    <rect x="26" y="158" width="132" height="12" rx="6" fill="#DCE6EE"/>
+  </g>
+  <g transform="translate(1030 292)">
+    <rect width="248" height="188" rx="16" fill="white" stroke="#DDE7EF"/>
+    <rect x="26" y="28" width="44" height="44" rx="12" fill="#E5F4FE"/>
+    <rect x="26" y="98" width="138" height="18" rx="9" fill="#11131A"/>
+    <rect x="26" y="132" width="194" height="12" rx="6" fill="#DCE6EE"/>
+    <rect x="26" y="158" width="116" height="12" rx="6" fill="#DCE6EE"/>
+  </g>
+  <g transform="translate(740 526)">
+    <rect width="538" height="188" rx="16" fill="white" stroke="#DDE7EF"/>
+    <rect x="34" y="34" width="174" height="18" rx="9" fill="#11131A"/>
+    <rect x="34" y="80" width="470" height="12" rx="6" fill="#E6EDF5"/>
+    <rect x="34" y="80" width="338" height="12" rx="6" fill="url(#brand)"/>
+    <g transform="translate(34 120)">
+      <rect width="132" height="42" rx="10" fill="#FCE6F3"/>
+      <rect x="158" width="132" height="42" rx="10" fill="#E5F4FE"/>
+      <rect x="316" width="132" height="42" rx="10" fill="#FFF3CC"/>
+      <circle cx="32" cy="21" r="9" fill="#E73B90"/>
+      <circle cx="190" cy="21" r="9" fill="#71C1F0"/>
+      <circle cx="348" cy="21" r="9" fill="#F7C74D"/>
+      <rect x="52" y="16" width="54" height="10" rx="5" fill="#11131A" fill-opacity="0.68"/>
+      <rect x="210" y="16" width="54" height="10" rx="5" fill="#11131A" fill-opacity="0.68"/>
+      <rect x="368" y="16" width="54" height="10" rx="5" fill="#11131A" fill-opacity="0.68"/>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#E73B90"/>
+      <stop offset="0.52" stop-color="#71C1F0"/>
+      <stop offset="1" stop-color="#F7C74D"/>
+    </linearGradient>
+    <filter id="shadow" x="110" y="62" width="1380" height="904" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#11131A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+</svg>

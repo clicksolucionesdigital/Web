@@ -1,0 +1,115 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="identityBg" x1="120" y1="80" x2="1480" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F4FA"/>
+      <stop offset="0.48" stop-color="#EEF8FC"/>
+      <stop offset="1" stop-color="#FFF8E6"/>
+    </linearGradient>
+    <linearGradient id="identityAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#E73B90"/>
+      <stop offset="0.52" stop-color="#71C1F0"/>
+      <stop offset="1" stop-color="#F7C74D"/>
+    </linearGradient>
+    <pattern id="identityGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#283543" stroke-opacity="0.055"/>
+    </pattern>
+    <filter id="identityShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#1C2630" flood-opacity="0.15"/>
+    </filter>
+    <filter id="identitySoftShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="13" flood-color="#1C2630" flood-opacity="0.11"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#identityBg)"/>
+  <rect width="1600" height="1000" fill="url(#identityGrid)"/>
+  <path d="M-110 302C244 184 360 214 612 84" stroke="#E73B90" stroke-opacity="0.22" stroke-width="7"/>
+  <path d="M1096 972C1274 806 1436 786 1702 702" stroke="#71C1F0" stroke-opacity="0.28" stroke-width="7"/>
+
+  <g filter="url(#identityShadow)">
+    <rect x="145" y="115" width="1310" height="770" rx="24" fill="#FCFCFE"/>
+  </g>
+  <rect x="145.5" y="115.5" width="1309" height="769" rx="23.5" stroke="#11131A" stroke-opacity="0.09"/>
+  <rect x="145" y="115" width="1310" height="72" rx="24" fill="#11131A"/>
+  <rect x="145" y="162" width="1310" height="25" fill="#11131A"/>
+  <circle cx="184" cy="151" r="8" fill="#E73B90"/>
+  <circle cx="210" cy="151" r="8" fill="#F7C74D"/>
+  <circle cx="236" cy="151" r="8" fill="#71C1F0"/>
+  <text x="270" y="158" fill="white" fill-opacity="0.58" font-family="Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2">SISTEMA DE IDENTIDAD VISUAL</text>
+  <rect x="1214" y="136" width="192" height="32" rx="16" fill="white" fill-opacity="0.1"/>
+  <text x="1256" y="157" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="800">GUÍA DE MARCA</text>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="181" y="223" width="598" height="405" rx="18" fill="#171922"/>
+  </g>
+  <text x="219" y="265" fill="#FFFFFF" fill-opacity="0.52" font-family="Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2">LOGO PRINCIPAL</text>
+  <g transform="translate(330 315)">
+    <rect x="0" y="0" width="300" height="218" rx="28" fill="#232631"/>
+    <circle cx="150" cy="102" r="70" stroke="url(#identityAccent)" stroke-width="18"/>
+    <path d="M103 116C128 79 172 76 200 112" stroke="white" stroke-width="17" stroke-linecap="round"/>
+    <circle cx="101" cy="117" r="12" fill="#E73B90"/>
+    <circle cx="201" cy="112" r="12" fill="#F7C74D"/>
+    <path d="M150 24V54" stroke="#71C1F0" stroke-width="12" stroke-linecap="round"/>
+    <text x="74" y="197" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="5">MARCA</text>
+  </g>
+  <rect x="213" y="568" width="532" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.08"/>
+  <rect x="213" y="568" width="192" height="26" rx="13" fill="url(#identityAccent)"/>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="813" y="223" width="606" height="184" rx="18" fill="white"/>
+  </g>
+  <text x="849" y="263" fill="#6A7180" font-family="Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2">PALETA PRINCIPAL</text>
+  <rect x="849" y="289" width="118" height="82" rx="12" fill="#E73B90"/>
+  <rect x="983" y="289" width="118" height="82" rx="12" fill="#71C1F0"/>
+  <rect x="1117" y="289" width="118" height="82" rx="12" fill="#F7C74D"/>
+  <rect x="1251" y="289" width="132" height="82" rx="12" fill="#11131A"/>
+  <text x="861" y="356" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="800">ROSA</text>
+  <text x="995" y="356" fill="#173041" font-family="Arial, sans-serif" font-size="11" font-weight="800">CELESTE</text>
+  <text x="1129" y="356" fill="#574416" font-family="Arial, sans-serif" font-size="11" font-weight="800">AMARILLO</text>
+  <text x="1263" y="356" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="800">TINTA</text>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="813" y="431" width="290" height="197" rx="18" fill="white"/>
+  </g>
+  <text x="845" y="469" fill="#6A7180" font-family="Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2">TIPOGRAFÍA</text>
+  <text x="845" y="548" fill="#11131A" font-family="Arial, sans-serif" font-size="76" font-weight="800">Aa</text>
+  <rect x="953" y="500" width="116" height="12" rx="6" fill="#11131A"/>
+  <rect x="953" y="525" width="91" height="10" rx="5" fill="#C6CDD3"/>
+  <rect x="953" y="548" width="104" height="10" rx="5" fill="#DCE2E6"/>
+  <text x="845" y="592" fill="#69727E" font-family="Arial, sans-serif" font-size="12" font-weight="700">TITULARES + TEXTO</text>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="1129" y="431" width="290" height="197" rx="18" fill="#11131A"/>
+  </g>
+  <text x="1161" y="469" fill="white" fill-opacity="0.5" font-family="Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2">RECURSO GRÁFICO</text>
+  <circle cx="1211" cy="543" r="41" stroke="#E73B90" stroke-width="12"/>
+  <circle cx="1280" cy="543" r="41" stroke="#71C1F0" stroke-width="12"/>
+  <circle cx="1349" cy="543" r="41" stroke="#F7C74D" stroke-width="12"/>
+  <path d="M1202 543H1358" stroke="white" stroke-opacity="0.62" stroke-width="7" stroke-linecap="round"/>
+
+  <text x="181" y="684" fill="#6A7180" font-family="Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2">APLICACIONES DIGITALES</text>
+  <g filter="url(#identitySoftShadow)">
+    <rect x="181" y="711" width="384" height="128" rx="16" fill="white"/>
+  </g>
+  <rect x="205" y="735" width="80" height="80" rx="12" fill="#FCE7F2"/>
+  <circle cx="245" cy="775" r="22" stroke="#E73B90" stroke-width="7"/>
+  <rect x="309" y="746" width="164" height="14" rx="7" fill="#11131A"/>
+  <rect x="309" y="774" width="218" height="10" rx="5" fill="#C9D1D7"/>
+  <rect x="309" y="796" width="176" height="10" rx="5" fill="#E1E5E9"/>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="591" y="711" width="384" height="128" rx="16" fill="#11131A"/>
+  </g>
+  <text x="619" y="750" fill="#71C1F0" font-family="Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="2">PRESENTACIÓN</text>
+  <text x="619" y="788" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="800">IDEAS CON FORMA.</text>
+  <rect x="619" y="807" width="112" height="7" rx="3.5" fill="#F7C74D"/>
+  <circle cx="924" cy="775" r="24" fill="url(#identityAccent)"/>
+
+  <g filter="url(#identitySoftShadow)">
+    <rect x="1001" y="711" width="418" height="128" rx="16" fill="white"/>
+  </g>
+  <rect x="1027" y="735" width="112" height="80" rx="12" fill="url(#identityAccent)"/>
+  <rect x="1165" y="741" width="224" height="13" rx="6.5" fill="#11131A"/>
+  <rect x="1165" y="772" width="168" height="10" rx="5" fill="#CDD4DA"/>
+  <rect x="1165" y="795" width="198" height="10" rx="5" fill="#E0E5E9"/>
+</svg>

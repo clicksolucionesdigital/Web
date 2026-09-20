@@ -1,5 +1,587 @@
 # Bitácora de Desarrollo
 
+## 2026-09-20 - Caso de invitación digital y chips alineados
+
+**Cambios realizados:**
+- Se fijaron alturas comunes para kicker, título y descripción de las cards, manteniendo chips y CTA alineados aunque el contenido tenga distinta extensión.
+- Se reemplazó el placeholder de `Invitación digital` por un caso ficticio de casamiento para Juan y Maricel, fechado el 18 de julio de 2026.
+- Se generaron cuatro mockups coherentes: portada responsive, detalles y ubicación, flujo RSVP y álbum posterior.
+- Las imágenes usan datos ficticios y escenas sin personas o rostros reales.
+- La ficha se conectó al carrusel reutilizable con flechas, puntos, teclado, swipe y textos alternativos descriptivos.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-wedding-01-portada.webp
+- public/assets/images/portfolio-wedding-02-detalles.webp
+- public/assets/images/portfolio-wedding-03-rsvp.webp
+- public/assets/images/portfolio-wedding-04-album.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build estático con `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web`: correcto; siete rutas prerenderizadas.
+- Playwright temporal con Chrome desktop `1440x900`: ocho cards renderizadas, chips visualmente alineados, modal sin scroll (`718px`) y carrusel navegable de `01/04` a `02/04`.
+- Playwright mobile `390x844`: ancho de documento igual al viewport, sin overflow horizontal; modal con scroll interno.
+
+**Pendientes detectados:**
+- Ninguno nuevo.
+
+## 2026-09-19 - Identidad Trebu y tienda genérica
+
+**Cambios realizados:**
+- Se incorporaron cuatro piezas de Trebu en WebP, conservando su identidad y ordenándolas como presentación, logo y color, stickers y aplicaciones en packaging.
+- La card de `Identidad visual de marca` usa una portada real del proyecto y la ficha incorpora una galería navegable con flechas, puntos, teclado y swipe.
+- Se completaron objetivo, propósito, salida, entregables y frases del caso de identidad con foco en una pastelería artesanal.
+- Se renombraron los assets del ecommerce para mascotas y se retiró el nombre de marca del código, los textos alternativos y el encabezado visible, reemplazándolo por una huella genérica.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-trebu-01-presentacion.webp
+- public/assets/images/portfolio-trebu-02-logo-color.webp
+- public/assets/images/portfolio-trebu-03-stickers.webp
+- public/assets/images/portfolio-trebu-04-aplicaciones.webp
+- public/assets/images/portfolio-petshop-01-home.webp
+- public/assets/images/portfolio-petshop-02-catalogo.webp
+- public/assets/images/portfolio-petshop-03-producto.webp
+- public/assets/images/portfolio-petshop-04-carrito.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build estático con `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web`: correcto; siete rutas exportadas.
+- Playwright desktop `1440x900`: cuatro cards alineadas a `667.375px`, ambas fichas sin scroll vertical y carrusel Trebu navegable.
+- Playwright mobile `390x844`: sin overflow horizontal, chips en una sola fila, carruseles navegables y scroll interno de modal activo.
+
+**Pendientes detectados:**
+- La limpieza píxel por píxel de textos diminutos integrados en los productos del ecommerce queda pendiente hasta disponer nuevamente de edición generativa; la presentación web ya oculta el wordmark principal.
+
+## 2026-09-19 - Portfolio compacto y ecommerce ficticio para mascotas
+
+**Cambios realizados:**
+- Se forzó una sola fila de chips en todas las cards y se acortó el tag redundante `Web profesional` a `Web`.
+- Se reorganizó el detalle del modal para mostrar objetivo, propósito y salida en tres columnas, reducir espacios verticales y presentar la ficha completa sin scrollbar en desktop.
+- Se mantuvo el scroll interno accesible en mobile, donde el contenido necesita recorrido vertical para conservar legibilidad.
+- Se creó un caso ficticio de tienda de accesorios para mascotas con home, catálogo con filtros, ficha de producto y carrito.
+- Se convirtió el carrusel del primer caso en un componente reutilizable para las galerías de automatización y ecommerce.
+- Las cuatro imágenes generadas se optimizaron de PNG a WebP, pasando de aproximadamente `6.7 MB` a menos de `710 KB` en conjunto.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- app/globals.css
+- public/assets/images/portfolio-petshop-01-home.webp
+- public/assets/images/portfolio-petshop-02-catalogo.webp
+- public/assets/images/portfolio-petshop-03-producto.webp
+- public/assets/images/portfolio-petshop-04-carrito.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build estático de GitHub Pages: correcto.
+- Playwright desktop `1440x900`: las ocho fichas tienen `scrollHeight === clientHeight`, acciones dentro del panel y chips en una sola fila.
+- Playwright mobile `390x844`: sin overflow horizontal, chips alineados y carrusel de ecommerce navegable; el modal conserva scroll interno.
+- Portada de ecommerce: fuente `1586x992`, visualizada sin deformación en card y modal.
+
+**Pendientes detectados:**
+- Ninguno nuevo.
+
+## 2026-09-19 - Scroll de fichas y carrusel de capturas reales
+
+**Cambios realizados:**
+- Se agregó `data-lenis-prevent` al panel del modal para que la rueda y el gesto táctil recorran la ficha, sin mover la página de fondo.
+- La portada de `Web profesional con demos` usa la captura real del home en proporción `16:10`, coincidente con su contenedor.
+- El modal del primer caso muestra una captura nítida por vez y permite recorrer seis vistas mediante flechas, puntos, teclado o swipe móvil.
+- Se incorporaron home, resultados medibles, portal de demos, demo médica, panel operativo y método de trabajo en WebP `1600x1000`, conservando la identidad original de Soluciones Conectadas.
+- Las imágenes usan `object-contain`, por lo que no se recortan, aplastan ni estiran.
+- Se eliminó el bloque `Puntos de partida` y la sección introductoria bajó de aproximadamente `924px` a `780px` en desktop.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- app/globals.css
+- public/assets/images/portfolio-sc-01-home.webp
+- public/assets/images/portfolio-sc-02-resultados.webp
+- public/assets/images/portfolio-sc-03-demos.webp
+- public/assets/images/portfolio-sc-04-demo-medica.webp
+- public/assets/images/portfolio-sc-05-panel-medico.webp
+- public/assets/images/portfolio-sc-06-metodo.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true`, `GITHUB_REPOSITORY=clicksolucionesdigital/Web`, `npm run build`: exportación estática correcta con las seis capturas presentes en `out/`.
+- Playwright desktop `1440x900`: flecha y teclado avanzan entre capturas; la ficha pasó de `scrollTop 0` a `181` con la rueda y el fondo permaneció en la misma posición.
+- Playwright mobile `390x844`: swipe avanza entre capturas, la ficha pasó de `scrollTop 0` a `620` y no existe overflow horizontal.
+- Capturas del primer caso: relación natural y de contenedor `1.6:1`; imagen visible a `437x273.125` en desktop y `282x176.25` en mobile.
+
+**Pendientes detectados:**
+- Ninguno nuevo.
+
+## 2026-09-19 - Ficha destacada balanceada y sección interna eliminada
+
+**Cambios realizados:**
+- La ficha destacada ahora distribuye su altura entre el resumen, los tres resultados, los selectores y las acciones.
+- Se eliminó el espacio oscuro sobrante debajo de `Ver ficha completa` y `Explorar otros ejemplos`.
+- Se retiró completamente la sección `Portfolio en construcción`, incluidas sus cuatro cards y datos auxiliares.
+- La galería conecta directamente con `De referencia a solución propia`.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Playwright desktop `1440x1000`: cierre de la ficha a `25px` del borde inferior con `Presentación visual` seleccionada.
+- Playwright mobile `390x844`: panel de `343px` dentro de viewport de `390px`, sin overflow horizontal.
+- La sección eliminada no aparece en el DOM y la consola del navegador no registra errores.
+
+**Pendientes detectados:**
+- Ninguno nuevo.
+
+## 2026-09-19 - Retrato mejorado y referencia web genérica
+
+**Cambios realizados:**
+- Se generó una restauración de mayor calidad del retrato de Oriana, conservando identidad, encuadre, pose, vestimenta y fondo; el archivo original no se reemplazó.
+- El rótulo `Soy Ori` pasó a `Dirección de Cl!ck`.
+- La referencia destacada superior de `/proyectos` dejó de usar contenido e imagen del caso de automatización y pasó a mostrar una presencia web genérica.
+- Se agregó `Puntos de partida` con tres caminos breves para ocupar el espacio libre del lateral: mostrar, identificar y ordenar.
+- El caso real de automatización permanece disponible únicamente en la galería y su ficha; el copy es general y las capturas conservan su identidad visual.
+
+**Archivos modificados:**
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- public/assets/images/oriana-rojas-click-enhanced.png
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build de GitHub Pages: correcto; rutas estáticas generadas sin errores.
+- Playwright desktop `1440x1000`: retrato restaurado cargado a `1063x1479`, referencia web genérica visible, mockup correcto y sin overflow horizontal.
+- Playwright mobile `390x844`: retrato y referencia genérica cargados, bloque `Puntos de partida` presente y sin overflow horizontal.
+- Consola del navegador: sin errores.
+
+**Pendientes detectados:**
+- Ninguno nuevo; continúan pendientes las capturas definitivas de los proyectos que se publiquen como casos reales.
+
+## 2026-09-19 - Pulido del portfolio de home y contraste de acciones
+
+**Cambios realizados:**
+- Se corrigió el hover de `Completar brief inicial` y `Ver portfolio completo`: fondo rosa y texto blanco, sin interferencia de la regla global de chips.
+- La previsualización de portfolio en home volvió a ser genérica: Web profesional, Identidad visual y Dashboard operativo.
+- Se creó un mockup SVG genérico de identidad con logo conceptual, paleta, tipografía, recurso gráfico y aplicaciones digitales.
+- Las tres cards del carrusel ahora usan slides de altura uniforme y estructura flex para alinear su borde inferior, textos y chips.
+- Los chips de `Formatos posibles` se mantienen en una sola fila; en pantallas angostas tienen desplazamiento horizontal interno sin generar overflow de página.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- public/assets/images/portfolio-identity-system.svg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build de GitHub Pages: correcto; 8 páginas estáticas generadas.
+- Playwright desktop `1440x1000`: tres cards con altura y borde inferior idénticos (`490.58px`), ambos botones con hover `rgb(231, 59, 144)` y texto blanco.
+- Playwright desktop: cuatro chips de Herramientas Digitales en una misma coordenada vertical y sin overflow.
+- Playwright mobile `390x844`: chips en una fila con scroll interno, nuevo SVG cargado al avanzar el carrusel y sin overflow horizontal de página.
+
+**Pendientes detectados:**
+- Ninguno nuevo; el caso específico de automatización permanece únicamente en `/proyectos`.
+
+## 2026-09-19 - Navegación al inicio y primer proyecto cargado
+
+**Cambios realizados:**
+- Se creó `TopAwareLink` para que un enlace a la página actual vuelva suavemente al inicio sin recargar.
+- Se aplicó el comportamiento a las navbars y al footer de home, servicios, nosotros, proyectos y contacto.
+- Se convirtió `Sitio web de servicios` en un caso anonimizado de web profesional para un freelance de automatización y sistemas a medida.
+- Se cargaron objetivo, solución, resultado, entregables, frases y etiquetas específicas del trabajo.
+- Se creó un mockup SVG propio con home profesional, servicios, portal de demos, tablero operativo y métricas, sin nombre ni logo real.
+- Se actualizó el carousel de home y la sección de preparación del portfolio para reflejar que el primer caso ya está cargado.
+
+**Archivos modificados:**
+- components/top-aware-link.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/about/about-page.tsx
+- components/contact/contact-page.tsx
+- components/projects/projects-page.tsx
+- components/site-footer.tsx
+- public/assets/images/portfolio-automation-services-web.svg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- Build de GitHub Pages con `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web`: correcto; 8 páginas estáticas generadas.
+- Playwright desktop `1440x900`: el enlace de la página actual bajó el scroll de `2200` a `0`, sin recarga ni overflow horizontal.
+- Playwright mobile `390x844`: mockup cargado, card legible y sin overflow horizontal.
+- Consola del navegador: sin errores; solo mensajes informativos de React DevTools y HMR en desarrollo.
+
+**Pendientes detectados:**
+- Incorporar las capturas publicables del proyecto dentro de la ficha cuando el usuario las entregue y confirme cuáles usar.
+
+## 2026-09-13 - FAQ, recorrido a contacto y portfolio real
+
+**Cambios realizados:**
+- Se reemplazó en la home el visual realista del portfolio por `about-portfolio-visual.svg`.
+- Se agregó una FAQ corta en home antes del CTA final.
+- Se orientaron los CTAs principales de home, servicios, nosotros y proyectos hacia `/contacto#brief`.
+- Se agregó en `/proyectos` una sección `Portfolio real` con la estructura de datos, material visual, entregables y permisos necesaria para cargar trabajos reales más adelante.
+- Se ajustó un testimonio de identidad para que el texto sea menos específico y más alineado a sistema visual.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta home, servicios, contacto, nosotros y proyectos.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+- Servidor local existente en `http://127.0.0.1:3001/`, `/proyectos/` y `/contacto/#brief`: responde `200`.
+- Playwright responsive: home y proyectos revisados en 1440px y 390px; `/contacto/#brief` abre con el formulario visible.
+- Consola local: los errores observados corresponden a WebSocket HMR del servidor dev, no a errores de build.
+
+**Pendientes detectados:**
+- Revisar visualmente con el usuario la FAQ corta y la estructura de portfolio real antes de cargar imágenes definitivas.
+
+## 2026-09-13 - Visual no realista en Nosotros
+
+**Cambios realizados:**
+- Se reemplazó la imagen realista de la sección `Para quién` en `/nosotros` por un mockup SVG ficticio y no realista.
+- El nuevo visual muestra pantallas, piezas digitales y recursos de marca abstractos para acompañar el portfolio sin parecer una captura real pendiente de validar.
+- Se actualizó el `alt` de la imagen para describirla como mockup ilustrado.
+
+**Archivos modificados:**
+- components/about/about-page.tsx
+- public/assets/images/about-portfolio-visual.svg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta home, servicios, contacto, nosotros y proyectos.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+- SVG parseado como XML: correcto.
+- HTML exportado de `/nosotros`: usa `about-portfolio-visual.svg`.
+- Servidor local existente en `http://127.0.0.1:3001/nosotros/`: responde `200`.
+
+**Pendientes detectados:**
+- Revisar visualmente `/nosotros` en desktop y mobile para confirmar proporción, recorte y legibilidad.
+
+## 2026-09-13 - Footer compacto y mockups limpios
+
+**Cambios realizados:**
+- Se compactó `SiteFooter` para que deje de ocupar una sección grande y funcione como una franja final más simple.
+- Se corrigió el email de contacto a `clicksoluciones.digital@gmail.com`.
+- Se agregó WhatsApp `3442 576205` con enlace directo.
+- Se quitó la línea superior de la card `Formato adaptable`.
+- Se reemplazaron los SVG de `Web profesional` y `Sitio de servicios` por mockups 16:10 más limpios, sin textos internos grandes ni superposiciones.
+
+**Archivos modificados:**
+- components/site-footer.tsx
+- components/home/home-page.tsx
+- components/contact/contact-page.tsx
+- app/globals.css
+- public/assets/images/portfolio-professional-web.svg
+- public/assets/images/portfolio-services-site.svg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta home, servicios, contacto, nosotros y proyectos.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+- Servidor local existente en `http://localhost:3001/` y `/contacto/`: responde `200`.
+- HTML exportado: `clicksoluciones.digital@gmail.com` y `5493442576205` aparecen en las cinco páginas; `site-footer-cta` ya no aparece.
+
+**Pendientes detectados:**
+- Revisar visualmente footer y cards de portfolio en desktop/mobile.
+
+## 2026-09-13 - Footer global y portfolio visual de home
+
+**Cambios realizados:**
+- Se creó el componente compartido `SiteFooter` para usar el mismo pie de página en home, servicios, contacto, nosotros y proyectos.
+- Se diseñó un footer oscuro con CTA, enlaces de navegación, chips de servicios, contacto, mini cards y líneas animadas de marca.
+- Se reemplazaron los footers simples duplicados por el footer global.
+- Se agregó una card compacta debajo de `También puede ser web` para completar el espacio visual de la grilla de servicios.
+- Se creó el asset `portfolio-professional-web.svg` como mockup de web profesional inspirado en la referencia enviada.
+- Se creó el asset `portfolio-services-site.svg` como nuevo visual para `Sitio de servicios`.
+- Se movió la imagen que antes usaba `Sitio de servicios` al proyecto `Dashboard operativo` dentro del portfolio de la home.
+
+**Archivos modificados:**
+- components/site-footer.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/contact/contact-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- app/globals.css
+- public/assets/images/portfolio-professional-web.svg
+- public/assets/images/portfolio-services-site.svg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta home, servicios, contacto, nosotros y proyectos.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+- Servidor local existente en `http://localhost:3001/`, `/servicios/` y `/proyectos/`: responde `200`.
+- HTML exportado: incluye `portfolio-professional-web.svg`, `portfolio-services-site.svg` y `site-footer`.
+
+**Pendientes detectados:**
+- Reemplazar el mockup SVG de web profesional por la captura real si se comparte el archivo original.
+- Revisar visualmente el footer en desktop y mobile.
+
+## 2026-09-12 - Portfolio genérico y botón volver arriba
+
+**Cambios realizados:**
+- Se reorientaron los ejemplos de `/proyectos` para que sean genéricos por tipo de solución y no casos demasiado específicos.
+- Se cambió `Tienda internacional` por `Tienda virtual` / `Ecommerce`.
+- Se eliminó la idea de `piezas impresas` y se reforzó que el servicio es de diseño digital.
+- Se simplificó y balanceó el hero de `/proyectos` con menos carga textual a la izquierda y un mapa de soluciones más simple a la derecha.
+- Se rellenó el bloque izquierdo de referencias con una guía breve para leer los ejemplos.
+- Se reemplazó `Mirá trabajos` por `Explorá trabajos`.
+- Se agregó el botón `Explorar otros ejemplos` junto a `Ver ficha completa`.
+- Se alinearon títulos, textos, chips y botones en las cards de proyectos para evitar saltos por chips de dos líneas.
+- Se creó el componente reutilizable `ScrollToTopButton` y se agregó en home, servicios, contacto, nosotros y proyectos.
+- Se unificó la navbar de la home con las páginas internas agregando `Inicio`.
+- Se reemplazó el visual de identidad que decía `Dulce` por una composición genérica de sistema visual.
+- Se reemplazó el dashboard realista por visuales de dashboard construidos con HTML/CSS en home y `/proyectos`.
+- Se eliminaron líneas decorativas que cruzaban contenido en la ficha destacada de `/proyectos` y en el hero de `/contacto`.
+- Se bajó la guía `Cómo leer estas referencias` para equilibrar el alto visual con la ficha destacada.
+
+**Archivos modificados:**
+- app/globals.css
+- components/projects/projects-page.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/contact/contact-page.tsx
+- components/about/about-page.tsx
+- components/scroll-to-top-button.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta home, servicios, contacto, nosotros y proyectos.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+- Servidor local existente en `http://localhost:3001/`, `/servicios/`, `/nosotros/`, `/proyectos/` y `/contacto/`: responde `200`.
+
+**Pendientes detectados:**
+- Revisar visualmente `/proyectos` en desktop y mobile.
+- Confirmar si los testimonios de home mantienen rubros específicos o si también se quieren volver más genéricos.
+
+## 2026-09-12 - Ajustes de Proyectos y tono personal en Nosotros
+
+**Cambios realizados:**
+- Se refinó la ficha destacada de `/proyectos` para mostrar un visual diferente según el proyecto seleccionado.
+- Se reemplazaron los chips repetidos del panel por mini tarjetas visuales con etiquetas variadas: landing, sistema visual, tablero y presentación.
+- Se ajustaron textos de `/proyectos` para comunicar trabajos y referencias personalizadas, evitando la idea de plantillas copiables.
+- Se reforzó el bloqueo de scroll del modal: al abrir una ficha, el fondo queda fijo y el scroll ocurre dentro del panel.
+- Se reescribió la sección `Detrás de Cl!ck` en `/nosotros` en primera persona, con tono más cercano.
+- Se ajustó la alineación de la sección personal para que foto, pilares y nota final queden más equilibrados en desktop.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- components/about/about-page.tsx
+- app/globals.css
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta `/proyectos` y `/nosotros`.
+- Servidor local existente en `http://localhost:3001/proyectos/`: responde `200`.
+- Servidor local existente en `http://localhost:3001/nosotros/`: responde `200`.
+- `git diff --check`: correcto, solo avisos de fin de línea CRLF esperados por Git en Windows.
+
+**Pendientes detectados:**
+- Revisar visualmente el nuevo selector de proyectos y el bloqueo de scroll del modal en navegador.
+
+## 2026-09-12 - Sección personal en Nosotros
+
+**Cambios realizados:**
+- Se agregó la sección `Detrás de Cl!ck` en `/nosotros`.
+- Se incorporó la foto de Oriana Rojas como asset público del sitio.
+- Se adaptó el texto provisto para presentar a Oriana de manera cercana y profesional.
+- Se resumió la propuesta en tres pilares: negocios, creatividad y tecnología.
+- Se agregó una frase final de confianza: `Tu idea. Tu negocio. Una solución que hace Cl!ck.`
+- Se actualizó la metadata de `/nosotros`.
+
+**Archivos modificados:**
+- app/nosotros/page.tsx
+- components/about/about-page.tsx
+- app/globals.css
+- public/assets/images/oriana-rojas-click.jpeg
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta `/nosotros`.
+- HTML exportado de `/nosotros`: incluye `oriana-rojas-click.jpeg` bajo `/Web/assets/images/`.
+- Servidor local existente en `http://localhost:3001/nosotros/`: responde `200`.
+
+**Pendientes detectados:**
+- Revisar visualmente el recorte de la foto en desktop y mobile.
+
+## 2026-09-12 - Página interna Proyectos / Portfolio
+
+**Cambios realizados:**
+- Se creó la ruta estática `/proyectos`.
+- Se diseñó una página de referencias con hero oscuro, tablero visual, ficha destacada y filtros por categoría.
+- Se reorientó el copy para remarcar que Cl!ck vende soluciones personalizadas y no plantillas cerradas.
+- Se agregaron demos adaptables para Web, Identidad, Diseño y Herramientas.
+- Se construyeron visuales inventados con código para identidad, invitación digital, tarjetas, presentación y marca personal.
+- Se implementó modal superpuesto para `Ver ficha`, cerrable por click externo, botón de cierre o tecla Escape.
+- Cada modal muestra visual, objetivo, qué se hizo, resultado, entregables, frases del trabajo y CTA `Quiero algo personalizado para mí`.
+- Se conectó `Proyectos` en las navbars de home, servicios, nosotros y contacto.
+- Se agregó un botón `Ver portfolio completo` en el carrusel de proyectos de la home.
+- Se dejó una sección interna para explicar cómo una referencia puede transformarse en una solución propia.
+
+**Archivos modificados:**
+- app/proyectos/page.tsx
+- components/projects/projects-page.tsx
+- components/home/home-page.tsx
+- components/about/about-page.tsx
+- components/services/services-page.tsx
+- components/contact/contact-page.tsx
+- app/globals.css
+- app/proyectos/page.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta `/proyectos`.
+- HTML exportado: los enlaces a `/proyectos` usan base `/Web/` y no quedan referencias directas a `/proyectos` sin base.
+- Servidor local existente en `http://localhost:3001/proyectos/`: responde `200`.
+
+**Pendientes detectados:**
+- Reemplazar o reforzar las demos con logos, mockups, tarjetas, presentaciones y capturas reales que la usuaria vaya enviando.
+- Revisar visualmente `/proyectos` en navegador real y ajustar proporciones si alguna card queda pesada en mobile.
+
+## 2026-09-11 - Página interna Nosotros / Forma de trabajar
+
+**Cambios realizados:**
+- Se creó la ruta estática `/nosotros`.
+- Se diseñó una página enfocada en la forma de trabajar de Cl!ck, evitando una presentación institucional genérica.
+- Se agregó hero oscuro con H1 breve, chips de posicionamiento y tablero visual `Método Cl!ck`.
+- Se desarrolló una sección de método con cuatro pasos: escuchar, ordenar, diseñar y activar.
+- Se agregó una sección oscura de criterio para explicar por qué primero se elige la solución adecuada.
+- Se agregó una sección de tipos de proyectos y CTA final hacia contacto/servicios.
+- Se reemplazó la imagen del bloque `Para quién` por un asset inventado de proyectos digitales, sin marcas ni datos reales.
+- Se incorporó `Nosotros` en las navbars de home, servicios y contacto.
+
+**Archivos modificados:**
+- app/nosotros/page.tsx
+- components/about/about-page.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/contact/contact-page.tsx
+- app/globals.css
+- public/assets/images/about-audience-digital-work.png
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta `/nosotros`.
+- HTML exportado de `/nosotros`: usa `about-audience-digital-work.png` y ya no referencia `brand-composition.jpg`.
+- Capturas Playwright desktop/mobile de `/nosotros`: hero y método revisados visualmente.
+
+**Pendientes detectados:**
+- Revisar textos con la usuaria para ajustar si se quiere un tono más personal o más de estudio/agencia.
+
+## 2026-09-11 - Página interna de Contacto
+
+**Cambios realizados:**
+- Se creó la ruta estática `/contacto`.
+- Se diseñó un hero oscuro con estilo Cl!ck, líneas animadas, chips superiores separados y un panel visual de inicio de proyecto.
+- Se reequilibró el hero de `/contacto` en desktop: título apenas más compacto, bloque izquierdo con mejor aire superior y panel derecho elevado para alinear ambos pesos visuales.
+- Se implementó el formulario estático como bloque limpio debajo del hero, con selección de servicio, momento, nombre, canal de respuesta y mensaje.
+- Se agregó vista previa del brief, botón para enviar por email y botón para copiar el contenido.
+- Se conectaron las CTAs principales de home y servicios hacia `/contacto`.
+- Se sumó una guía breve para preparar el primer mensaje.
+
+**Archivos modificados:**
+- app/contacto/page.tsx
+- components/contact/contact-page.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- app/globals.css
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `GITHUB_PAGES=true` y `GITHUB_REPOSITORY=clicksolucionesdigital/Web` con `npm run build`: correcto; exporta `/contacto`.
+- Capturas Playwright desktop/mobile de `/contacto`: revisadas visualmente, incluyendo hero balanceado y arranque del brief.
+
+**Pendientes detectados:**
+- Confirmar canal real de contacto y decidir si se integra un proveedor externo de formularios.
+
 ## 2026-09-10 - Ajustes finales y publicación de Servicios
 
 **Cambios realizados:**

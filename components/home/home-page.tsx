@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { TopAwareLink as Link } from "@/components/top-aware-link";
 import { ReactLenis } from "lenis/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -35,6 +35,8 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ScrollToTopButton } from "@/components/scroll-to-top-button";
+import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -89,6 +91,12 @@ type Testimonial = {
   accent: Accent;
 };
 
+type FaqItem = {
+  question: string;
+  answer: string;
+  accent: Accent;
+};
+
 type HeroSignal = {
   title: string;
   kicker: string;
@@ -97,10 +105,11 @@ type HeroSignal = {
 };
 
 const navItems = [
+  { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios" },
-  { label: "Proceso", href: "/#proceso" },
-  { label: "Proyectos", href: "/#proyectos" },
-  { label: "Contacto", href: "/#contacto" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Proyectos", href: "/proyectos" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 function assetPath(path: string) {
@@ -189,7 +198,7 @@ const serviceMap: ServiceMapItem[] = [
   {
     number: "03",
     title: "Diseño & Comunicación Visual",
-    description: "Presentaciones, folletos, catálogos, propuestas, tarjetas, piezas institucionales y redes.",
+    description: "Presentaciones, catálogos, propuestas, tarjetas digitales, piezas institucionales y redes.",
     accent: "yellow",
   },
   {
@@ -239,25 +248,25 @@ const workflow: WorkflowStep[] = [
 
 const projects: Project[] = [
   {
-    title: "Landing comercial",
+    title: "Web profesional",
     category: "Web responsive",
-    image: assetPath("/assets/images/portfolio-web-a.png"),
+    image: assetPath("/assets/images/portfolio-professional-web.svg"),
     description:
-      "Experiencia clara para presentar una oferta, ordenar secciones y abrir contacto.",
-    tags: ["Diseño UI", "Copy", "Responsive"],
+      "Presencia clara para presentar servicios, trayectoria y contacto sin vueltas.",
+    tags: ["Servicios", "Portfolio", "Contacto"],
   },
   {
-    title: "Sitio de servicios",
-    category: "Presencia digital",
-    image: assetPath("/assets/images/portfolio-web-b.png"),
+    title: "Identidad visual",
+    category: "Marca + sistema visual",
+    image: assetPath("/assets/images/portfolio-identity-system.svg"),
     description:
-      "Estructura visual para explicar servicios, diferenciales y llamados a la acción.",
-    tags: ["Branding", "Web", "CTA"],
+      "Una base visual coherente para que una marca se vea clara, reconocible y lista para comunicar.",
+    tags: ["Logo", "Paleta", "Aplicaciones"],
   },
   {
     title: "Dashboard operativo",
     category: "Datos",
-    image: assetPath("/assets/images/portfolio-dashboard.png"),
+    image: assetPath("/assets/images/portfolio-web-b.png"),
     description:
       "Vista ejecutiva para transformar datos dispersos en indicadores fáciles de leer.",
     tags: ["Data", "KPIs", "Automatización"],
@@ -288,7 +297,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "El logo de la pastelería quedó dulce, limpio y fácil de usar en etiquetas, redes y packaging sin perder personalidad.",
+      "El sistema visual quedó limpio, reconocible y fácil de usar en redes, etiquetas y piezas digitales sin perder personalidad.",
     role: "Pastelería artesanal",
     project: "Logo e identidad visual",
     accent: "pink",
@@ -297,7 +306,7 @@ const testimonials: Testimonial[] = [
     quote:
       "La presentación de servicios nos ayudó a explicar mejor qué hacemos, mostrar el local y dejar material prolijo para nuevos clientes.",
     role: "Profesional independiente",
-    project: "Folleto institucional",
+    project: "Presentación institucional",
     accent: "cyan",
   },
   {
@@ -320,6 +329,33 @@ const testimonials: Testimonial[] = [
     role: "Profesional creativo",
     project: "Identidad para redes",
     accent: "cyan",
+  },
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: "¿Tengo que saber exactamente qué necesito?",
+    answer:
+      "No. Podés llegar con una idea, una necesidad o algo desordenado. Primero entendemos el objetivo y después definimos si conviene web, identidad, diseño, herramienta o una combinación.",
+    accent: "pink",
+  },
+  {
+    question: "¿Los ejemplos son paquetes cerrados?",
+    answer:
+      "No. Funcionan como referencias para imaginar posibilidades. Cada solución se adapta a tu contenido, estilo, presupuesto, tiempos y prioridad real.",
+    accent: "cyan",
+  },
+  {
+    question: "¿Qué necesito enviar para empezar?",
+    answer:
+      "Con una descripción breve alcanza. Si tenés textos, imágenes, logo, links o referencias, mejor; si no, armamos una ruta simple para ordenar el material paso a paso.",
+    accent: "yellow",
+  },
+  {
+    question: "¿Cómo se coordina el primer contacto?",
+    answer:
+      "Completás el brief inicial, llega un mensaje ordenado y desde ahí definimos próximo paso: diagnóstico, propuesta, alcance o una salida rápida para empezar.",
+    accent: "pink",
   },
 ];
 
@@ -499,8 +535,10 @@ export function HomePage() {
         <MotionRail />
         <ProjectsSection />
         <TestimonialsSection />
+        <FaqSection />
         <ContactSection />
-        <Footer />
+        <SiteFooter />
+        <ScrollToTopButton />
       </main>
     </ReactLenis>
   );
@@ -539,7 +577,7 @@ function SiteNav() {
         </div>
 
         <Link
-          href="/#contacto"
+          href="/contacto#brief"
           className="hidden h-10 items-center gap-2 rounded-[8px] bg-white px-4 text-sm font-bold text-[#11131a] transition hover:-translate-y-0.5 hover:bg-[#f7c74d] md:inline-flex"
         >
           Hablemos
@@ -626,13 +664,13 @@ function HeroSection() {
           </p>
 
           <div data-hero className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contacto"
+            <Link
+              href="/contacto#brief"
               className="group inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-[#e73b90] px-5 text-sm font-bold text-white shadow-[0_18px_36px_rgba(231,59,144,0.3)] transition hover:-translate-y-0.5 hover:bg-[#d62e82] focus:outline-none focus:ring-4 focus:ring-[#e73b90]/30"
             >
               Empezar proyecto
               <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
-            </a>
+            </Link>
             <a
               href="#proyectos"
               className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/9 px-5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/16 focus:outline-none focus:ring-4 focus:ring-white/20"
@@ -975,10 +1013,11 @@ function ServicesSection() {
           </div>
         </div>
 
-        <div className="mt-12 grid items-start gap-4 lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="grid gap-4">
+        <div className="mt-12 grid items-stretch gap-4 lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="grid gap-4 lg:h-full">
             <ServiceFeatureCard service={homeServices[0]} featured />
             <WebIdeasCard />
+            <WebAlignmentCard />
           </div>
           <div className="grid gap-4">
             {homeServices.slice(1).map((service) => (
@@ -1078,6 +1117,39 @@ function WebIdeasCard() {
   );
 }
 
+function WebAlignmentCard() {
+  return (
+    <article
+      data-card
+      className="interactive-card group relative overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white/92 p-5 shadow-[0_18px_46px_rgba(17,19,26,0.08)]"
+    >
+      <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e73b90]">Formato adaptable</p>
+          <p className="mt-2 max-w-2xl text-sm leading-7 text-[#4c5364]">
+            Primero entendemos el objetivo; después elegimos si conviene landing, catálogo, invitación, reservas o un portfolio.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2 sm:justify-end">
+          {["Objetivo", "Contenido", "Salida"].map((item, index) => (
+            <span
+              key={item}
+              className={cn(
+                "interactive-chip rounded-full border px-3 py-2 text-xs font-bold",
+                index === 0 && "border-[#e73b90]/18 bg-[#e73b90]/8 text-[#b72268]",
+                index === 1 && "border-[#71c1f0]/22 bg-[#71c1f0]/12 text-[#1676aa]",
+                index === 2 && "border-[#f7c74d]/32 bg-[#f7c74d]/16 text-[#8f6410]",
+              )}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function ServiceFeatureCard({ service, featured = false }: { service: ServiceFeature; featured?: boolean }) {
   const Icon = service.icon;
 
@@ -1137,13 +1209,13 @@ function ServiceFeatureCard({ service, featured = false }: { service: ServiceFea
           <ServiceVisual variant={service.visual} accent={service.accent} featured={featured} />
         </div>
 
-        <a
-          href="#contacto"
+        <Link
+          href="/contacto#brief"
           className="mt-8 inline-flex w-fit items-center gap-2 rounded-[8px] bg-[#11131a] px-4 py-3 text-sm font-bold text-white shadow-[0_16px_32px_rgba(17,19,26,0.16)] transition hover:-translate-y-1 hover:bg-[#e73b90] hover:shadow-[0_18px_36px_rgba(231,59,144,0.24)]"
         >
           {service.cta}
           <ArrowRight className="size-4" aria-hidden="true" />
-        </a>
+        </Link>
       </div>
     </article>
   );
@@ -1345,10 +1417,10 @@ function ProjectsSection() {
           />
           <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white p-4">
               <Image
-                src={assetPath("/assets/images/brand-composition.jpg")}
-                alt="Composición visual de marca Cl!ck"
-                width={820}
-                height={520}
+                src={assetPath("/assets/images/about-portfolio-visual.svg")}
+                alt="Mockup ilustrado de portfolio visual con pantallas, piezas digitales y recursos de marca"
+                width={1600}
+                height={700}
               className="aspect-[16/8] w-full rounded-[8px] object-cover transition duration-700 group-hover:scale-[1.025]"
             />
           </div>
@@ -1368,11 +1440,21 @@ function ProjectsSection() {
             className="!pb-12"
           >
             {projects.map((project) => (
-              <SwiperSlide key={project.title}>
+              <SwiperSlide key={project.title} className="!h-auto">
                 <ProjectCard project={project} />
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+
+        <div data-reveal className="mt-2 flex justify-center">
+          <Link
+            href="/proyectos"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-[#11131a] px-5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(17,19,26,0.14)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#e73b90] hover:text-white hover:shadow-[0_18px_36px_rgba(231,59,144,0.24)] focus:outline-none focus:ring-4 focus:ring-[#e73b90]/24"
+          >
+            Ver portfolio completo
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>
@@ -1381,7 +1463,7 @@ function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article data-card className="interactive-card group h-full overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
+    <article data-card className="interactive-card group flex h-full flex-col overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#11131a]">
         <Image
           src={project.image}
@@ -1391,13 +1473,13 @@ function ProjectCard({ project }: { project: Project }) {
           sizes="(min-width: 1100px) 33vw, (min-width: 720px) 50vw, 100vw"
         />
       </div>
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <p className="text-xs font-bold uppercase text-[#e73b90]">{project.category}</p>
-        <h3 className="mt-2 font-heading text-3xl font-bold uppercase leading-none">
+        <h3 className="mt-2 min-h-[60px] font-heading text-3xl font-bold uppercase leading-none">
           {project.title}
         </h3>
-        <p className="mt-4 text-sm leading-7 text-[#4c5364]">{project.description}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
+        <p className="mt-4 flex-1 text-sm leading-7 text-[#4c5364]">{project.description}</p>
+        <div className="mt-5 flex min-h-7 flex-wrap content-start gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -1425,7 +1507,7 @@ function TestimonialsSection() {
               Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
             </>
           }
-          description="Webs, planillas, invitaciones, piezas impresas, ecommerce e identidad visual pensadas para objetivos distintos."
+          description="Webs, planillas, invitaciones, piezas digitales, ecommerce e identidad visual pensadas para objetivos distintos."
         />
 
         <div data-reveal className="relative mt-12">
@@ -1493,6 +1575,60 @@ function TestimonialsSection() {
   );
 }
 
+function FaqSection() {
+  return (
+    <section id="faq" className="relative overflow-hidden bg-[#fbfbfe] py-16 sm:py-20">
+      <div className="grid-fade absolute inset-x-0 top-0 h-72 opacity-[0.32]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <SectionHeader
+            eyebrow="Preguntas rápidas"
+            title="Antes de empezar, resolvamos lo importante."
+            description="La idea es que puedas consultar sin llegar con todo perfecto. El primer paso es ordenar qué necesitás y qué salida tiene más sentido."
+          />
+          <div data-reveal className="rounded-[8px] border border-[#11131a]/8 bg-white p-4 shadow-[0_16px_46px_rgba(17,19,26,0.06)] lg:justify-self-end">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e73b90]">Ruta de consulta</p>
+            <div className="mt-4 grid gap-2 sm:grid-cols-3">
+              {["Idea", "Objetivo", "Brief"].map((step, index) => (
+                <span
+                  key={step}
+                  className="interactive-chip rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe] px-4 py-3 text-sm font-bold text-[#252a35]"
+                >
+                  <span className="mr-2 text-[#1676aa]">0{index + 1}</span>
+                  {step}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal className="mt-10 grid gap-4 md:grid-cols-2">
+          {faqs.map((item) => (
+            <article
+              key={item.question}
+              className="interactive-card group flex min-h-[214px] flex-col rounded-[8px] border border-[#11131a]/8 bg-white p-6 shadow-[0_18px_54px_rgba(17,19,26,0.07)]"
+            >
+              <span className={cn("mb-5 h-1 w-14 rounded-full", item.accent === "pink" ? "bg-[#e73b90]" : item.accent === "cyan" ? "bg-[#71c1f0]" : "bg-[#f7c74d]")} />
+              <h3 className="font-heading text-3xl font-bold uppercase leading-none text-[#11131a]">{item.question}</h3>
+              <p className="mt-4 flex-1 text-sm leading-7 text-[#5d6474]">{item.answer}</p>
+            </article>
+          ))}
+        </div>
+
+        <div data-reveal className="mt-8 flex justify-center">
+          <Link
+            href="/contacto#brief"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-[#11131a] px-5 text-sm font-bold text-white shadow-[0_16px_32px_rgba(17,19,26,0.14)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#e73b90] hover:text-white hover:shadow-[0_18px_36px_rgba(231,59,144,0.24)] focus:outline-none focus:ring-4 focus:ring-[#e73b90]/24"
+          >
+            Completar brief inicial
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   return (
     <section id="contacto" className="relative scroll-mt-24 overflow-hidden bg-white py-20 sm:py-24">
@@ -1535,14 +1671,14 @@ function ContactSection() {
               </div>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a
-                href="mailto:hola@clicksolucionesdigital.com"
+              <Link
+                href="/contacto#brief"
                 className="interactive-chip group inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-white px-5 text-sm font-bold text-[#11131a] transition hover:bg-[#f7c74d]"
               >
                 <Mail className="size-4" aria-hidden="true" />
-                Escribir ahora
+                Completar brief
                 <ArrowRight className="size-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
-              </a>
+              </Link>
               <Link
                 href="/servicios"
                 className="interactive-chip dark-chip inline-flex h-12 items-center justify-center gap-2 rounded-[8px] border border-white/18 bg-white/10 px-5 text-sm font-bold text-white transition hover:bg-white/16"
@@ -1554,32 +1690,6 @@ function ContactSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-[#11131a]/8 bg-[#fbfbfe] py-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src={assetPath("/assets/brand/click-isotype.png")}
-            alt=""
-            width={36}
-            height={36}
-            className="size-9 rounded-[8px] bg-white p-1 shadow-sm"
-          />
-          <span className="font-heading text-2xl font-bold uppercase">Cl!ck</span>
-        </Link>
-        <div className="flex flex-wrap gap-4 text-sm font-semibold text-[#4c5364]">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-[#e73b90]">
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </footer>
   );
 }
 
