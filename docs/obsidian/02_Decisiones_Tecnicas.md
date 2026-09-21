@@ -1,5 +1,145 @@
 # Decisiones Técnicas
 
+## 2026-09-21 - Portadas restauradas y movimiento global
+
+**Decisión:**
+Mantener los héroes clásicos de Nosotros y Proyectos, agregar una línea global de progreso y usar un menú mobile de pantalla completa.
+
+**Motivo:**
+Los tableros `Método Cl!ck` y `Mapa de soluciones` equilibran mejor sus portadas. El progreso y el menú mejoran la orientación sin cambiar la estructura comercial ya aprobada en Home.
+
+**Impacto:**
+El layout global monta el indicador de progreso; las cinco navbars reutilizan un mismo overlay accesible; Home y Proyectos revelan imágenes con movimiento reducido opcional. Los testimonios conservan su versión anterior por decisión visual del usuario.
+
+**Alternativas consideradas:**
+- Mantener el retrato dentro del hero de Nosotros y el carrusel dentro del hero de Proyectos.
+- Sustituir los testimonios por criterios de calidad sin formato de cita.
+- Crear animaciones nuevas con otra dependencia.
+
+**Archivos relacionados:**
+- app/layout.tsx
+- app/globals.css
+- components/page-progress-line.tsx
+- components/mobile-menu-overlay.tsx
+- components/home/home-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+
+## 2026-09-21 - Recorrido interactivo y brief asistido sin backend
+
+**Decisión:**
+Resolver la orientación comercial mediante estado local en React: una `Ruta Cl!ck` en la home, selectores contextuales en los héroes y una recomendación dinámica dentro del brief. El envío se mantiene compatible con export estático mediante `mailto`, `wa.me` y copia al portapapeles.
+
+**Motivo:**
+La web necesitaba una capa más innovadora y útil sin sumar animaciones decorativas, dependencias ni infraestructura. La interacción ayuda a que una persona se reconozca en una necesidad y llegue a contacto con una consulta mejor organizada.
+
+**Impacto:**
+Home, Servicios y Contacto incorporan controles con `aria-pressed` y contenido actualizado en regiones `aria-live`. Nosotros y Proyectos recuperan sus tableros visuales anteriores y sus accesos `Volver al inicio`; el retrato de Oriana permanece en la sección personal de Nosotros.
+
+**Alternativas consideradas:**
+- Agregar una animación global sin cambios funcionales.
+- Crear un cuestionario multipaso en una ruta nueva.
+- Incorporar un backend solo para recibir el brief.
+
+**Archivos relacionados:**
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- components/contact/contact-page.tsx
+- docs/obsidian/10_UI_UX_Diseno.md
+
+## 2026-09-21 - Marca personal creativa anónima para fotografía y contenido
+
+**Decisión:**
+Convertir `Marca personal creativa` en un caso ficticio completo para una fotógrafa y creadora de contenido freelance, sin nombre personal, marca, logo ni datos reales.
+
+**Motivo:**
+El mosaico abstracto anterior no permitía entender qué se entregaría ni cómo una identidad personal puede conectar portfolio, redes y presentación comercial.
+
+**Impacto:**
+La card usa una portada editorial y la ficha recorre sistema visual, portfolio fotográfico, contenido para redes y media kit. Las cuatro piezas mantienen formato `16:10`, una paleta común y contactos de demostración.
+
+**Alternativas consideradas:**
+- Mantener el visual geométrico construido con código.
+- Usar el nombre y las fotografías de una profesional real.
+- Resolver todo el caso en un collage único de menor legibilidad.
+
+**Archivos relacionados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-marca-personal-01-sistema.webp
+- public/assets/images/portfolio-marca-personal-02-portfolio.webp
+- public/assets/images/portfolio-marca-personal-03-redes.webp
+- public/assets/images/portfolio-marca-personal-04-media-kit.webp
+
+## 2026-09-20 - Presentación comercial ficticia para arquitectura
+
+**Decisión:**
+Convertir `Presentación de servicios` en un caso ficticio de cuatro páginas para una arquitecta independiente, con una identidad editorial propia y material arquitectónico generado específicamente para el portfolio.
+
+**Motivo:**
+El mockup abstracto anterior no mostraba cómo una presentación puede ayudar a una profesional a presentarse, explicar servicios, demostrar experiencia y facilitar el contacto comercial.
+
+**Impacto:**
+La card usa una portada profesional anónima y la ficha recorre presentación, servicios, proyectos seleccionados y proceso/contacto. Las obras y todos los datos son ficticios, sin nombre personal, logotipo ni identidad de un estudio real.
+
+**Alternativas consideradas:**
+- Mantener el visual genérico construido con HTML/CSS.
+- Mostrar un collage de muchas páginas dentro de una sola imagen.
+- Usar fotografías o datos de una profesional real.
+
+**Archivos relacionados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-arquitectura-01-portada.webp
+- public/assets/images/portfolio-arquitectura-02-servicios.webp
+- public/assets/images/portfolio-arquitectura-03-proyectos.webp
+- public/assets/images/portfolio-arquitectura-04-proceso.webp
+
+## 2026-09-20 - Tarjetas personales como sistema para equipos
+
+**Decisión:**
+Reemplazar el ejemplo abstracto de tarjetas digitales por un caso concreto que presenta tarjetas personales para dirección, comercial y operaciones, usando las tres piezas entregadas como material visual del proyecto.
+
+**Motivo:**
+Las piezas reales muestran mejor la adaptación de una misma identidad a distintos integrantes, cargos y datos de contacto que una ilustración genérica.
+
+**Impacto:**
+La card usa la tarjeta de dirección como portada y el modal recorre dirección, comercial y dorso institucional sin recortes. El contenido explica la adaptación del sistema al equipo operativo y mantiene el formato compacto de las demás fichas.
+
+**Alternativas consideradas:**
+- Mantener el mockup construido con HTML/CSS.
+- Crear tarjetas ficticias sin los datos ni la identidad provistos.
+- Mostrar las tres piezas juntas en un collage de menor legibilidad.
+
+**Archivos relacionados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-tarjetas-01-direccion.webp
+- public/assets/images/portfolio-tarjetas-02-comercial.webp
+- public/assets/images/portfolio-tarjetas-03-dorso.webp
+
+## 2026-09-20 - Dashboard operativo ficticio para una pyme productiva
+
+**Decisión:**
+Convertir `Dashboard operativo` en un caso ficticio completo para una pyme de pastas caseras congeladas, con cuatro pantallas conectadas y sin nombre, logotipo ni datos de un negocio real.
+
+**Motivo:**
+El visual abstracto anterior no permitía apreciar el alcance de una herramienta operativa. El nuevo caso muestra cómo producción, lotes, cámaras de frío, pedidos, ventas y administración pueden convivir en un mismo sistema.
+
+**Impacto:**
+La card usa una portada nítida y el modal permite recorrer panel general, producción, stock y ventas. Las cuatro vistas comparten una paleta naranja y verde, etiquetas en español y datos completamente ficticios.
+
+**Alternativas consideradas:**
+- Mantener el dashboard ilustrado en HTML/CSS.
+- Mostrar una sola captura general sin profundidad de recorrido.
+- Incorporar un nombre de marca ficticio.
+
+**Archivos relacionados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-dashboard-pastas-01-general.webp
+- public/assets/images/portfolio-dashboard-pastas-02-produccion.webp
+- public/assets/images/portfolio-dashboard-pastas-03-stock.webp
+- public/assets/images/portfolio-dashboard-pastas-04-ventas.webp
+
 ## 2026-09-20 - Invitación digital ficticia y alineación estable de cards
 
 **Decisión:**

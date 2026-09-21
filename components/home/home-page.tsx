@@ -37,6 +37,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileMenuOverlay } from "@/components/mobile-menu-overlay";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -104,12 +105,66 @@ type HeroSignal = {
   gradient: string;
 };
 
+type ClickRoute = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  steps: string[];
+  outputs: string[];
+  icon: LucideIcon;
+  accent: Accent;
+};
+
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Proyectos", href: "/proyectos" },
   { label: "Contacto", href: "/contacto" },
+];
+
+const clickRoutes: ClickRoute[] = [
+  {
+    id: "mostrar",
+    label: "Mostrarme mejor",
+    title: "Presencia web + mensaje claro",
+    description: "Ordenamos lo que hacés y lo convertimos en una experiencia profesional, fácil de recorrer y lista para compartir.",
+    steps: ["Mensaje", "Experiencia", "Contacto"],
+    outputs: ["Web", "Portfolio", "CTA"],
+    icon: Globe2,
+    accent: "pink",
+  },
+  {
+    id: "vender",
+    label: "Vender una propuesta",
+    title: "Identidad + piezas comerciales",
+    description: "Damos forma a tu oferta para que se vea coherente, se entienda rápido y acompañe mejor cada conversación comercial.",
+    steps: ["Oferta", "Material", "Conversación"],
+    outputs: ["Presentación", "Catálogo", "Tarjetas"],
+    icon: BriefcaseBusiness,
+    accent: "yellow",
+  },
+  {
+    id: "ordenar",
+    label: "Ordenar información",
+    title: "Herramienta digital + tablero",
+    description: "Convertimos datos y tareas dispersas en un recorrido simple para registrar, seguir y decidir con más claridad.",
+    steps: ["Datos", "Flujo", "Decisión"],
+    outputs: ["Planilla", "Formulario", "Dashboard"],
+    icon: FileSpreadsheet,
+    accent: "cyan",
+  },
+  {
+    id: "explorar",
+    label: "Todavía no lo sé",
+    title: "Diagnóstico + ruta por etapas",
+    description: "Empezamos por entender la idea, priorizamos lo importante y definimos una primera salida posible sin complicar de más.",
+    steps: ["Idea", "Prioridad", "Próximo paso"],
+    outputs: ["Asesoría", "Mapa", "Brief"],
+    icon: Lightbulb,
+    accent: "pink",
+  },
 ];
 
 function assetPath(path: string) {
@@ -471,6 +526,24 @@ export function HomePage() {
         });
       });
 
+      gsap.utils.toArray<HTMLElement>("[data-portfolio-image]").forEach((element) => {
+        gsap.fromTo(
+          element,
+          { autoAlpha: 0.45, clipPath: "inset(7% 0 7% 0)", scale: 0.985 },
+          {
+            autoAlpha: 1,
+            clipPath: "inset(0% 0 0% 0)",
+            scale: 1,
+            duration: 0.95,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 86%",
+            },
+          },
+        );
+      });
+
       gsap.to("[data-parallax]", {
         yPercent: -8,
         ease: "none",
@@ -596,22 +669,7 @@ function SiteNav() {
         </Button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/10 bg-[#11131a]/96 px-4 md:hidden">
-          <div className="flex flex-col gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[8px] px-3 py-3 text-sm font-semibold text-white/82 transition hover:bg-white/8 hover:text-white"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <MobileMenuOverlay open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }
@@ -658,9 +716,8 @@ function HeroSection() {
             data-hero
             className="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg"
           >
-            Creamos páginas web, dashboards, planillas inteligentes, automatizaciones
-            e identidad visual para que tu marca se vea mejor, trabaje más ordenada
-            y comunique con claridad.
+            <strong className="block text-white">Tu idea puede llegar desordenada. El resultado no.</strong>
+            <span className="mt-2 block">Creamos páginas web, dashboards, planillas inteligentes, automatizaciones e identidad visual para que tu marca se vea mejor y trabaje más ordenada.</span>
           </p>
 
           <div data-hero className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -973,6 +1030,10 @@ function CreativeStudioMockup() {
 }
 
 function ServicesSection() {
+  const [activeRouteId, setActiveRouteId] = useState(clickRoutes[0].id);
+  const activeRoute = clickRoutes.find((route) => route.id === activeRouteId) ?? clickRoutes[0];
+  const ActiveRouteIcon = activeRoute.icon;
+
   return (
     <section id="servicios" className="relative isolate scroll-mt-24 overflow-hidden bg-[#fbfbfe] py-20 sm:py-24">
       <div className="grid-fade absolute inset-x-0 top-0 h-72 opacity-80" aria-hidden="true" />
@@ -992,23 +1053,75 @@ function ServicesSection() {
 
           <div
             data-reveal
-            className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#11131a] p-5 text-white shadow-[0_22px_60px_rgba(17,19,26,0.14)]"
+            className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-[#11131a] p-5 text-white shadow-[0_22px_60px_rgba(17,19,26,0.14)] sm:p-6"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase text-white/48">Brújula Cl!ck</p>
-                <p className="mt-3 text-lg font-bold leading-8 sm:text-xl">
-                  No vendemos una herramienta. Ayudamos a encontrar una solución.
-                </p>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f7c74d]">Ruta Cl!ck</p>
+                <p className="mt-2 text-lg font-bold leading-7 sm:text-xl">¿Qué necesitás resolver primero?</p>
               </div>
               <Sparkles className="size-6 shrink-0 text-[#f7c74d]" aria-hidden="true" />
             </div>
-            <div className="mt-6 grid gap-2 text-sm text-white/72 sm:grid-cols-3">
-              {["Entender", "Proponer", "Crear"].map((item) => (
-                <span key={item} className="interactive-chip dark-chip rounded-full border border-white/12 bg-white/7 px-3 py-2 text-center font-bold">
-                  {item}
+
+            <div className="mt-5 grid gap-2 sm:grid-cols-2">
+              {clickRoutes.map((route) => {
+                const Icon = route.icon;
+                const selected = route.id === activeRoute.id;
+
+                return (
+                  <button
+                    key={route.id}
+                    type="button"
+                    aria-pressed={selected}
+                    className={cn(
+                      "flex min-h-11 items-center gap-2 rounded-[8px] border px-3 py-2 text-left text-xs font-bold transition",
+                      selected
+                        ? "border-[#71c1f0]/48 bg-white text-[#11131a] shadow-[0_12px_28px_rgba(0,0,0,0.18)]"
+                        : "border-white/12 bg-white/7 text-white/72 hover:border-white/28 hover:bg-white/12 hover:text-white",
+                    )}
+                    onClick={() => setActiveRouteId(route.id)}
+                  >
+                    <Icon className={cn("size-4 shrink-0", selected ? "text-[#e73b90]" : "text-[#71c1f0]")} aria-hidden="true" />
+                    {route.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div aria-live="polite" className="mt-4 rounded-[8px] border border-white/12 bg-white/8 p-4">
+              <div className="flex items-start gap-3">
+                <span className={cn("inline-flex size-10 shrink-0 items-center justify-center rounded-[8px] border", darkAccentStyles[activeRoute.accent])}>
+                  <ActiveRouteIcon className="size-5" aria-hidden="true" />
                 </span>
-              ))}
+                <div className="min-w-0">
+                  <p className="font-heading text-2xl font-bold uppercase leading-none">{activeRoute.title}</p>
+                  <p className="mt-2 text-xs leading-5 text-white/64 sm:text-sm">{activeRoute.description}</p>
+                </div>
+              </div>
+
+              <div className="mt-4 flex items-center gap-2 overflow-x-auto pb-1 text-[11px] font-bold uppercase text-white/62">
+                {activeRoute.steps.map((step, index) => (
+                  <span key={step} className="flex shrink-0 items-center gap-2">
+                    {index > 0 ? <ArrowRight className="size-3 text-[#f7c74d]" aria-hidden="true" /> : null}
+                    {step}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/10 pt-4">
+                {activeRoute.outputs.map((output) => (
+                  <span key={output} className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-[11px] font-bold text-white/72">
+                    {output}
+                  </span>
+                ))}
+                <Link
+                  href="/contacto#brief"
+                  className="ml-auto inline-flex min-h-9 items-center gap-2 rounded-[8px] bg-[#e73b90] px-3 text-xs font-bold text-white transition hover:bg-[#d62e82]"
+                >
+                  Empezar esta ruta
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -1415,7 +1528,7 @@ function ProjectsSection() {
             title="Portfolio visual para mostrar lo que Cl!ck puede crear."
             description="Trabajos pensados para que cada marca comunique mejor: experiencias claras, piezas visuales y herramientas digitales listas para usar."
           />
-          <div data-reveal className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white p-4">
+          <div data-reveal data-portfolio-image className="interactive-card group overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white p-4">
               <Image
                 src={assetPath("/assets/images/about-portfolio-visual.svg")}
                 alt="Mockup ilustrado de portfolio visual con pantallas, piezas digitales y recursos de marca"
@@ -1464,7 +1577,7 @@ function ProjectsSection() {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <article data-card className="interactive-card group flex h-full flex-col overflow-hidden rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_20px_54px_rgba(17,19,26,0.09)]">
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#11131a]">
+      <div data-portfolio-image className="relative aspect-[16/10] overflow-hidden bg-[#11131a]">
         <Image
           src={project.image}
           alt={project.title}
@@ -1501,13 +1614,13 @@ function TestimonialsSection() {
       <SoftSectionDoodles />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Testimonios"
-          title={
-            <>
-              Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
-            </>
-          }
-          description="Webs, planillas, invitaciones, piezas digitales, ecommerce e identidad visual pensadas para objetivos distintos."
+            eyebrow="Testimonios"
+            title={
+              <>
+                Historias de proyectos que hicieron <span className="text-brand-gradient">Cl!ck</span>.
+              </>
+            }
+            description="Webs, planillas, invitaciones, piezas digitales, ecommerce e identidad visual pensadas para objetivos distintos."
         />
 
         <div data-reveal className="relative mt-12">

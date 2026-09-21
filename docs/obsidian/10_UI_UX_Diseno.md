@@ -16,6 +16,8 @@
 ## Home
 
 - Hero visual con imagen de fondo, H1 fuerte, garabatos de marca suaves hacia bordes, mockup creativo y CTA.
+- `Ruta Cl!ck` reemplaza la brújula estática: cuatro necesidades seleccionables actualizan recomendación, recorrido, salidas y CTA dentro de un único panel compacto.
+- Los controles de la ruta usan `aria-pressed` y el resultado usa `aria-live`, con lectura lineal y sin overflow en mobile.
 - La previsualización de portfolio usa tres referencias genéricas: Web profesional, Identidad visual y Dashboard operativo; los casos específicos se reservan para `/proyectos`.
 - Cards del portfolio con slides `h-auto`, cuerpo flex y zonas internas estables para mantener títulos, textos, chips y borde inferior alineados.
 - Acciones oscuras `Ver portfolio completo` y `Completar brief inicial` usan hover rosa con texto blanco y foco visible, sin heredar el fondo claro de `.interactive-chip`.
@@ -44,6 +46,8 @@
 ## Página Servicios
 
 - Página interna `/servicios` con hero propio, fondo visual oscuro, líneas de marca animadas y tablero de categorías.
+- El tablero del hero funciona como selector por objetivo (`Mostrar`, `Vender`, `Ordenar`, `Explorar`) y devuelve una ruta de servicio concreta.
+- Se retiró el acceso redundante `Volver al inicio`; la navegación global conserva esa función.
 - Hero de `/servicios` equilibrado: copy reducido a menos líneas y tablero visual más protagonista en desktop; tablero oculto en mobile para priorizar lectura.
 - Chips superiores del hero separados con `gap` para evitar que se lean como un solo bloque.
 - Mockups internos usan textos neutrales como `Sitio web de Cl!ck` mientras no esté definido el dominio final.
@@ -62,11 +66,13 @@
 ## Página Contacto
 
 - Página interna `/contacto` con hero oscuro, líneas animadas de marca hacia los bordes, chips superiores separados y foco en iniciar una consulta concreta.
+- El visual del hero presenta una conversación entre una idea todavía abierta y una ruta posible, diferenciándose de los tableros de Servicios y Proyectos.
 - Hero separado del formulario, con panel visual compacto de tres pasos para no amontonar el brief en el primer viewport.
 - Hero de `/contacto` balanceado en desktop mediante titular más contenido y panel derecho elevado para que ambos lados queden alineados visualmente.
 - Formulario estático tipo brief en una sección limpia debajo del hero, con selección de servicio, momento, nombre, canal de respuesta e idea o necesidad.
 - Vista previa en vivo del mensaje para que el usuario entienda qué está enviando antes de abrir el email.
-- Botón principal por `mailto` y botón secundario para copiar el brief, evitando depender de backend en GitHub Pages.
+- Recomendación dinámica `Por lo que contás` según servicio, con primer paso, salidas posibles e indicador de avance del brief.
+- Acciones por WhatsApp, `mailto` y portapapeles reutilizan un mismo mensaje e incluyen la ruta sugerida, sin depender de backend en GitHub Pages.
 - Cards de preparación del primer mensaje para explicar qué información ayuda sin convertirlo en una página corporativa plana.
 - CTA interno para volver al brief con fondo oscuro y movimiento coherente con los CTA de home y servicios.
 - El hash `/contacto#brief` abre la página con el formulario visible, útil para CTAs externos desde home, servicios, nosotros y proyectos.
@@ -74,6 +80,7 @@
 ## Página Nosotros
 
 - Página interna `/nosotros` enfocada en forma de trabajar y criterio, evitando una página institucional plana.
+- El hero conserva el tablero `Método Cl!ck` con cuatro pasos y progreso visual; el retrato nítido de Oriana permanece dentro de la sección personal `Detrás de Cl!ck`.
 - Hero oscuro con H1 corto, palabra `Cl!ck` en gradiente, chips de posicionamiento y tablero visual `Método Cl!ck`.
 - Sección `Detrás de Cl!ck` con foto de Oriana Rojas, tarjeta superpuesta y presentación en primera persona para sonar más cercana y confiable.
 - Retrato restaurado en PNG `1063x1479` para mejorar nitidez en pantallas grandes, manteniendo el original JPEG sin reemplazar.
@@ -91,12 +98,16 @@
 ## Página Proyectos
 
 - Página interna `/proyectos` pensada como galería de referencias adaptables, evitando comunicar venta de plantillas o paquetes cerrados.
+- El hero recupera el `Mapa de soluciones` con Web, Identidad, Diseño digital y Herramientas, más la secuencia Necesidad / Dirección / Solución.
 - La referencia destacada inicial es una `Presencia web` genérica con mockup ficticio; el caso de automatización se reserva para la galería y la ficha de proyecto.
 - Primer caso cargado como `Web profesional con demos`: relata una solución para un profesional freelance de automatización y sistemas a medida con un título comercial genérico; las capturas mantienen la identidad original del proyecto.
 - Primer caso con portada `16:10` y carrusel dentro del modal. Muestra una captura WebP `1600x1000` por vez, sin recorte ni deformación, y permite recorrer home, resultados, demos, demo médica, panel y método mediante flechas, paginación, teclado o swipe.
 - Segundo caso `Tienda virtual` presentado como ecommerce ficticio para mascotas, sin nombre de marca en el código y con una huella genérica en el encabezado visible; incluye home, catálogo con filtros, ficha de producto y carrito.
 - Caso `Identidad visual de marca` basado en el trabajo real de Trebu, con portada de packaging y cuatro láminas originales ordenadas en un carrusel: presentación, logo y color, stickers y aplicaciones.
 - Caso `Invitación digital` presentado como proyecto ficticio de Juan y Maricel: portada, fecha y detalles, confirmación RSVP y álbum posterior. Todos los mockups mantienen una estética marfil, rosa empolvado, verde salvia y champagne, sin imágenes reales de personas.
+- Caso `Dashboard operativo` presentado como herramienta ficticia para una pyme de pastas caseras congeladas: panel general, planificación por lotes, stock/cadena de frío y ventas/administración. Las cuatro capturas comparten naranja, verde y neutros, sin nombre, logotipo ni datos reales.
+- Caso `Tarjetas de equipo` presentado con material provisto: portada para dirección, adaptación comercial y dorso institucional. Las piezas se muestran completas, una por vez, y el contenido describe la extensión del sistema al equipo operativo.
+- Caso `Presentación de servicios` presentado como proyecto ficticio para arquitectura independiente: portada profesional anónima, servicios, portfolio de obras y proceso/contacto. Las páginas comparten una dirección editorial en blanco, grafito, verde profundo, terracota y salvia.
 - Carrusel de casos reutilizable con flechas, puntos, contador, teclado y swipe; las capturas usan `object-contain` para evitar deformaciones.
 - Chips de cada card en una sola línea mediante etiquetas breves, `flex-nowrap` y dimensiones estables; kicker, título y descripción tienen alturas comunes para alinear chips y CTA entre columnas.
 - En desktop, los modales distribuyen objetivo, propósito y salida en tres columnas y ajustan su altura al contenido sin scrollbar ni huecos inferiores. En mobile conservan scroll interno y textos legibles.
@@ -104,7 +115,7 @@
 - Ejemplos redactados de forma genérica por tipo de solución, evitando rubros demasiado específicos dentro del portfolio.
 - Ficha destacada con visual dinámico por proyecto, objetivo, solución y resultado para enseñar cómo una necesidad puede convertirse en solución personalizada.
 - Visual de identidad usa material real de Trebu y conserva su marca, paleta y aplicaciones porque se presenta como trabajo concreto dentro de la galería de proyectos.
-- Visual de dashboard se construye con HTML/CSS como tablero ficticio, evitando imágenes realistas.
+- El dashboard de la galería usa una portada WebP nítida y cuatro vistas ficticias navegables para comunicar un sistema operativo completo.
 - Selector de referencias del panel destacado reemplaza chips repetidos por mini tarjetas visuales con etiquetas distintas, para evitar que dos proyectos web se lean iguales.
 - Bloque izquierdo de referencias incluye una guía breve para leer cada ejemplo: tipo de solución, objetivo y salida; se ubica más abajo para equilibrar el alto con la ficha destacada.
 - Se retiró `Puntos de partida` para reducir el alto de la introducción y mantener más compactos ambos lados del bloque.
@@ -115,7 +126,8 @@
 - El modal bloquea el scroll del fondo y permite scrollear solo el contenido interno cuando la ficha ocupa más alto que la pantalla.
 - El panel incorpora atributos preventivos de Lenis, `overscroll-behavior`, desplazamiento táctil y gutter estable para que la rueda del mouse controle siempre la ficha activa.
 - El modal muestra visual, objetivo, qué se hizo, resultado, entregables, frases del trabajo y CTA `Quiero algo personalizado para mí`.
-- Visuales inventados con código para identidad, invitación digital, tarjetas comerciales, presentación y marca personal.
+- Los casos que cuentan con material visual usan imágenes optimizadas; `Marca personal creativa` ahora presenta cuatro láminas ficticias y anónimas para sistema visual, portfolio fotográfico, redes y media kit.
+- La identidad del caso de marca personal combina negro, blanco, azul cobalto, coral y celeste; evita nombres y logotipos, usa contactos de demostración y mantiene el formato `16:10` de las demás galerías.
 - Copy orientado a `explorar trabajos`, `referencias` e `ideas`, remarcando que cada salida se personaliza según objetivo, marca y alcance.
 - Sección oscura para explicar que una dirección visual se convierte en solución propia y no en copia o plantilla cerrada.
 - CTA final orientado a pedir una solución personalizada y seguir hacia contacto/servicios.
@@ -128,6 +140,8 @@
 ## Navegación Global
 
 - Las navbars mantienen las mismas opciones en home y páginas internas: Inicio, Servicios, Nosotros, Proyectos y Contacto.
+- En mobile, el menú ocupa la pantalla completa y suma CTA `Empezar proyecto`, email y WhatsApp; bloquea el fondo, cierra con Escape y conserva el foco dentro del diálogo.
+- Una línea de color fija en el borde superior acompaña el progreso de lectura en todas las rutas.
 - Los enlaces internos usan `TopAwareLink`: si el usuario toca la página en la que ya está, el viewport vuelve suavemente al inicio y respeta `prefers-reduced-motion`.
 - El footer global mantiene el mismo mapa de navegación y datos de contacto en todas las páginas, evitando duplicación de footers por componente.
 - Se agregó botón flotante `Subir al inicio` en home, servicios, contacto, nosotros y proyectos.
@@ -154,18 +168,21 @@
 - Variante `dark-chip` para mantener contraste en hovers sobre fondos oscuros.
 - Botones finales de `/servicios` usan clases específicas de hover para evitar fondos blancos con texto ilegible.
 - Carrusel de testimonios con Swiper Navigation personalizada en laterales y Pagination.
+- Revelado suave por scroll en imágenes de portfolio y transición de entrada al cambiar capturas de una ficha.
+- El indicador de progreso usa `requestAnimationFrame` y `transform: scaleX()` para evitar relayouts durante el scroll.
 - Se respeta `prefers-reduced-motion`.
 
 ## Responsive
 
 - Mobile-first con menú hamburguesa.
+- El botón hamburguesa abre navegación de pantalla completa sin overflow horizontal y con contactos visibles en `390x844`.
 - Hero mobile compactado; el mockup principal se muestra desde tablet/escritorio para no sobrecargar celular.
 - Grillas colapsan a una columna en celular.
-- En `/servicios`, el tablero visual del hero se oculta en mobile y las categorías pasan a lectura lineal.
+- En `/servicios`, el selector del hero permanece disponible en mobile con controles compactos y contenido en lectura lineal.
 - En `/contacto`, el brief vive debajo del hero en desktop y mobile, manteniendo campos amplios para escritura cómoda.
 - En `/nosotros`, el tablero del hero se oculta en mobile para priorizar lectura y las cards pasan a una columna.
 - En `/proyectos`, el tablero del hero se oculta en mobile, los filtros se acomodan en varias líneas y las cards pasan a una columna.
-- Revisión responsive con Playwright en home y proyectos a 1440px y 390px: no se detectó desborde del `main`; carruseles usan contenido fuera de viewport por funcionamiento normal de Swiper con overflow controlado.
+- Revisión responsive con Chrome/CDP en home, servicios, nosotros, proyectos y contacto a 1440px y 390px: `documentWidth` coincide con el viewport y no se detectó overflow horizontal.
 
 ## Criterios pendientes
 

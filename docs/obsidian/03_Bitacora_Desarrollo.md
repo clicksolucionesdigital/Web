@@ -1,5 +1,197 @@
 # Bitácora de Desarrollo
 
+## 2026-09-21 - Portadas restauradas, movimiento global y copy de marca
+
+**Cambios realizados:**
+- Se restauraron el tablero `Método Cl!ck` en el hero de Nosotros y el `Mapa de soluciones` en el hero de Proyectos.
+- Se incorporaron las frases de marca definidas para Home, Servicios, Proyectos y Contacto.
+- Se agregó una línea fija de color que refleja el progreso de lectura en todas las páginas.
+- Se añadió revelado suave por scroll en imágenes de portfolio y una transición breve al cambiar capturas dentro de las fichas.
+- Se reemplazaron los menús mobile desplegables por un overlay de pantalla completa con CTA, email y WhatsApp, cierre con Escape, bloqueo de scroll y foco contenido.
+- Tras la revisión visual, se conservó la versión anterior del carrusel de testimonios con sus textos, rótulos e iconos originales.
+- Se retiró una animación GSAP sin destino en Servicios para eliminar advertencias de consola.
+
+**Archivos modificados:**
+- app/layout.tsx
+- app/globals.css
+- components/page-progress-line.tsx
+- components/mobile-menu-overlay.tsx
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- components/contact/contact-page.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `npm run build`: correcto; ocho páginas estáticas generadas.
+- Playwright desktop `1440x900`: cinco rutas sin overflow horizontal y revisión visual de los héroes restaurados.
+- Playwright mobile `390x844`: cinco rutas sin overflow horizontal; menú completo con CTA y contactos, sin overflow propio.
+- Progreso verificado al `75.9%` del recorrido y consola de Servicios sin errores ni advertencias.
+
+**Pendientes detectados:**
+- Revisión visual del usuario antes de publicar esta iteración.
+
+## 2026-09-21 - Ruta Cl!ck, héroes diferenciados y brief asistido
+
+**Cambios realizados:**
+- Se reemplazó la brújula estática de la home por una `Ruta Cl!ck` interactiva con cuatro necesidades, recorrido sugerido, posibles salidas y CTA contextual.
+- El hero de Servicios ahora permite elegir objetivo y actualiza una ruta recomendada sin recargar la página.
+- El hero de Nosotros incorpora el retrato de Oriana y una síntesis de dirección basada en organizar, crear y activar.
+- El hero de Proyectos incluye un carrusel breve de casos con imagen, descripción, flechas y paginación accesible.
+- El hero de Contacto se convirtió en una conversación visual entre idea inicial y ruta posible.
+- Se retiraron los botones redundantes `Volver al inicio` de los cuatro héroes internos.
+- El brief recomienda una salida según el servicio elegido, muestra avance y prepara el mismo mensaje para email, WhatsApp y portapapeles.
+- Se ajustaron titulares y anchos mínimos para evitar recortes u overflow en 390 px.
+
+**Archivos modificados:**
+- components/home/home-page.tsx
+- components/services/services-page.tsx
+- components/about/about-page.tsx
+- components/projects/projects-page.tsx
+- components/contact/contact-page.tsx
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `git diff --check`: correcto; solo avisos de conversión LF/CRLF del entorno Windows.
+- `npm run build`: correcto; siete rutas de contenido prerenderizadas más la ruta de icono.
+- Chrome/CDP desktop: Ruta Cl!ck, selector de Servicios y carrusel del hero de Proyectos cambian estado correctamente.
+- Chrome/CDP mobile `390x844`: Home, Servicios, Nosotros, Proyectos y Contacto sin overflow horizontal (`390px`).
+- Brief funcional: la selección `Identidad` devuelve la recomendación correspondiente y genera un enlace `wa.me/5493442576205` con mensaje codificado.
+- Revisión visual mediante capturas desktop y mobile con `prefers-reduced-motion`.
+
+**Pendientes detectados:**
+- Revisión visual del usuario en navegador real antes de publicar la iteración.
+
+## 2026-09-21 - Marca personal para fotografía y contenido
+
+**Cambios realizados:**
+- Se reemplazó el mosaico abstracto de `Marca personal creativa` por un caso ficticio, realista y completamente anónimo.
+- Se prepararon cuatro láminas conectadas: sistema de marca, portfolio fotográfico, contenido para redes y media kit comercial.
+- Se redactaron objetivo, propósito, salida, entregables, frases y chips específicos para una fotógrafa y creadora de contenido freelance.
+- La card usa la portada del caso y la ficha reutiliza el carrusel con flechas, puntos, teclado y swipe.
+- Los contactos visibles son genéricos y no se incorporaron nombres, logos ni datos de una profesional real.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-marca-personal-01-sistema.webp
+- public/assets/images/portfolio-marca-personal-02-portfolio.webp
+- public/assets/images/portfolio-marca-personal-03-redes.webp
+- public/assets/images/portfolio-marca-personal-04-media-kit.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `npm run build`: correcto; siete rutas de contenido prerenderizadas más la ruta de icono.
+- Chrome desktop `1440x900`: card sin desborde, modal completo sin scrollbar (`790px`) y carrusel navegable de `01/04` a `02/04`.
+- Chrome mobile `390x844`: documento sin overflow horizontal y panel con scroll interno (`1917px` de contenido dentro de `774px` visibles).
+
+**Pendientes detectados:**
+- Revisión visual final del usuario antes de publicar el caso.
+
+## 2026-09-20 - Presentación de servicios para arquitectura
+
+**Cambios realizados:**
+- Se reemplazó el mockup abstracto de `Presentación de servicios` por un caso ficticio para una arquitecta independiente.
+- Se generaron cuatro páginas conectadas: portada profesional anónima, servicios, proyectos seleccionados y proceso con contacto.
+- Se incorporaron arquitectura, interiores, planos, materiales y maquetas generados para el caso, sin usar obras o datos de una profesional real.
+- Se redactaron objetivo, propósito, salida, entregables, frases y chips específicos para una herramienta comercial de arquitectura.
+- La ficha reutiliza el carrusel con flechas, puntos, teclado y swipe.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-arquitectura-01-portada.webp
+- public/assets/images/portfolio-arquitectura-02-servicios.webp
+- public/assets/images/portfolio-arquitectura-03-proyectos.webp
+- public/assets/images/portfolio-arquitectura-04-proceso.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `npm run build`: correcto; siete rutas de contenido prerenderizadas más la ruta de icono.
+- Playwright temporal con Chrome desktop `1440x900`: card alineada, modal sin scroll (`766px`) y carrusel navegable de `01/04` a `02/04`.
+- Playwright mobile `390x844`: ancho de documento igual al viewport y ficha navegable con scroll interno.
+
+**Pendientes detectados:**
+- Revisión visual final del usuario antes de publicar el caso.
+
+## 2026-09-20 - Caso de tarjetas personales para equipos
+
+**Cambios realizados:**
+- Se reemplazó el mockup abstracto de tarjetas por tres piezas reales provistas para el portfolio.
+- La card `Tarjetas de equipo` utiliza la pieza de dirección como portada.
+- La ficha presenta una tarjeta para dirección, otra para el equipo comercial y el dorso institucional mediante el carrusel reutilizable.
+- Se incorporó el alcance para el equipo operativo en objetivo, propósito, entregables y relato comercial.
+- Las imágenes se normalizaron a WebP `1600x1000` sin recortar datos ni deformar el diseño.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-tarjetas-01-direccion.webp
+- public/assets/images/portfolio-tarjetas-02-comercial.webp
+- public/assets/images/portfolio-tarjetas-03-dorso.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `npm run build`: correcto; siete rutas de contenido prerenderizadas más la ruta de icono.
+- Playwright temporal con Chrome desktop `1440x900`: card alineada, modal sin scroll (`718px`) y carrusel navegable de `01/03` a `02/03`.
+- Playwright mobile `390x844`: ancho de documento igual al viewport y ficha navegable con scroll interno.
+
+**Pendientes detectados:**
+- Revisión visual final del usuario antes de publicar el caso.
+
+## 2026-09-20 - Caso de dashboard operativo para pastas congeladas
+
+**Cambios realizados:**
+- Se reemplazó el dashboard abstracto por un caso ficticio completo para una pyme de pastas caseras congeladas.
+- Se creó una portada y tres pantallas complementarias: producción por lotes, stock/cadena de frío y ventas/administración.
+- Se redactaron objetivo, propósito, salida, entregables, frases y chips específicos del caso.
+- Las imágenes no incluyen marca, logotipo, personas ni datos reales; usan una paleta consistente de naranja, verde y neutros.
+- La ficha reutiliza el carrusel accesible con flechas, puntos, teclado y swipe.
+
+**Archivos modificados:**
+- components/projects/projects-page.tsx
+- public/assets/images/portfolio-dashboard-pastas-01-general.webp
+- public/assets/images/portfolio-dashboard-pastas-02-produccion.webp
+- public/assets/images/portfolio-dashboard-pastas-03-stock.webp
+- public/assets/images/portfolio-dashboard-pastas-04-ventas.webp
+- docs/obsidian/00_Contexto_Proyecto.md
+- docs/obsidian/02_Decisiones_Tecnicas.md
+- docs/obsidian/03_Bitacora_Desarrollo.md
+- docs/obsidian/05_Pendientes.md
+- docs/obsidian/10_UI_UX_Diseno.md
+
+**Validaciones realizadas:**
+- `npm run lint`: correcto.
+- `npm run build`: correcto; siete rutas de contenido prerenderizadas más la ruta de icono.
+- Playwright temporal con Chrome desktop `1440x900`: modal completo sin scroll (`718px` visibles y `718px` de contenido), carrusel navegable de `01/04` a `02/04` y sin overflow horizontal.
+- Playwright mobile `390x844`: ancho de documento igual al viewport y modal navegable con scroll interno.
+
+**Pendientes detectados:**
+- Revisión visual final del usuario antes de publicar este nuevo caso.
+
 ## 2026-09-20 - Caso de invitación digital y chips alineados
 
 **Cambios realizados:**

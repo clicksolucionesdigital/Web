@@ -33,6 +33,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileMenuOverlay } from "@/components/mobile-menu-overlay";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -138,29 +139,29 @@ const projects: ProjectCase[] = [
   {
     title: "Dashboard operativo",
     category: "Herramientas",
-    kicker: "Datos accionables",
-    description: "Un tablero simple para transformar registros dispersos en indicadores fáciles de leer.",
-    objective: "Controlar ventas, tareas o avances sin depender de archivos desordenados.",
-    solution: "Estructura de datos, KPIs visuales y vista ejecutiva con señales de estado.",
-    result: "Más claridad para decidir rápido y detectar prioridades.",
-    deliverables: ["Estructura de datos", "Indicadores clave", "Vista ejecutiva", "Criterios de seguimiento"],
-    phrases: ["Los números dejaron de estar dispersos.", "Ahora se ve qué mirar primero.", "El seguimiento se volvió más simple."],
-    tags: ["Dashboard", "KPIs", "Planillas"],
-    accent: "cyan",
+    kicker: "Producción + gestión",
+    description: "Un dashboard para una pyme de pastas caseras congeladas, pensado para conectar producción, stock, pedidos y ventas.",
+    objective: "Dejar de controlar lotes, insumos, cámaras de frío y pedidos en registros separados.",
+    solution: "Panel responsive con planificación de producción, trazabilidad por lote, stock congelado, ventas y cuentas por cobrar.",
+    result: "Una vista diaria para anticipar faltantes, ordenar entregas y entender qué productos y canales sostienen el negocio.",
+    deliverables: ["Panel general", "Producción por lotes", "Stock y cadena de frío", "Ventas y administración"],
+    phrases: ["Producción y ventas hablan el mismo idioma.", "Cada lote puede seguirse desde la elaboración hasta la entrega.", "Las alertas muestran qué resolver primero."],
+    tags: ["Producción", "Stock", "Ventas"],
+    accent: "yellow",
     icon: BarChart3,
     visual: "dashboard",
   },
   {
-    title: "Tarjetas digitales comerciales",
+    title: "Tarjetas de equipo",
     category: "Diseño",
-    kicker: "Diseño digital",
-    description: "Tarjetas visuales para compartir datos, contacto y presentación comercial de manera prolija.",
-    objective: "Tener una pieza clara para enviar después de reuniones, consultas o primeros contactos.",
-    solution: "Diseño frente/dorso con jerarquía clara, QR, datos de contacto y versión para compartir.",
-    result: "Una herramienta comercial digital lista para usar en el día a día.",
-    deliverables: ["Diseño frente/dorso", "QR o contacto rápido", "Archivo digital editable", "Versión para compartir"],
-    phrases: ["El equipo quedó más presentado.", "La información se entrega sin vueltas.", "La tarjeta acompaña mejor cada reunión."],
-    tags: ["Tarjetas", "QR", "Comercial"],
+    kicker: "Tarjetas personales",
+    description: "Tarjetas personalizadas para un profesional y su equipo, adaptadas a los roles de dirección, comercial y operaciones.",
+    objective: "Unificar la presentación de cada integrante y facilitar el intercambio de datos después de reuniones, visitas y consultas.",
+    solution: "Sistema frente/dorso alineado a la marca, con cargo, contacto directo, ubicación, redes, sitio web y acceso mediante QR.",
+    result: "Un conjunto coherente de tarjetas listas para compartir, con información específica para cada función del equipo.",
+    deliverables: ["Tarjeta para dirección", "Tarjeta para comercial", "Adaptación para operaciones", "Dorso institucional + QR"],
+    phrases: ["Cada rol mantiene su información sin perder unidad visual.", "El QR concentra los canales de contacto.", "El equipo se presenta con una identidad consistente."],
+    tags: ["Equipo", "Contacto", "QR"],
     accent: "yellow",
     icon: BriefcaseBusiness,
     visual: "cards",
@@ -168,14 +169,14 @@ const projects: ProjectCase[] = [
   {
     title: "Presentación de servicios",
     category: "Diseño",
-    kicker: "Propuesta visual",
-    description: "Una pieza digital para explicar servicios, proceso y diferenciales con mejor ritmo visual.",
-    objective: "Ayudar a presentar una propuesta sin depender de textos largos o desordenados.",
-    solution: "Sistema de páginas, portada, bloques de servicios y slides listos para adaptar.",
-    result: "Material claro para enviar, compartir o usar en reuniones.",
-    deliverables: ["Portada", "Bloques de servicios", "Páginas internas", "Versión digital"],
-    phrases: ["La propuesta se entiende mejor.", "El material acompaña la venta.", "La presentación se ve más clara y preparada."],
-    tags: ["Presentación", "PDF digital", "Servicios"],
+    kicker: "Arquitectura independiente",
+    description: "Una presentación comercial para una arquitecta independiente, creada para presentarse, mostrar obras, explicar servicios y compartir su contacto.",
+    objective: "Reunir trayectoria, propuesta de valor y trabajos seleccionados en una pieza profesional fácil de enviar a potenciales clientes.",
+    solution: "Presentación modular con portada profesional, mapa de servicios, portfolio de proyectos, proceso de trabajo y canales de contacto.",
+    result: "Una herramienta comercial lista para reuniones y consultas, capaz de mostrar experiencia y orientar la conversación hacia un nuevo proyecto.",
+    deliverables: ["Portada y presentación", "Mapa de servicios", "Portfolio de proyectos", "Proceso y contacto"],
+    phrases: ["La profesional puede presentarse con claridad desde el primer contacto.", "Los proyectos demuestran criterio y experiencia.", "Servicios, proceso y contacto quedan reunidos en una sola pieza."],
+    tags: ["Arquitectura", "Portfolio", "Servicios"],
     accent: "pink",
     icon: FileText,
     visual: "presentation",
@@ -183,14 +184,14 @@ const projects: ProjectCase[] = [
   {
     title: "Marca personal creativa",
     category: "Identidad",
-    kicker: "Marca personal",
-    description: "Un universo visual flexible para redes, hobbies y piezas artísticas.",
-    objective: "Dar coherencia a contenidos variados sin perder personalidad.",
-    solution: "Paleta, sistema de portadas, recursos gráficos y lineamientos para publicaciones.",
-    result: "Un perfil más reconocible y fácil de sostener en el tiempo.",
-    deliverables: ["Paleta de marca", "Portadas para redes", "Recursos gráficos", "Estilo de publicaciones"],
-    phrases: ["El perfil empezó a tener identidad.", "Las publicaciones se conectan entre sí.", "La creatividad se ve más ordenada."],
-    tags: ["Marca personal", "Redes", "Creatividad"],
+    kicker: "Fotografía + contenido",
+    description: "Una marca personal para una fotógrafa y creadora de contenido freelance, pensada para mostrar su estilo y presentar servicios sin depender de un nombre visible.",
+    objective: "Construir una presencia reconocible para mostrar trabajos, explicar servicios y generar consultas con una imagen coherente.",
+    solution: "Dirección visual, criterio fotográfico, portfolio, plantillas para redes y media kit comercial.",
+    result: "Una marca personal lista para publicar, enviar propuestas y sostener una identidad clara en cada contacto.",
+    deliverables: ["Sistema visual", "Portfolio fotográfico", "Plantillas para redes", "Media kit y contacto"],
+    phrases: ["El estilo se reconoce sin depender de un nombre.", "Portfolio y redes comparten el mismo lenguaje visual.", "La propuesta profesional queda lista para presentar y vender."],
+    tags: ["Fotografía", "Redes", "Media kit"],
     accent: "cyan",
     icon: WandSparkles,
     visual: "social",
@@ -358,6 +359,24 @@ export function ProjectsPage() {
           },
         });
       });
+
+      gsap.utils.toArray<HTMLElement>(".portfolio-image-reveal").forEach((element) => {
+        gsap.fromTo(
+          element,
+          { autoAlpha: 0.5, clipPath: "inset(6% 0 6% 0)", scale: 0.985 },
+          {
+            autoAlpha: 1,
+            clipPath: "inset(0% 0 0% 0)",
+            scale: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 88%",
+            },
+          },
+        );
+      });
     },
     { scope: pageRef },
   );
@@ -441,25 +460,7 @@ function ProjectsNav({
         </Button>
       </nav>
 
-      {isMenuOpen ? (
-        <div className="border-t border-white/12 bg-[#11131a]/96 px-4 py-4 md:hidden">
-          <div className="mx-auto grid max-w-7xl gap-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-[8px] px-3 py-3 text-sm font-bold transition hover:bg-white/10",
-                  item.href === "/proyectos" ? "text-white" : "text-white/72",
-                )}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <MobileMenuOverlay open={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 }
@@ -482,8 +483,8 @@ function ProjectsHero() {
       <div className="projects-hero-line projects-hero-line-pink" aria-hidden="true" />
       <div className="projects-hero-line projects-hero-line-cyan" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(84svh-7rem)] lg:grid-cols-[0.92fr_0.88fr] lg:gap-12 lg:px-8">
-        <div className="max-w-3xl">
+      <div className="relative z-10 mx-auto grid min-w-0 max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(84svh-7rem)] lg:grid-cols-[0.92fr_0.88fr] lg:gap-12 lg:px-8">
+        <div className="min-w-0 max-w-3xl">
           <div data-project-hero className="mb-7 flex flex-wrap items-center gap-4">
             <Link
               href="/"
@@ -498,11 +499,12 @@ function ProjectsHero() {
             </p>
           </div>
 
-          <h1 data-project-hero className="font-heading text-6xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.15rem] xl:text-[5.9rem]">
+          <h1 data-project-hero className="break-words font-heading text-5xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.15rem] xl:text-[5.9rem]">
             Trabajos y referencias que hacen <span className="text-brand-gradient">Cl!ck</span>.
           </h1>
           <p data-project-hero className="mt-6 max-w-2xl text-base leading-8 text-white/74 sm:text-lg">
-            Explorá formas posibles de resolver una necesidad digital: web, identidad, diseño y herramientas. Cada salida se adapta al objetivo real de cada proyecto.
+            <strong className="block text-white">No mires solo lo que hicimos. Mirá lo que tu proyecto puede llegar a ser.</strong>
+            <span className="mt-2 block">Explorá referencias de web, identidad, diseño y herramientas que se adaptan al objetivo real de cada proyecto.</span>
           </p>
           <div data-project-hero className="mt-8 flex flex-wrap gap-3">
             {["Web", "Marca", "Diseño", "Herramientas"].map((item) => (
@@ -516,7 +518,7 @@ function ProjectsHero() {
           </div>
         </div>
 
-        <div data-project-hero className="projects-showcase interactive-card hidden max-w-xl justify-self-end overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-5 text-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] backdrop-blur md:block">
+        <div data-project-hero className="projects-showcase interactive-card hidden min-w-0 w-full max-w-xl justify-self-end overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-5 text-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] backdrop-blur md:block">
           <div data-card-decor className="absolute inset-x-5 top-0 h-[3px] rounded-full brand-gradient" aria-hidden="true" />
           <div className="flex items-center gap-2 border-b border-white/12 pb-4">
             <span className="size-3 rounded-full bg-[#e73b90]" />
@@ -976,10 +978,10 @@ function projectSelectorLabel(project: ProjectCase) {
     webGeneric: "Web",
     webA: "Web + demos",
     webB: "Catálogo online",
-    dashboard: "Tablero simple",
+    dashboard: "Panel operativo",
     brand: "Sistema visual",
     invitation: "Invitación digital",
-    cards: "Tarjeta comercial",
+    cards: "Tarjetas de equipo",
     presentation: "Presentación visual",
     social: "Marca personal",
   };
@@ -1058,7 +1060,7 @@ function ProjectVisualBlock({ project, compact = false }: { project: ProjectCase
     }
 
     return (
-      <div className={cn("project-visual relative overflow-hidden bg-[#eee9f5]", visualClass)}>
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-[#eee9f5]", visualClass)}>
         <Image
           src={assetPath("/assets/images/portfolio-trebu-04-aplicaciones.webp")}
           alt="Aplicaciones de la identidad visual Trebu en bolsas, cajas y etiquetas"
@@ -1076,10 +1078,102 @@ function ProjectVisualBlock({ project, compact = false }: { project: ProjectCase
     }
 
     return (
-      <div className={cn("project-visual relative overflow-hidden bg-[#eee9df]", visualClass)}>
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-[#eee9df]", visualClass)}>
         <Image
           src={assetPath("/assets/images/portfolio-wedding-01-portada.webp")}
           alt="Mockup de la invitación digital ficticia de Juan y Maricel"
+          fill
+          className="object-cover object-center transition duration-700 group-hover:scale-[1.035]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+      </div>
+    );
+  }
+
+  if (project.visual === "dashboard") {
+    if (!compact) {
+      return (
+        <ProjectCaseCarousel
+          slides={pastaDashboardSlides}
+          ariaLabel="Panel operativo ficticio para una pyme de pastas caseras congeladas"
+        />
+      );
+    }
+
+    return (
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-[#f7f6f2]", visualClass)}>
+        <Image
+          src={assetPath("/assets/images/portfolio-dashboard-pastas-01-general.webp")}
+          alt="Panel operativo ficticio de producción, stock, pedidos y ventas para una pyme de pastas congeladas"
+          fill
+          className="object-cover object-center transition duration-700 group-hover:scale-[1.035]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+      </div>
+    );
+  }
+
+  if (project.visual === "cards") {
+    if (!compact) {
+      return (
+        <ProjectCaseCarousel
+          slides={teamCardsSlides}
+          ariaLabel="Tarjetas personales para dirección y equipos comercial y operativo"
+        />
+      );
+    }
+
+    return (
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-white", visualClass)}>
+        <Image
+          src={assetPath("/assets/images/portfolio-tarjetas-01-direccion.webp")}
+          alt="Tarjeta personal de dirección con datos de contacto y código QR"
+          fill
+          className="object-cover object-center transition duration-700 group-hover:scale-[1.035]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+      </div>
+    );
+  }
+
+  if (project.visual === "presentation") {
+    if (!compact) {
+      return (
+        <ProjectCaseCarousel
+          slides={architecturePresentationSlides}
+          ariaLabel="Presentación ficticia de servicios para una arquitecta independiente"
+        />
+      );
+    }
+
+    return (
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-white", visualClass)}>
+        <Image
+          src={assetPath("/assets/images/portfolio-arquitectura-01-portada.webp")}
+          alt="Portada ficticia de una presentación profesional de arquitectura"
+          fill
+          className="object-cover object-center transition duration-700 group-hover:scale-[1.035]"
+          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+        />
+      </div>
+    );
+  }
+
+  if (project.visual === "social") {
+    if (!compact) {
+      return (
+        <ProjectCaseCarousel
+          slides={creativePersonalBrandSlides}
+          ariaLabel="Marca personal ficticia para fotografía y creación de contenido"
+        />
+      );
+    }
+
+    return (
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-[#eef3fb]", visualClass)}>
+        <Image
+          src={assetPath("/assets/images/portfolio-marca-personal-01-sistema.webp")}
+          alt="Portada anónima de una marca personal para fotografía y creación de contenido"
           fill
           className="object-cover object-center transition duration-700 group-hover:scale-[1.035]"
           sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -1110,7 +1204,7 @@ function ProjectVisualBlock({ project, compact = false }: { project: ProjectCase
     };
 
     return (
-      <div className={cn("project-visual relative overflow-hidden bg-[#11131a]", visualClass)}>
+      <div className={cn("project-visual portfolio-image-reveal relative overflow-hidden bg-[#11131a]", visualClass)}>
         <Image
           src={assetPath(imageMap[project.visual])}
           alt={project.title}
@@ -1124,17 +1218,7 @@ function ProjectVisualBlock({ project, compact = false }: { project: ProjectCase
     );
   }
 
-  return (
-    <div className={cn("project-visual relative overflow-hidden bg-[#f5f7fb]", visualClass)}>
-      <div className={cn("absolute inset-0", visualBackground(project.accent))} aria-hidden="true" />
-      <div className="relative flex h-full items-center justify-center p-4">
-        {project.visual === "dashboard" ? <DashboardVisual compact={compact} /> : null}
-        {project.visual === "cards" ? <CardsVisual /> : null}
-        {project.visual === "presentation" ? <PresentationVisual /> : null}
-        {project.visual === "social" ? <SocialVisual /> : null}
-      </div>
-    </div>
-  );
+  return null;
 }
 
 const automationCaseSlides = [
@@ -1239,6 +1323,93 @@ const weddingCaseSlides = [
   },
 ] as const;
 
+const pastaDashboardSlides = [
+  {
+    src: "/assets/images/portfolio-dashboard-pastas-01-general.webp",
+    title: "Panel general",
+    alt: "Panel general ficticio con indicadores de producción, pedidos, stock congelado y ventas",
+  },
+  {
+    src: "/assets/images/portfolio-dashboard-pastas-02-produccion.webp",
+    title: "Producción por lotes",
+    alt: "Planificación ficticia de pastas congeladas con lotes, horarios, control de calidad y temperaturas",
+  },
+  {
+    src: "/assets/images/portfolio-dashboard-pastas-03-stock.webp",
+    title: "Stock y cadena de frío",
+    alt: "Control ficticio de cámaras, ingredientes, vencimientos y trazabilidad de lotes",
+  },
+  {
+    src: "/assets/images/portfolio-dashboard-pastas-04-ventas.webp",
+    title: "Ventas y administración",
+    alt: "Vista ficticia de ventas, pedidos, cuentas por cobrar, gastos y productos más vendidos",
+  },
+] as const;
+
+const teamCardsSlides = [
+  {
+    src: "/assets/images/portfolio-tarjetas-01-direccion.webp",
+    title: "Tarjeta para dirección",
+    alt: "Tarjeta personal de dirección con identidad institucional, cargo, canales de contacto y código QR",
+  },
+  {
+    src: "/assets/images/portfolio-tarjetas-02-comercial.webp",
+    title: "Tarjeta para equipo comercial",
+    alt: "Adaptación de la tarjeta personal para un integrante del equipo comercial con sus datos de contacto",
+  },
+  {
+    src: "/assets/images/portfolio-tarjetas-03-dorso.webp",
+    title: "Dorso institucional",
+    alt: "Dorso común de las tarjetas con logotipo, nombre institucional y paleta azul",
+  },
+] as const;
+
+const architecturePresentationSlides = [
+  {
+    src: "/assets/images/portfolio-arquitectura-01-portada.webp",
+    title: "Presentación profesional",
+    alt: "Portada ficticia y anónima de un portfolio de arquitectura independiente",
+  },
+  {
+    src: "/assets/images/portfolio-arquitectura-02-servicios.webp",
+    title: "Servicios de arquitectura",
+    alt: "Página ficticia con proyecto arquitectónico, remodelaciones, interiores y dirección de obra",
+  },
+  {
+    src: "/assets/images/portfolio-arquitectura-03-proyectos.webp",
+    title: "Proyectos seleccionados",
+    alt: "Portfolio ficticio con una casa patio, una vivienda de descanso y una reforma interior",
+  },
+  {
+    src: "/assets/images/portfolio-arquitectura-04-proceso.webp",
+    title: "Proceso y contacto",
+    alt: "Página ficticia con las etapas de trabajo y los canales de contacto de la arquitecta",
+  },
+] as const;
+
+const creativePersonalBrandSlides = [
+  {
+    src: "/assets/images/portfolio-marca-personal-01-sistema.webp",
+    title: "Sistema de marca personal",
+    alt: "Portada ficticia y anónima para una fotógrafa y creadora de contenido freelance",
+  },
+  {
+    src: "/assets/images/portfolio-marca-personal-02-portfolio.webp",
+    title: "Portfolio fotográfico",
+    alt: "Selección ficticia de fotografía de producto, gastronomía, espacios y contenido editorial",
+  },
+  {
+    src: "/assets/images/portfolio-marca-personal-03-redes.webp",
+    title: "Contenido para redes",
+    alt: "Mockups ficticios de publicaciones y stories con un sistema visual coherente",
+  },
+  {
+    src: "/assets/images/portfolio-marca-personal-04-media-kit.webp",
+    title: "Media kit comercial",
+    alt: "Media kit ficticio con servicios de fotografía, contenido, dirección visual y producción mensual",
+  },
+] as const;
+
 type ProjectCaseSlide = {
   readonly src: string;
   readonly title: string;
@@ -1310,7 +1481,7 @@ function ProjectCaseCarousel({
           src={assetPath(slide.src)}
           alt={slide.alt}
           fill
-          className="object-contain object-center"
+          className="project-carousel-image object-contain object-center"
           sizes="(min-width: 1024px) 42vw, 92vw"
           priority={activeSlide === 0}
         />
@@ -1370,95 +1541,6 @@ function StoreBrandMask() {
     >
       <PawPrint className="h-[62%] w-auto fill-[#f45b63]/12 text-[#f45b63]" strokeWidth={1.8} />
     </span>
-  );
-}
-
-function DashboardVisual({ compact = false }: { compact?: boolean }) {
-  return (
-    <div className={cn("w-full max-w-[25rem] rounded-[8px] border border-[#11131a]/8 bg-white shadow-[0_20px_46px_rgba(17,19,26,0.12)]", compact ? "p-3" : "p-4")}>
-      <div className={cn("flex items-center justify-between border-b border-[#11131a]/8", compact ? "pb-2" : "pb-3")}>
-        <div className="flex items-center gap-2">
-          <span className="size-2.5 rounded-full bg-[#e73b90]" />
-          <span className="size-2.5 rounded-full bg-[#f7c74d]" />
-          <span className="size-2.5 rounded-full bg-[#71c1f0]" />
-        </div>
-        <span className="rounded-full bg-[#71c1f0]/16 px-3 py-1 text-[10px] font-bold uppercase text-[#1676aa]">Panel</span>
-      </div>
-
-      <div className={cn("grid grid-cols-[0.8fr_1.2fr] gap-3", compact ? "mt-3" : "mt-4")}>
-        <div className="grid gap-2">
-          {["Ventas", "Tareas", "Avance"].map((label, index) => (
-            <div key={label} className={cn("rounded-[8px] border border-[#11131a]/8 bg-[#fbfbfe]", compact ? "p-2" : "p-3")}>
-              <span className="text-[10px] font-bold uppercase text-[#5d6474]">{label}</span>
-              <span className={cn("mt-2 block h-2 rounded-full", index === 0 ? "w-4/5 bg-[#e73b90]" : index === 1 ? "w-3/5 bg-[#71c1f0]" : "w-2/3 bg-[#f7c74d]")} />
-            </div>
-          ))}
-        </div>
-
-        <div className={cn("rounded-[8px] border border-[#11131a]/8 bg-[#11131a]", compact ? "p-3" : "p-4")}>
-          <div className={cn("flex items-end gap-2", compact ? "h-20" : "h-24")}>
-            {[44, 70, 52, 86, 64].map((height, index) => (
-              <span
-                key={`${height}-${index}`}
-                className={cn("flex-1 rounded-t-[8px]", index % 2 ? "bg-[#71c1f0]" : "bg-[#e73b90]")}
-                style={{ height: `${height}%` }}
-              />
-            ))}
-          </div>
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            <span className="h-2 rounded-full bg-white/20" />
-            <span className="h-2 rounded-full bg-white/36" />
-            <span className="h-2 rounded-full bg-white/20" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CardsVisual() {
-  return (
-    <div className="project-business-cards">
-      <div className="project-business-card project-business-card-front">
-        <span className="size-10 rounded-[8px] bg-[#11131a]" />
-        <span className="h-3 w-28 rounded-full bg-[#11131a]" />
-        <span className="h-2 w-20 rounded-full bg-[#11131a]/18" />
-      </div>
-      <div className="project-business-card project-business-card-back">
-        <span className="h-2 w-28 rounded-full bg-white/82" />
-        <span className="h-2 w-20 rounded-full bg-white/58" />
-        <span className="ml-auto size-12 rounded-[8px] bg-white/24" />
-      </div>
-    </div>
-  );
-}
-
-function PresentationVisual() {
-  return (
-    <div className="project-presentation">
-      <div className="project-slide project-slide-main">
-        <span className="h-3 w-32 rounded-full bg-[#e73b90]" />
-        <span className="mt-4 block h-8 w-44 rounded-[8px] bg-[#11131a]" />
-        <span className="mt-3 block h-3 w-36 rounded-full bg-[#11131a]/14" />
-        <span className="mt-2 block h-3 w-28 rounded-full bg-[#11131a]/10" />
-      </div>
-      <div className="project-slide project-slide-secondary">
-        <span className="size-16 rounded-full bg-[#71c1f0]/55" />
-        <span className="mt-4 block h-3 w-24 rounded-full bg-white/80" />
-      </div>
-    </div>
-  );
-}
-
-function SocialVisual() {
-  return (
-    <div className="project-social-grid">
-      {["#e73b90", "#71c1f0", "#f7c74d", "#11131a"].map((color, index) => (
-        <span key={color} className="project-social-tile" style={{ backgroundColor: color }}>
-          {index === 0 ? <WandSparkles className="size-7 text-white" aria-hidden="true" /> : null}
-        </span>
-      ))}
-    </div>
   );
 }
 
@@ -1573,14 +1655,4 @@ function detailBadgeStyles(accent: Accent) {
     return "bg-[#71c1f0]/18 text-[#9bd8ff]";
   }
   return "bg-[#f7c74d]/20 text-[#ffe08a]";
-}
-
-function visualBackground(accent: Accent) {
-  if (accent === "pink") {
-    return "bg-[radial-gradient(circle_at_18%_18%,rgba(231,59,144,0.25),transparent_30%),radial-gradient(circle_at_84%_78%,rgba(113,193,240,0.2),transparent_34%),#fbfbfe]";
-  }
-  if (accent === "cyan") {
-    return "bg-[radial-gradient(circle_at_18%_18%,rgba(113,193,240,0.24),transparent_30%),radial-gradient(circle_at_86%_76%,rgba(247,199,77,0.2),transparent_34%),#fbfbfe]";
-  }
-  return "bg-[radial-gradient(circle_at_20%_16%,rgba(247,199,77,0.28),transparent_30%),radial-gradient(circle_at_84%_78%,rgba(231,59,144,0.18),transparent_34%),#fbfbfe]";
 }

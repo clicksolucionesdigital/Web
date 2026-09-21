@@ -30,6 +30,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileMenuOverlay } from "@/components/mobile-menu-overlay";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -274,22 +275,7 @@ function AboutNav() {
         </Button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/10 bg-[#11131a]/96 px-4 md:hidden">
-          <div className="flex flex-col gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[8px] px-3 py-3 text-sm font-semibold text-white/82 transition hover:bg-white/8 hover:text-white"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <MobileMenuOverlay open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }
@@ -404,8 +390,8 @@ function AboutHero() {
       <div className="about-hero-line about-hero-line-pink" aria-hidden="true" />
       <div className="about-hero-line about-hero-line-cyan" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(84svh-7rem)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-12 lg:px-8">
-        <div className="max-w-3xl">
+      <div className="relative z-10 mx-auto grid min-w-0 max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(84svh-7rem)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-12 lg:px-8">
+        <div className="min-w-0 max-w-3xl">
           <div data-about-hero className="mb-7 flex flex-wrap items-center gap-4">
             <Link
               href="/"
@@ -420,7 +406,7 @@ function AboutHero() {
             </p>
           </div>
 
-          <h1 data-about-hero className="font-heading text-6xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.15rem] xl:text-[5.7rem]">
+          <h1 data-about-hero className="break-words font-heading text-5xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.15rem] xl:text-[5.7rem]">
             Claridad, diseño y tecnología con estilo <span className="text-brand-gradient">Cl!ck</span>.
           </h1>
 

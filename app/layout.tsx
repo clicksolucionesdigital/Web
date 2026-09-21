@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Arimo, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import { PageProgressLine } from "@/components/page-progress-line";
 
 const arimo = Arimo({
   variable: "--font-arimo",
@@ -29,7 +30,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       lang="es"
       className={`${arimo.variable} ${barlowCondensed.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">{children}</body>
+      <body className="min-h-full bg-background text-foreground">
+        <PageProgressLine />
+        {children}
+      </body>
     </html>
   );
 }

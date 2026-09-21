@@ -9,7 +9,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import {
-  ArrowLeft,
   ArrowRight,
   BriefcaseBusiness,
   CheckCircle2,
@@ -29,6 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileMenuOverlay } from "@/components/mobile-menu-overlay";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -55,6 +55,16 @@ type ChoiceCard = {
   icon: LucideIcon;
   title: string;
   description: string;
+  accent: Accent;
+};
+
+type ServiceHeroRoute = {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  outputs: string[];
+  icon: LucideIcon;
   accent: Accent;
 };
 
@@ -215,6 +225,45 @@ const choiceCards: ChoiceCard[] = [
   },
 ];
 
+const serviceHeroRoutes: ServiceHeroRoute[] = [
+  {
+    id: "mostrar",
+    label: "Mostrar",
+    title: "Web & presencia digital",
+    description: "Para explicar qué hacés, mostrar tu trabajo y abrir un camino claro hacia el contacto.",
+    outputs: ["Landing", "Portfolio", "Catálogo"],
+    icon: Globe2,
+    accent: "pink",
+  },
+  {
+    id: "vender",
+    label: "Vender",
+    title: "Marca & comunicación",
+    description: "Para presentar una propuesta con identidad, materiales coherentes y una oferta fácil de entender.",
+    outputs: ["Identidad", "Presentación", "Piezas"],
+    icon: Paintbrush,
+    accent: "cyan",
+  },
+  {
+    id: "ordenar",
+    label: "Ordenar",
+    title: "Herramientas digitales",
+    description: "Para conectar información, simplificar tareas y leer mejor lo que pasa en el trabajo diario.",
+    outputs: ["Planilla", "Formulario", "Dashboard"],
+    icon: FileSpreadsheet,
+    accent: "yellow",
+  },
+  {
+    id: "explorar",
+    label: "Explorar",
+    title: "Asesoría & ruta de acción",
+    description: "Para ordenar ideas, comparar alternativas y elegir qué conviene resolver primero.",
+    outputs: ["Diagnóstico", "Prioridades", "Próximo paso"],
+    icon: Lightbulb,
+    accent: "pink",
+  },
+];
+
 const accentTextStyles: Record<Accent, string> = {
   pink: "text-[#e73b90]",
   cyan: "text-[#1676aa]",
@@ -278,15 +327,6 @@ export function ServicesPage() {
         });
       });
 
-      gsap.to("[data-service-float]", {
-        y: -8,
-        rotation: 0.6,
-        duration: 3.8,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.28,
-      });
     },
     { scope: pageRef }
   );
@@ -360,27 +400,16 @@ function ServicesNav() {
         </Button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/10 bg-[#11131a]/96 px-4 md:hidden">
-          <div className="flex flex-col gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[8px] px-3 py-3 text-sm font-semibold text-white/82 transition hover:bg-white/8 hover:text-white"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <MobileMenuOverlay open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }
 
 function ServicesHero() {
+  const [activeRouteId, setActiveRouteId] = useState(serviceHeroRoutes[0].id);
+  const activeRoute = serviceHeroRoutes.find((route) => route.id === activeRouteId) ?? serviceHeroRoutes[0];
+  const ActiveIcon = activeRoute.icon;
+
   return (
     <section className="services-page-hero relative isolate min-h-[82svh] overflow-hidden bg-[#11131a] pt-24 text-white sm:pt-28">
       <Image
@@ -396,26 +425,20 @@ function ServicesHero() {
       <div className="services-hero-line services-hero-line-pink" aria-hidden="true" />
       <div className="services-hero-line services-hero-line-cyan" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid min-h-[calc(82svh-7rem)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
-        <div className="max-w-xl">
+      <div className="relative z-10 mx-auto grid min-h-[calc(82svh-7rem)] min-w-0 max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
+        <div className="min-w-0 max-w-xl">
           <div data-services-hero className="mb-6 flex flex-wrap items-center gap-3">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-[8px] border border-white/14 bg-white/8 px-3 py-2 text-xs font-bold uppercase text-white/82 transition hover:bg-white/14"
-            >
-              <ArrowLeft className="size-4" aria-hidden="true" />
-              Volver al inicio
-            </Link>
             <p className="inline-flex items-center gap-2 rounded-[8px] bg-white/10 px-3 py-2 text-xs font-bold uppercase text-white/86">
               <Sparkles className="size-4 text-[#f7c74d]" aria-hidden="true" />
               Servicios Cl!ck
             </p>
           </div>
-          <h1 data-services-hero className="mt-6 font-heading text-6xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.8rem] xl:text-[6.5rem]">
+          <h1 data-services-hero className="mt-6 break-words font-heading text-5xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.8rem] xl:text-[6.5rem]">
             Servicios digitales con <span className="text-brand-gradient">Cl!ck</span>.
           </h1>
           <p data-services-hero className="mt-6 max-w-xl text-base leading-8 text-white/74 sm:text-lg">
-            Web, marca, diseño, herramientas y asesoría ordenadas por lo que necesitás lograr: mostrarte mejor, vender más claro o trabajar con menos ruido.
+            <strong className="block text-white">No empezamos por una herramienta. Empezamos por lo que necesitás resolver.</strong>
+            <span className="mt-2 block">Web, marca, diseño, herramientas y asesoría ordenadas por el objetivo que querés alcanzar.</span>
           </p>
           <div data-services-hero className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -434,36 +457,59 @@ function ServicesHero() {
           </div>
         </div>
 
-        <div data-services-hero className="services-page-board interactive-card hidden w-full max-w-[760px] justify-self-end overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-5 shadow-[0_34px_90px_rgba(0,0,0,0.28)] backdrop-blur md:block">
-          <div className="rounded-[8px] bg-[#fbfbfe] p-5 text-[#11131a]">
-            <div className="flex items-center gap-2 border-b border-[#11131a]/8 pb-3">
-              <span className="size-3 rounded-full bg-[#e73b90]" />
-              <span className="size-3 rounded-full bg-[#f7c74d]" />
-              <span className="size-3 rounded-full bg-[#71c1f0]" />
-              <span className="ml-2 truncate text-xs font-bold text-[#6b7280]">Sitio web de Cl!ck</span>
+        <div data-services-hero className="services-page-board interactive-card min-w-0 w-full max-w-[760px] justify-self-end overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-4 shadow-[0_34px_90px_rgba(0,0,0,0.28)] backdrop-blur sm:p-5">
+          <div className="rounded-[8px] bg-[#fbfbfe] p-4 text-[#11131a] sm:p-5">
+            <div className="flex items-center justify-between gap-3 border-b border-[#11131a]/8 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="size-3 rounded-full bg-[#e73b90]" />
+                <span className="size-3 rounded-full bg-[#f7c74d]" />
+                <span className="size-3 rounded-full bg-[#71c1f0]" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#6b7280]">Elegí por objetivo</span>
             </div>
-            <div className="grid gap-3 pt-4 sm:grid-cols-2">
-              {serviceDetails.map((service, index) => {
-                const Icon = service.icon;
 
-                return (
-                  <div
-                    key={service.id}
-                    data-service-float
-                    className={cn(
-                      "min-h-[126px] rounded-[8px] border p-4 shadow-sm",
-                      index === 0 ? "sm:col-span-2" : "",
-                      accentPanelStyles[service.accent],
-                    )}
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-heading text-3xl font-bold leading-none">{service.number}</span>
-                      <Icon className="size-5" aria-hidden="true" />
-                    </div>
-                    <p className="mt-4 text-sm font-black uppercase text-[#11131a]">{service.eyebrow}</p>
-                  </div>
-                );
-              })}
+            <div className="mt-4 flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Objetivo del servicio">
+              {serviceHeroRoutes.map((route) => (
+                <button
+                  key={route.id}
+                  type="button"
+                  aria-pressed={route.id === activeRoute.id}
+                  className={cn(
+                    "min-h-10 shrink-0 rounded-[8px] border px-3 text-xs font-bold transition",
+                    route.id === activeRoute.id
+                      ? "border-[#11131a] bg-[#11131a] text-white"
+                      : "border-[#11131a]/10 bg-white text-[#5d6474] hover:border-[#e73b90]/30 hover:text-[#11131a]",
+                  )}
+                  onClick={() => setActiveRouteId(route.id)}
+                >
+                  {route.label}
+                </button>
+              ))}
+            </div>
+
+            <div aria-live="polite" className="mt-4 grid gap-4 rounded-[8px] border border-[#11131a]/8 bg-white p-4 shadow-[0_16px_40px_rgba(17,19,26,0.07)] sm:grid-cols-[auto_1fr] sm:p-5">
+              <span className={cn("inline-flex size-12 items-center justify-center rounded-[8px] border", accentPanelStyles[activeRoute.accent])}>
+                <ActiveIcon className="size-5" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#e73b90]">Ruta recomendada</p>
+                <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-none sm:text-4xl">{activeRoute.title}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#5d6474]">{activeRoute.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {activeRoute.outputs.map((output) => (
+                    <span key={output} className="rounded-full border border-[#11131a]/10 bg-[#fbfbfe] px-3 py-2 text-xs font-bold text-[#4c5364]">
+                      {output}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center justify-between gap-4 border-t border-[#11131a]/8 pt-4">
+              <p className="text-xs leading-5 text-[#6b7280]">Elegí un objetivo para ver una ruta posible y sus entregables.</p>
+              <Link href="/contacto#brief" className="inline-flex size-10 shrink-0 items-center justify-center rounded-[8px] bg-[#e73b90] text-white transition hover:bg-[#d62e82]" aria-label="Consultar esta ruta">
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>

@@ -2,10 +2,10 @@
 
 ## Pendientes activos
 
-- [ ] Limpiar los textos de marca diminutos integrados en los productos de las capturas del ecommerce cuando vuelva a estar disponible la edición generativa; el wordmark principal ya está oculto en la presentación pública.
 - [ ] Confirmar nombres, rubros y frases reales de testimonios antes de publicarlos como casos reales.
+- [ ] Limpiar los textos de marca diminutos integrados en los productos de las capturas del ecommerce cuando vuelva a estar disponible la edición generativa; el wordmark principal ya está oculto en la presentación pública.
 - [ ] Elegir capturas definitivas de portfolio y nombres reales de proyectos publicables.
-- [ ] Reforzar las referencias de `/proyectos` con logos, mockups web, tarjetas, presentaciones y capturas reales publicables.
+- [ ] Reforzar las referencias de `/proyectos` con logos, mockups web y capturas reales publicables.
 - [ ] Definir si Blog será migrado como páginas estáticas o si se elimina del primer lanzamiento.
 - [ ] Evaluar si la FAQ corta de home necesita una página interna ampliada más adelante.
 - [ ] Pulir `/servicios` con textos definitivos, casos reales y capturas publicables.
@@ -19,6 +19,11 @@
 
 ## En revisión
 
+- [ ] Ruta Cl!ck, héroes corregidos, movimiento global, menú mobile y brief asistido con WhatsApp listos para revisión visual del usuario.
+- [ ] Caso ficticio `Marca personal creativa` para fotografía y contenido listo para revisión visual del usuario.
+- [ ] Caso ficticio `Presentación de servicios` para arquitectura listo para revisión visual del usuario.
+- [ ] Caso `Tarjetas de equipo` con piezas de dirección, comercial y dorso institucional listo para revisión visual del usuario.
+- [ ] Caso ficticio `Dashboard operativo` para una pyme de pastas congeladas listo para revisión visual del usuario.
 - [ ] Home Etapa 1 con iteración creativa lista para revisión visual del usuario.
 - [ ] Home con pulido de legibilidad/interactividad lista para revisión del usuario.
 - [ ] Home con ajustes de hero, testimonios y CTA lista para revisión del usuario.
@@ -45,6 +50,15 @@
 
 ## Resueltos
 
+- [x] Restaurar las portadas anteriores de Nosotros y Proyectos - 2026-09-21.
+- [x] Agregar progreso global, revelado de portfolio y menú mobile de pantalla completa - 2026-09-21.
+- [x] Incorporar frases de marca en Home, Servicios, Proyectos y Contacto - 2026-09-21.
+
+- [x] Implementar orientación interactiva en home, diferenciar héroes internos y convertir el brief en asistente con recomendación - 2026-09-21.
+- [x] Reemplazar el visual abstracto de marca personal por un caso anónimo con sistema visual, portfolio, redes y media kit - 2026-09-21.
+- [x] Reemplazar el ejemplo abstracto de presentación por un caso ficticio de arquitectura con portada, servicios, proyectos y contacto - 2026-09-20.
+- [x] Reemplazar el ejemplo abstracto de tarjetas por un caso de tarjetas personales para dirección, comercial y operaciones - 2026-09-20.
+- [x] Reemplazar el dashboard genérico por un caso ficticio con panel general, producción, stock y ventas, sin marca ni datos reales - 2026-09-20.
 - [x] Alinear verticalmente los chips de las cards y crear el caso ficticio de invitación digital con portada, detalles, RSVP y álbum - 2026-09-20.
 - [x] Incorporar el caso real de identidad Trebu con cuatro piezas navegables y contenido completo - 2026-09-19.
 - [x] Alinear chips en una fila, compactar las ocho fichas en desktop y crear un ecommerce ficticio genérico con cuatro vistas - 2026-09-19.

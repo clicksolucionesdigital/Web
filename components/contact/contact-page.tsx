@@ -10,9 +10,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import {
-  ArrowLeft,
   ArrowRight,
   AtSign,
+  CheckCircle2,
   ClipboardCheck,
   Clock3,
   Copy,
@@ -31,6 +31,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 import { SiteFooter } from "@/components/site-footer";
+import { MobileMenuOverlay } from "@/components/mobile-menu-overlay";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -53,7 +54,15 @@ type ContactCard = {
 
 type HeroStep = ContactCard;
 
+type BriefRecommendation = {
+  title: string;
+  summary: string;
+  firstStep: string;
+  outputs: string[];
+};
+
 const contactEmail = "clicksoluciones.digital@gmail.com";
+const contactWhatsApp = "5493442576205";
 
 const navItems = [
   { label: "Inicio", href: "/" },
@@ -97,6 +106,39 @@ const serviceOptions: ContactOption[] = [
 ];
 
 const paceOptions = ["Esta semana", "Este mes", "Estoy explorando"];
+
+const briefRecommendations: Record<string, BriefRecommendation> = {
+  Web: {
+    title: "Presencia web con un recorrido claro",
+    summary: "Podríamos empezar por ordenar el mensaje, las secciones principales y la acción que querés que tome cada visita.",
+    firstStep: "Definir objetivo, público y contenido disponible.",
+    outputs: ["Mapa de secciones", "Diseño responsive", "Contacto visible"],
+  },
+  Identidad: {
+    title: "Sistema visual simple y aplicable",
+    summary: "Podríamos empezar por definir personalidad, referencias y usos reales antes de diseñar logo, color y piezas base.",
+    firstStep: "Reunir referencias y puntos de contacto de la marca.",
+    outputs: ["Dirección visual", "Paleta", "Aplicaciones"],
+  },
+  Herramientas: {
+    title: "Flujo digital para ordenar el trabajo",
+    summary: "Podríamos empezar por mapear qué información entra, quién la usa y qué decisiones debería facilitar la herramienta.",
+    firstStep: "Detectar tareas repetidas, datos y responsables.",
+    outputs: ["Mapa del proceso", "Prototipo", "Tablero útil"],
+  },
+  Diseño: {
+    title: "Pieza visual lista para presentar",
+    summary: "Podríamos empezar por ordenar contenido, jerarquía y formato para que el material se entienda sin explicación extra.",
+    firstStep: "Definir audiencia, canal y contenido disponible.",
+    outputs: ["Estructura", "Diseño visual", "Archivo final"],
+  },
+  Asesoría: {
+    title: "Diagnóstico y ruta por etapas",
+    summary: "Podríamos empezar por separar ideas, prioridades y recursos para elegir una primera acción concreta y realista.",
+    firstStep: "Revisar qué existe hoy y qué necesitás lograr.",
+    outputs: ["Diagnóstico", "Prioridades", "Próximo paso"],
+  },
+};
 
 const contactCards: ContactCard[] = [
   {
@@ -267,22 +309,7 @@ function ContactNav() {
         </Button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-white/10 bg-[#11131a]/96 px-4 md:hidden">
-          <div className="flex flex-col gap-2 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[8px] px-3 py-3 text-sm font-semibold text-white/82 transition hover:bg-white/8 hover:text-white"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <MobileMenuOverlay open={open} onClose={() => setOpen(false)} />
     </header>
   );
 }
@@ -303,29 +330,22 @@ function ContactHero() {
       <div className="contact-hero-line contact-hero-line-pink" aria-hidden="true" />
       <div className="contact-hero-line contact-hero-line-cyan" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(82svh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8">
-        <div className="max-w-3xl lg:pt-8">
+      <div className="relative z-10 mx-auto grid min-w-0 max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:min-h-[calc(82svh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8">
+        <div className="min-w-0 max-w-3xl lg:pt-8">
           <div data-contact-hero className="mb-7 flex flex-wrap items-center gap-4">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-[8px] border border-white/14 bg-white/8 px-3 py-2 text-xs font-bold uppercase text-white/82 transition hover:bg-white/14"
-            >
-              <ArrowLeft className="size-4" aria-hidden="true" />
-              Volver al inicio
-            </Link>
-
             <p className="inline-flex items-center gap-2 rounded-[8px] bg-white/10 px-3 py-2 text-xs font-bold uppercase text-white/86">
               <Sparkles className="size-4 text-[#f7c74d]" aria-hidden="true" />
               Contacto Cl!ck
             </p>
           </div>
 
-          <h1 data-contact-hero className="font-heading text-6xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.75rem] xl:text-[6.35rem]">
+          <h1 data-contact-hero className="break-words font-heading text-5xl font-extrabold uppercase leading-none sm:text-7xl lg:text-[5.75rem] xl:text-[6.35rem]">
             Contame tu idea y le damos forma <span className="text-brand-gradient">digital</span>.
           </h1>
 
           <p data-contact-hero className="mt-6 max-w-2xl text-base leading-8 text-white/74 sm:text-lg">
-            Web, identidad, piezas visuales, planillas o una mezcla de todo. Lo importante es entender qué querés lograr y elegir el camino más claro.
+            <strong className="block text-white">Tu idea no tiene que estar lista. Solo tiene que empezar.</strong>
+            <span className="mt-2 block">Web, identidad, piezas visuales, planillas o una mezcla de todo: primero entendemos qué querés lograr y después elegimos el camino.</span>
           </p>
 
           <div data-contact-hero className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-3">
@@ -350,7 +370,7 @@ function ContactHeroVisual() {
   return (
     <div
       data-contact-hero
-      className="contact-hero-board interactive-card hidden overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-5 text-white shadow-[0_34px_90px_rgba(0,0,0,0.26)] backdrop-blur md:block lg:-mt-16 xl:-mt-20"
+      className="contact-hero-board interactive-card hidden overflow-hidden rounded-[8px] border border-white/14 bg-white/10 p-5 text-white shadow-[0_34px_90px_rgba(0,0,0,0.26)] backdrop-blur md:block lg:-mt-10 xl:-mt-14"
     >
       <div data-card-decor className="absolute inset-x-5 top-0 h-[3px] rounded-full brand-gradient" aria-hidden="true" />
       <div className="flex items-center gap-2 border-b border-white/12 pb-4">
@@ -360,34 +380,37 @@ function ContactHeroVisual() {
         <span className="ml-2 text-xs font-bold uppercase tracking-[0.12em] text-white/58">Inicio de proyecto</span>
       </div>
 
-      <div className="mt-5 grid gap-3 xl:grid-cols-3">
-        {heroSteps.map((step, index) => {
-          const Icon = step.icon;
+      <div className="mt-5 grid items-center gap-3 xl:grid-cols-[0.9fr_auto_1.1fr]">
+        <div className="rounded-[8px] border border-white/12 bg-white/8 p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#71c1f0]">Tu punto de partida</p>
+          <p className="mt-4 text-lg font-bold leading-7">“Tengo una idea, pero todavía no sé qué formato necesita.”</p>
+          <div className="mt-4 flex items-center gap-2 text-xs text-white/54">
+            <MessageCircle className="size-4 text-[#e73b90]" aria-hidden="true" />
+            No hace falta llegar con todo resuelto.
+          </div>
+        </div>
 
-          return (
-            <div key={step.title} className="contact-hero-step flex min-h-[190px] flex-col rounded-[8px] border border-white/12 bg-white/8 p-4">
-              <div className="flex items-start justify-between gap-4">
-                <span className="font-heading text-4xl font-bold leading-none text-white/20">0{index + 1}</span>
-                <span className={cn("inline-flex size-10 shrink-0 items-center justify-center rounded-[8px] border", accentPanelStyles[step.accent])}>
-                  <Icon className="size-5" aria-hidden="true" />
-                </span>
-              </div>
-              <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-none">{step.title}</h2>
-              <p className="mt-auto pt-3 text-sm leading-6 text-white/66">{step.description}</p>
-            </div>
-          );
-        })}
+        <ArrowRight className="mx-auto hidden size-5 text-[#f7c74d] xl:block" aria-hidden="true" />
+
+        <div className="rounded-[8px] border border-[#71c1f0]/28 bg-[#71c1f0]/10 p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f7c74d]">Lo que te llevás</p>
+          <h2 className="mt-4 font-heading text-3xl font-bold uppercase leading-none">Una ruta posible</h2>
+          <p className="mt-3 text-sm leading-6 text-white/68">Ordenamos objetivo, opciones y un próximo paso concreto para que la conversación empiece con claridad.</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {["Objetivo", "Prioridad", "Salida"].map((item) => (
+              <span key={item} className="rounded-full border border-white/12 bg-white/8 px-3 py-2 text-xs font-bold text-white/74">{item}</span>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="mt-5 rounded-[8px] border border-white/12 bg-white/8 p-4">
-        <div className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-white/58">
-          <span>Idea</span>
-          <span>Ruta</span>
-          <span>Salida</span>
-        </div>
-        <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/12">
-          <div className="contact-hero-progress h-full w-4/5 rounded-full brand-gradient" />
-        </div>
+      <div className="mt-4 grid grid-cols-3 gap-2">
+        {heroSteps.map((step, index) => (
+          <div key={step.title} className="contact-hero-step rounded-[8px] border border-white/10 bg-white/7 px-3 py-3">
+            <span className="text-[11px] font-bold text-white/34">0{index + 1}</span>
+            <p className="mt-1 text-xs font-bold text-white/74">{step.title}</p>
+          </div>
+        ))}
       </div>
 
       <a
@@ -434,6 +457,10 @@ function ContactBriefPanel() {
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
   const [copyStatus, setCopyStatus] = useState("Copiar brief");
+  const recommendation = briefRecommendations[selectedService];
+  const completedFields = [selectedService, selectedPace, name.trim(), contact.trim(), message.trim()].filter(Boolean).length;
+  const completionPercentage = (completedFields / 5) * 100;
+  const isBriefReady = Boolean(name.trim() && contact.trim() && message.trim());
 
   const brief = useMemo(() => {
     return [
@@ -446,8 +473,12 @@ function ContactBriefPanel() {
       "",
       "Idea:",
       message || "A completar",
+      "",
+      "Ruta sugerida:",
+      recommendation.title,
+      `Primer paso: ${recommendation.firstStep}`,
     ].join("\n");
-  }, [contact, message, name, selectedPace, selectedService]);
+  }, [contact, message, name, recommendation.firstStep, recommendation.title, selectedPace, selectedService]);
 
   const mailtoHref = useMemo(() => {
     const subject = encodeURIComponent(`Consulta Cl!ck - ${selectedService}`);
@@ -455,6 +486,10 @@ function ContactBriefPanel() {
 
     return `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   }, [brief, selectedService]);
+
+  const whatsappHref = useMemo(() => {
+    return `https://wa.me/${contactWhatsApp}?text=${encodeURIComponent(brief)}`;
+  }, [brief]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -577,28 +612,60 @@ function ContactBriefPanel() {
 
         <div className="contact-preview-panel rounded-[8px] border border-[#11131a]/8 bg-[#11131a] p-4 text-white">
           <div className="flex items-center justify-between gap-3">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/54">Mensaje</p>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/78">
-              {selectedService}
-            </span>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/54">Tu consulta</p>
+            <span className="text-xs font-bold text-white/64">{completedFields}/5 datos</span>
           </div>
 
-          <div className="mt-5 space-y-3 text-sm leading-6 text-white/74">
-            <p>
-              <span className="font-bold text-white">Nombre:</span> {name || "Tu nombre"}
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10" aria-label={`Brief completado al ${completionPercentage}%`}>
+            <div className="h-full rounded-full brand-gradient transition-[width] duration-300" style={{ width: `${completionPercentage}%` }} />
+          </div>
+
+          <div aria-live="polite" className="mt-5 rounded-[8px] border border-[#71c1f0]/24 bg-[#71c1f0]/10 p-4">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f7c74d]">Por lo que contás</p>
+              <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-bold text-white/78">{selectedService}</span>
+            </div>
+            <h3 className="mt-3 font-heading text-3xl font-bold uppercase leading-none">{recommendation.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-white/68">{recommendation.summary}</p>
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <p className="text-xs font-bold uppercase text-white/48">Primer paso</p>
+              <p className="mt-2 text-sm font-semibold leading-6 text-white/84">{recommendation.firstStep}</p>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {recommendation.outputs.map((output) => (
+                <span key={output} className="rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-[11px] font-bold text-white/72">
+                  {output}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-2 text-xs leading-5 text-white/68 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <p className="rounded-[8px] border border-white/10 bg-white/7 p-3">
+              <span className="block font-bold text-white">Contacto</span>
+              <span className="mt-1 block break-words">{name || "Tu nombre"} · {contact || "Canal de respuesta"}</span>
             </p>
-            <p>
-              <span className="font-bold text-white">Contacto:</span> {contact || "Email o WhatsApp"}
-            </p>
-            <p>
-              <span className="font-bold text-white">Plazo:</span> {selectedPace}
-            </p>
-            <p className="rounded-[8px] border border-white/10 bg-white/8 p-3">
-              {message || "Tu idea aparece acá mientras la escribís."}
+            <p className="rounded-[8px] border border-white/10 bg-white/7 p-3">
+              <span className="block font-bold text-white">Momento</span>
+              <span className="mt-1 block">{selectedPace}</span>
             </p>
           </div>
 
           <div className="mt-5 grid gap-3">
+            <a
+              href={isBriefReady ? whatsappHref : undefined}
+              target="_blank"
+              rel="noreferrer"
+              aria-disabled={!isBriefReady}
+              tabIndex={isBriefReady ? 0 : -1}
+              className={cn(
+                "inline-flex h-12 items-center justify-center gap-2 rounded-[8px] bg-[#25d366] px-4 text-sm font-bold text-[#0b351b] transition hover:-translate-y-0.5 hover:bg-[#39df78]",
+                !isBriefReady && "cursor-not-allowed opacity-45 hover:translate-y-0 hover:bg-[#25d366]",
+              )}
+            >
+              <MessageCircle className="size-4" aria-hidden="true" />
+              Enviar por WhatsApp
+            </a>
             <Button
               type="submit"
               className="contact-send-button h-12 rounded-[8px] bg-white text-sm font-bold text-[#11131a] hover:bg-[#f7c74d]"
@@ -620,6 +687,18 @@ function ContactBriefPanel() {
               {copyStatus}
             </Button>
           </div>
+
+          {!isBriefReady ? (
+            <p className="mt-4 flex gap-2 text-xs leading-5 text-white/48">
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#71c1f0]" aria-hidden="true" />
+              Completá nombre, contacto e idea para habilitar el envío por WhatsApp.
+            </p>
+          ) : (
+            <p className="mt-4 flex gap-2 text-xs leading-5 text-white/58">
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#25d366]" aria-hidden="true" />
+              Tu mensaje está listo para enviar por el canal que prefieras.
+            </p>
+          )}
         </div>
       </div>
     </form>
